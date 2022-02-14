@@ -1,0 +1,4 @@
+.change-my-color {
+    display: inline-block;
+    filter: invert(1%) sepia(16%) saturate(614%) hue-rotate(156deg) brightness(0%) contrast(89%) ;
+  }

@@ -4,13 +4,13 @@ import CountUp from 'react-countup';
 
 const HomeCounter = () => {
 
-    // var Counter = require('react-counter');
+    
 
 
     return (
-        <div className="font-poppins-font  container  mx-auto static ">
+        <div className="font-poppins-font  container  mx-auto my-24 " style={{marginTop: "-130px"}}>
 
-            <div className="py-24  bg-white relative bottom-32 drop-shadow-2xl  ">
+            <div className="py-24  bg-white  bottom-32 drop-shadow-2xl  ">
                 <div className="grid  md:grid-cols-4 sm:grid-cols-1   gap-y-8	 justify-items-center ">
                     <div className="grid justify-items-center">
                         <CountUp className="text-blue-500 font-bold text-3xl" end={1200} duration={3} suffix="+" />
