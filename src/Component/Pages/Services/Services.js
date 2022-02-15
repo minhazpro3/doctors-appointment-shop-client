@@ -20,7 +20,7 @@ const Services = () => {
 
                         <div>
                             <div className="flex justify-center " >
-                                <img className="w-24 h-24 block  " src={pregnancyCare} alt="" />
+                                <img className="w-24 h-24 block  " src="https://i.ibb.co/THr1qXk/mother.png" alt="" />
                             </div>
                             <h3 className="text-2xl">Birthing Care</h3>
                             <h5 className=" opacity-50">Click edit to change this text. Lorem ipsum dolor sit amet, </h5>
@@ -29,17 +29,20 @@ const Services = () => {
                     </div>
                     <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
 
-                        <div className=" justify-items-center ">
-                            <img style={{ height: '80px' }} src="https://i.ibb.co/N2pNvXp/health-insurance.png" alt="icon of category" />
+                        <div>
+                        <div className="flex justify-center " >
+                                <img className="w-24 h-24 block  " src="https://i.ibb.co/1LrCzMT/healthcare.png" alt="" />
+                            </div>
                             <h3 className="text-2xl">Heart Care</h3>
                             <h5 className=" opacity-50">Click edit to change this text. Lorem ipsum dolor sit amet, </h5>
                         </div>
 
                     </div>
                     <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
-
-                        <div className="grid justify-items-center ">
-                            <img style={{ height: '80px' }} src="https://i.ibb.co/s27NLmx/mobile-clinic-truck.png" alt="icon of category" />
+                    <div>
+                    <div className="flex justify-center " >
+                                <img className="w-24 h-24 block  " src="https://i.ibb.co/ZGGZGJm/ambulance.png" alt="" />
+                            </div>
                             <h3 className="text-2xl">Emergencies</h3>
                             <h5 className=" opacity-50">Click edit to change this text. Lorem ipsum dolor sit amet, </h5>
                         </div>
@@ -47,8 +50,10 @@ const Services = () => {
                     </div>
                     <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
 
-                        <div className="grid justify-items-center ">
-                            <img style={{ height: '80px' }} src="https://i.ibb.co/s27NLmx/mobile-clinic-truck.png" alt="icon of category" />
+                        <div >
+                        <div className="flex justify-center " >
+                                <img className="w-24 h-24 block  " src="https://i.ibb.co/Y3wnwrN/family.png" alt="" />
+                            </div>
                             <h3 className="text-2xl">Family Medicine</h3>
                             <h5 className=" opacity-50">Click edit to change this text. Lorem ipsum dolor sit amet, </h5>
                         </div>
@@ -56,8 +61,10 @@ const Services = () => {
                     </div>
                     <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
 
-                        <div className="grid justify-items-center ">
-                            <img style={{ height: '80px' }} src="https://i.ibb.co/s27NLmx/mobile-clinic-truck.png" alt="icon of category" />
+                        <div >
+                        <div className="flex justify-center " >
+                                <img className="w-24 h-24 block  " src="https://i.ibb.co/7X6SXvG/cancer.png" alt="" />
+                            </div>
                             <h3 className="text-2xl">Cancer Care</h3>
                             <h5 className=" opacity-50">Click edit to change this text. Lorem ipsum dolor sit amet, </h5>
                         </div>
@@ -65,8 +72,10 @@ const Services = () => {
                     </div>
                     <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
 
-                        <div className="grid justify-items-center ">
-                            <img style={{ height: '80px' }} src="https://i.ibb.co/s27NLmx/mobile-clinic-truck.png" alt="icon of category" />
+                        <div>
+                        <div className="flex justify-center " >
+                                <img className="w-24 h-24 block  " src="https://i.ibb.co/z4hDpYg/orthopedics.png" alt="" />
+                            </div>
                             <h3 className="text-2xl">Orthopedics</h3>
                             <h5 className=" opacity-50">Click edit to change this text. Lorem ipsum dolor sit amet, </h5>
                         </div>

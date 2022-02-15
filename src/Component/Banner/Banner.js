@@ -4,6 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './style.css'
 
+
+
+
+
 const settings = {
 
   autoplay: true,
@@ -23,7 +27,7 @@ const settings = {
 const Banner = () => {
   return (
     <div className=" font-poppins-font container-none">
-      <Slider {...settings} >
+      <Slider className="relative" {...settings} >
         <div className="relative " >
 
           <img style={{ width: "100%" }} src="https://i.ibb.co/8Yzkj8M/img4.webp" alt="" />
@@ -56,6 +60,36 @@ const Banner = () => {
           <button className="rounded- lg bg-sky-500 text-white text-sm py-3 px-3 hover:bg-sky-400 font-poppins-font block absolute left-12  sm:bottom-48 lg:left-24 bottom-12  lg:bottom-72  hover:duration-500 ease-in-out hover:mt-0 mt-4 hover:cursor-pointer">View All Service</button>
         </div>
       </Slider>
+      <div className="flex justify-center md:justify-end lg:justify-end  container mx-auto absolute my-36" style={{ marginTop: "-90px" }} >
+        <div className="grid md:flex lg:flex gap-6">
+          <div className="  bg-sky-500 inline-block py-10 px-12 text-white rounded">
+            <h3 className=" text-2xl">Emergency Case</h3>
+            <div className="flex  items-center gap-4 my-2">
+              <img style={{ width: "30px" }} src="https://i.ibb.co/Wfhzcth/phone-call.png" alt="" />
+              <h5 className=" text-3xl">+234-567890</h5>
+            </div>
+            <h3 className="">Say something about our services</h3>
+          </div>
+          <div className=" bg-blue-900 inline-block py-10 px-12 text-white rounded">
+            <div>
+              <h3 className="text-2xl 	">Opening Hours</h3>
+              <div className=" justify-between items-center mt-6">
+                <div className="flex justify-between items-center border-b-[2px] border-solid  border-white ">
+                  <ul >Mon-Fri</ul>
+                  <ul>08.00 -18.00</ul>
+
+                </div>
+                <div className="flex justify-between items-center border-b-[2px] border-solid  border-white">
+                  <ul>Sat-Sun</ul>
+                  <ul>09.00 -15.00</ul>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
