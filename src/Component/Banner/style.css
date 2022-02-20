@@ -1,0 +1,48 @@
+.slide-one {
+  /* background-color: brown !important; */
+  height: 100vh;
+  background-image: linear-gradient(
+      to right,
+      rgb(245, 246, 252),
+      rgba(246, 241, 245, 0.034)
+    ),
+    url("https://i.ibb.co/8Yzkj8M/img4.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slide-two {
+  /* background-color: brown !important; */
+  height: 100vh;
+  background-image: linear-gradient(
+      to right,
+      rgb(245, 246, 252),
+      rgba(246, 241, 245, 0.034)
+    ),
+    url("https://i.ibb.co/c3nh7N9/img3.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slide-three {
+  /* background-color: brown !important; */
+  height: 100vh;
+  background-image: linear-gradient(
+      to right,
+      rgb(245, 246, 252),
+      rgba(246, 241, 245, 0.034)
+    ),
+    url("https://i.ibb.co/VM2QSp1/img1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .cartIndex{
+      margin-top: -90px;
+  }
+  }
+@media only screen and (max-width: 600px) {
+  .cartIndex{
+      margin-top: -70px;
+  }
+  }
