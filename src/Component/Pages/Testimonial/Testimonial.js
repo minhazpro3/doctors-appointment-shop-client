@@ -44,7 +44,7 @@ const Testimonial = () => {
             <div>
               <span className="inline-flex h-1  bg-indigo-900"></span>
               <h3 className="tracking-wide">User Minhaz</h3>
-              <h4 className="text-gray-700">Your Job Title & Position</h4>
+              <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
             </div>
         </div>
         <div className="font-poppins-font  h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg">
@@ -65,7 +65,7 @@ const Testimonial = () => {
           <div>
             <span className="inline-flex h-1  bg-indigo-900"></span>
             <h3 className="tracking-wide">User Naeem</h3>
-            <h4 className="text-gray-700">Your Job Title & Position</h4>
+            <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
           </div>
         </div>
         <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg">
@@ -86,7 +86,7 @@ const Testimonial = () => {
           <div>
             <span className="inline-flex h-1  bg-indigo-900"></span>
             <h3 className="tracking-wide">User Name</h3>
-            <h4 className="text-gray-700">Your Job Title & Position</h4>
+            <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
           </div>
         </div>
 
@@ -108,7 +108,7 @@ const Testimonial = () => {
           <div>
             <span className="inline-flex h-1  bg-indigo-900"></span>
             <h3 className="tracking-wide">User Name</h3>
-            <h4 className="text-gray-700">Your Job Title & Position</h4>
+            <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
           </div>
         </div>
         <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg">
@@ -130,7 +130,7 @@ const Testimonial = () => {
           <div>
             <span className="inline-flex h-1  bg-indigo-900"></span>
             <h3 className="tracking-wide">User Name</h3>
-            <h4 className="text-gray-700">Your Job Title & Position</h4>
+            <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
           </div>
         </div>
       </Slider>

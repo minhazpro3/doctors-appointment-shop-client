@@ -6,6 +6,7 @@ import Banner from '../../Banner/Banner';
 import Testimonial from '../Testimonial/Testimonial';
 import DoctorsHome from '../DoctorsHome/DoctorsHome';
 import Footer from '../Footer/Footer';
+import LocationMap from '../LocationMap/LocationMap';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <HomeCounter/>
             <Testimonial/>
             <DoctorsHome/>
+            <LocationMap/>
             <Footer/>
          
         </div>
