@@ -11,6 +11,7 @@ import LocationMap from '../LocationMap/LocationMap';
 const Home = () => {
     return (
         <div>
+            
             <Banner/>
             <About/>
             <Services/>

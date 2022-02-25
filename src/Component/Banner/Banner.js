@@ -24,12 +24,12 @@ const settings = {
 
 const Banner = () => {
   return (
-    <div className=" font-poppins-font overflow-hidden">
+    <div className=" font-poppins-font mb-72 md:mb-36 lg:mb-36 ">
       <Slider className="relative" {...settings} >
-        <div className="slide-one bg-slate-900 ">
+        <div className="slide-one  bg-slate-900 " >
           <div className=" ">
-            <div className="mt-8 ml-8 md:ml-0 lg:ml-0 lg:mt-20 md:mt-18">
-              <h4 className="text-xs font-bold tracking-widest">WELCOME TO MEDIFIC</h4>
+            <div className="mt-8 ml-8 md:ml-0 lg:ml-0 lg:mt-20 md:mt-18" data-aos="fade-up" data-aos-duration="2000">
+              <h4 className="text-xs font-bold tracking-widest">WELCOME TO LIFECARE</h4>
               <h2 className="font-bold text-blue-900 text-4xl md:text-6xl lg:text-6xl md:mr-40 lg:mr-96 my-4 md:my-4 lg:my-4">Most Trusted Health Partner for Life</h2>
               <h4 className="text-base text-blue-900">Lorem ipsum dolor sit amet consectetur adipiscing elit.</h4>
               <button className=" bg-sky-500 text-white text-sm md:mt-6 lg:mt-6  hover:bg-sky-400 font-poppins-font block  my-4   hover:cursor-pointer py-3 px-3">View All Service</button>
@@ -60,9 +60,10 @@ const Banner = () => {
         </div>
       </Slider>
 
-      <div className="flex justify-center md:justify-end lg:justify-end container mx-auto absolute cartIndex" >
+      <div className="flex justify-center md:justify-end lg:justify-end container mx-auto absolute cartIndex" data-aos="fade-up"
+     data-aos-duration="3000">
         <div className="grid md:flex lg:flex gap-6">
-          <div className="  bg-sky-500 inline-block py-6 px-8 md:py-10 lg:py-10 md:px-12 lg:px-10 text-white rounded">
+          <div className="  bg-sky-500 inline-block py-6 px-8 md:py-10 lg:py-10 md:px-12 lg:px-10 text-white rounded" >
             <h3 className=" text-2xl">Emergency Case</h3>
             <div className="flex  items-center gap-4 my-2">
               <img style={{ width: "30px" }} src="https://i.ibb.co/Wfhzcth/phone-call.png" alt="" />

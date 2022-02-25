@@ -13,7 +13,7 @@ const HomeCounter = () => {
             <CountUp
               className="text-blue-500 font-bold text-3xl"
               end={1200}
-              duration={3}
+              duration={4}
               suffix="+"
             />
             <h4 className="text-sm opacity-75">HAPPY PATIENTS</h4>
@@ -22,7 +22,7 @@ const HomeCounter = () => {
             <CountUp
               className="text-blue-500 font-bold text-3xl"
               end={200}
-              duration={3}
+              duration={4}
             />
             <h4 className="text-sm opacity-75">SPECIALIST DOCTORS</h4>
           </div>
@@ -30,7 +30,7 @@ const HomeCounter = () => {
             <CountUp
               className="text-blue-500 font-bold text-3xl"
               end={45}
-              duration={3}
+              duration={4}
             />
             <h4 className="text-sm opacity-75">YEARS EXPERIENCE</h4>
           </div>
@@ -38,7 +38,7 @@ const HomeCounter = () => {
             <CountUp
               className="text-blue-500 font-bold text-3xl"
               end={220}
-              duration={3}
+              duration={4}
               suffix="+"
             />
             <h4 className="text-sm opacity-75">PROBLEM SOLVE</h4>

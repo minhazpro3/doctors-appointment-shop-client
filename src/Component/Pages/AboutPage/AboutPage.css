@@ -1,0 +1,11 @@
+.banner-about {
+    height: 70vh;
+    background-image: linear-gradient(
+        to right,
+        rgb(245, 246, 252),
+        rgba(246, 241, 245, 0.034)
+      ),
+      url("https://thumbs.dreamstime.com/b/doctors-nurses-medical-team-hospital-97531902.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

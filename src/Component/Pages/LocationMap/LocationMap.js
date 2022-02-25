@@ -23,9 +23,11 @@ const LocationMap = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div>
+    
+    <div >
     <div className="container mx-auto font-poppins-font">
       <div className=" relative  grid  sm:gird-cols-1 md:grid-cols-2 lg:grid-cols-2 bg-blue-500  py-20" >
+        
         <div>
           <div className="flex justify-center mx-auto px-3">
             <LoadScript 
@@ -96,6 +98,7 @@ const LocationMap = () => {
           </form>
         </div>
       </div>
+    
     </div>
       <div className="w-full absolute  -z-20 -mt-80 h-96 bg-slate-900 " >
 
