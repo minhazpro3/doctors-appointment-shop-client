@@ -7,6 +7,7 @@ import {
 import Home from './Component/Pages/Home/Home';
 import AboutPage from './Component/Pages/AboutPage/AboutPage';
 import Navbar from './Component/Pages/Navbar/Navbar';
+import DoctorProfile from './Component/Pages/DoctorProfile/DoctorProfile';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home/>}></Route>
-          <Route path="/home" element={<Home/>}></Route>
+          <Route path="/home" element={<DoctorProfile/>}></Route>
           <Route path="/about" element={<AboutPage/>}></Route>
         </Routes>
         </BrowserRouter>

@@ -42,6 +42,10 @@ const Footer = () => {
             <input class="shadow appearance-none  mt-4 rounded w-72 py-2 px-3 bg-sky-500 hover:bg-sky-600 text-white leading-tight focus:outline-none focus:shadow-outline hover:cursor-pointer"  type="submit" value="Sign Up"/>
           </div>
         </div>
+        <footer className="container mx-auto mt-8 text-center text-white">
+        <hr/>
+          <h4 className="mt-8">Copyright © 2022 All rights reserved Minhaz!!</h4>
+        </footer>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import './style.css'
 const settings = {
 
   autoplaySpeed: 1500,
-  arrows: false,
+  arrows: null,
   dots: false,
   autoplay: true,
   loop: true,
