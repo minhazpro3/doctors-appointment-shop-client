@@ -27,7 +27,7 @@ const Banner = () => {
     <div className=" font-poppins-font mb-72 md:mb-36 lg:mb-36 ">
       <Slider className="relative" {...settings} >
         <div className="slide-one  bg-slate-900 " >
-          <div className=" ">
+          <div className="container mx-auto ">
             <div className="mt-8 ml-8 md:ml-0 lg:ml-0 lg:mt-20 md:mt-18" data-aos="fade-up" data-aos-duration="2000">
               <h4 className="text-xs font-bold tracking-widest">WELCOME TO LIFECARE</h4>
               <h2 className="font-bold text-blue-900 text-4xl md:text-6xl lg:text-6xl md:mr-40 lg:mr-96 my-4 md:my-4 lg:my-4">Most Trusted Health Partner for Life</h2>
@@ -38,7 +38,7 @@ const Banner = () => {
         </div>
 
         <div className=" slide-two">
-         <div className=" mx-auto ">
+         <div className="container mx-auto ">
             <div className="mt-8 ml-8 md:ml-0 lg:ml-0 lg:mt-20 md:mt-18">
               <h4 className="text-xs font-bold tracking-widest">WELCOME TO MEDIFIC</h4>
               <h2 className="font-bold text-blue-900 text-4xl md:text-6xl lg:text-6xl md:mr-40 lg:mr-96 my-4 md:my-4 lg:my-4">Most Trusted Health Partner for Life</h2>
@@ -49,7 +49,7 @@ const Banner = () => {
         </div>
 
         <div className="  slide-three">
-          <div className=" mx-auto ">
+          <div className=" container mx-auto ">
             <div className="mt-8 ml-8 md:ml-0 lg:ml-0 lg:mt-20 md:mt-18">
               <h4 className="text-xs font-bold tracking-widest">WELCOME TO MEDIFIC</h4>
               <h2 className="font-bold text-blue-900 text-4xl md:text-6xl lg:text-6xl md:mr-40 lg:mr-96 my-4 md:my-4 lg:my-4">Most Trusted Health Partner for Life</h2>

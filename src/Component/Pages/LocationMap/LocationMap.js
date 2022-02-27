@@ -58,7 +58,7 @@ const LocationMap = () => {
         <div className="flex  justify-center">
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
-              class="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
+              className="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
               type="text"
               placeholder="Your Name"
               {...register("name")}
@@ -66,7 +66,7 @@ const LocationMap = () => {
             />
             <br />
             <input
-              class="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3"
+              className="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3"
               type="email"
               placeholder="Email"
               {...register("Your Email")}
@@ -74,7 +74,7 @@ const LocationMap = () => {
             />
             <br />
             <input
-              class="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3"
+              className="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3"
               type="date"
               {...register("date")}
               required
@@ -82,7 +82,7 @@ const LocationMap = () => {
             <br />
 
             <textarea
-              class="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3 h-40"
+              className="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3 h-40"
               type="date"
               placeholder="Your Message"
               {...register("date")}
@@ -91,7 +91,7 @@ const LocationMap = () => {
             <br />
 
             <input
-              class="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-3   text-blue-500 hover:text-white bg-white hover:bg-slate-900 hover:cursor-pointer leading-tight focus:outline-none focus:shadow-outline mt-3"
+              className="shadow appearance-none border rounded w-80 md:w-80 lg:w-96  py-3   text-blue-500 hover:text-white bg-white hover:bg-slate-900 hover:cursor-pointer leading-tight focus:outline-none focus:shadow-outline mt-3"
               type="submit"
               value="Book an Appointment"
             />

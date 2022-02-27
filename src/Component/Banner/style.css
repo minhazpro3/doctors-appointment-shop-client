@@ -32,9 +32,19 @@
   background-size: cover;
 }
 
+.slick-slide{
+  padding: 0px !important;
+}
+
 .slick-slide img {
   max-width: 100%;
 }
+
+.slick-list {
+  margin: 0px !important;
+}
+
+
 
 @media only screen and (min-width: 600px) {
   .cartIndex{

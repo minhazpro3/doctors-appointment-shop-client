@@ -2,7 +2,7 @@ import React from 'react';
 
 const DoctorsHome = () => {
     return (
-        <div className="xs:mx-4 container mx-auto mb-24 mt-72 md:mt-36 lg:mt-36">
+        <div className="xs:mx-4 container mx-auto mb-24 mt-8 md:mt-36 lg:mt-36">
       <div className=" grid gap-x-8 sm:gird-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center">
         <div className="px-4 font-poppins-font" >
           <div >

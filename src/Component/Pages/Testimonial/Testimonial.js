@@ -26,8 +26,8 @@ const Testimonial = () => {
         </h3>
       </div>
 
-      <Slider className="grid grid-cols-12" {...settings}>
-        <div className="font-poppins-font h-full  text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg">
+      <Slider className="grid grid-cols-12 slider-margin" {...settings}>
+        <div className="font-poppins-font h-full  text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
           
             <img
               className="w-12 inline-flex justify-center my-2"
@@ -47,7 +47,7 @@ const Testimonial = () => {
               <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
             </div>
         </div>
-        <div className="font-poppins-font  h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg">
+        <div className="font-poppins-font  h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
           <img
             className="w-12 inline-flex justify-center my-2"
             src="https://i.ibb.co/cXDGS25/quote.png" alt="pic" />
@@ -68,7 +68,7 @@ const Testimonial = () => {
             <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
           </div>
         </div>
-        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg">
+        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
           <img
             className="w-12 inline-flex justify-center my-2"
             src="https://i.ibb.co/cXDGS25/quote.png" alt="pic" />
@@ -90,7 +90,7 @@ const Testimonial = () => {
           </div>
         </div>
 
-        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg">
+        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
           <img
             className="w-12 inline-flex justify-center my-2"
             src="https://i.ibb.co/cXDGS25/quote.png" alt="pic"/>
@@ -111,7 +111,7 @@ const Testimonial = () => {
             <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
           </div>
         </div>
-        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg">
+        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
           <img
             className="w-12 inline-flex justify-center my-2"
             src="https://i.ibb.co/cXDGS25/quote.png" alt="pic" />

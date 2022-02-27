@@ -37,9 +37,9 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-medium">Subscribe</h3>
             <h3 className="my-3">Stay in the know with news and promotions</h3>
-            <input class="shadow appearance-none border rounded w-72 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="Email"/>
+            <input className="shadow appearance-none border rounded w-72 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="Email"/>
                 <br/>
-            <input class="shadow appearance-none  mt-4 rounded w-72 py-2 px-3 bg-sky-500 hover:bg-sky-600 text-white leading-tight focus:outline-none focus:shadow-outline hover:cursor-pointer"  type="submit" value="Sign Up"/>
+            <input className="shadow appearance-none  mt-4 rounded w-72 py-2 px-3 bg-sky-500 hover:bg-sky-600 text-white leading-tight focus:outline-none focus:shadow-outline hover:cursor-pointer"  type="submit" value="Sign Up"/>
           </div>
         </div>
         <footer className="container mx-auto mt-8 text-center text-white">

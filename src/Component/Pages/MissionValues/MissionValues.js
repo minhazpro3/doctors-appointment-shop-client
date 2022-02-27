@@ -18,11 +18,11 @@ const MissionValues = () => {
               Tempor cursus nisl imperdiet porta in
             </p>
 
-            <div class="accordion" id="accordionExample5">
-              <div class="accordion-item bg-white border border-gray-200">
-                <h2 class="accordion-header mb-0" id="headingOne5">
+            <div className="accordion" id="accordionExample5">
+              <div className="accordion-item bg-white border border-gray-200">
+                <h2 className="accordion-header mb-0" id="headingOne5">
                   <button
-                    class="
+                    className="
                          accordion-button
                          relative
                          flex
@@ -48,10 +48,10 @@ const MissionValues = () => {
                 </h2>
                 <div
                   id="collapseOne5"
-                  class="accordion-collapse collapse show"
+                  className="accordion-collapse collapse show"
                   aria-labelledby="headingOne5"
                 >
-                  <div class="accordion-body py-4 px-5">
+                  <div className="accordion-body py-4 px-5">
                     <strong>This is the first item's accordion body.</strong> It
                     is shown by default, until the collapse plugin adds the
                     appropriate classes that we use to style each element. These
@@ -64,10 +64,10 @@ const MissionValues = () => {
                   </div>
                 </div>
               </div>
-              <div class="accordion-item bg-white border border-gray-200">
-                <h2 class="accordion-header mb-0" id="headingTwo5">
+              <div className="accordion-item bg-white border border-gray-200">
+                <h2 className="accordion-header mb-0" id="headingTwo5">
                   <button
-                    class="
+                    className="
                       accordion-button
                       collapsed
                       relative
@@ -94,10 +94,10 @@ const MissionValues = () => {
                 </h2>
                 <div
                   id="collapseTwo5"
-                  class="accordion-collapse collapse"
+                  className="accordion-collapse collapse"
                   aria-labelledby="headingTwo5"
                 >
-                  <div class="accordion-body py-4 px-5">
+                  <div className="accordion-body py-4 px-5">
                     <strong>This is the second item's accordion body.</strong>{" "}
                     It is hidden by default, until the collapse plugin adds the
                     appropriate classes that we use to style each element. These
@@ -110,10 +110,10 @@ const MissionValues = () => {
                   </div>
                 </div>
               </div>
-              <div class="accordion-item bg-white border border-gray-200">
-                <h2 class="accordion-header mb-0" id="headingThree5">
+              <div className="accordion-item bg-white border border-gray-200">
+                <h2 className="accordion-header mb-0" id="headingThree5">
                   <button
-                    class="
+                    className="
                           accordion-button
                           collapsed
                           relative
@@ -140,10 +140,10 @@ const MissionValues = () => {
                 </h2>
                 <div
                   id="collapseThree5"
-                  class="accordion-collapse collapse"
+                  className="accordion-collapse collapse"
                   aria-labelledby="headingThree5"
                 >
-                  <div class="accordion-body py-4 px-5">
+                  <div className="accordion-body py-4 px-5">
                     <strong>This is the third item's accordion body.</strong> It
                     is hidden by default, until the collapse plugin adds the
                     appropriate classes that we use to style each element. These

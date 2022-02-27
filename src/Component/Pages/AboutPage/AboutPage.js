@@ -17,7 +17,7 @@ const AboutPage = () => {
       </div>
       <div>
         <div className="text-center">
-          <h4 className="text-2xl my-4 inline-block font-bold text-center text-blue-900 border-b-[2px] border-gray-600">
+          <h4 className="text-2xl my-6 inline-block font-bold text-center text-blue-900 border-b-[2px] border-gray-600">
             ABOUT US
           </h4>
         </div>
