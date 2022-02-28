@@ -10,6 +10,7 @@ import Navbar from './Component/Pages/Navbar/Navbar';
 import DoctorProfile from './Component/Pages/DoctorProfile/DoctorProfile';
 import Shop from './Component/Pages/Shop/Shop';
 import AllDoctors from './Component/Pages/AllDoctors/AllDoctors';
+import MakeAppointment from './Component/Pages/MakeAppointment/MakeAppointment';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/about" element={<AboutPage/>}></Route>
           <Route path="/shop" element={<Shop/>}></Route>
           <Route path="/doctors" element={<AllDoctors/>}></Route>
+          <Route path="/makAppointment" element={<MakeAppointment/>}></Route>
         </Routes>
         </BrowserRouter>
 

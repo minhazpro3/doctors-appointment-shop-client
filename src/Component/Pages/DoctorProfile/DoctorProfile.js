@@ -19,7 +19,7 @@ const DoctorProfile = () => {
           src={doctorPic}
           alt="doctor"
         />
-        <h4 className="absolute text-2xl   md:text-5xl lg:text-5xl -mt-44 md:-mt-48 lg:-mt-48 text-blue-900 font-bold font-poppins-font mx-16 md:mx-24 lg:mx-24">
+        <h4 className="absolute text-2xl md:text-5xl lg:text-5xl -mt-44 md:-mt-48 lg:-mt-48 text-blue-900 font-bold font-poppins-font mx-16 md:mx-24 lg:mx-24">
           Dr. Marvin Robbins
         </h4>
       </div>
