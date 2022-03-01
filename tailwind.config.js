@@ -8,6 +8,9 @@ module.exports = {
         "poppins-font": ['Poppins', 'sans-serif']
       }
     },
+    backgroundImage: {
+      'allDoctors-banner': "url('https://i.ibb.co/2n7fjTh/doctors-manyedt.jpg')",
+  },
   },
   plugins: [
     require('tw-elements/dist/plugin')
