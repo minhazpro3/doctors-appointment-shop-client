@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 AOS.init();
 const About = () => {
   return (
-    <div className="xs:mx-4 container mx-auto mb-24 ">
+    <div className=" container mx-auto mb-24 ">
       <div className=" grid gap-x-8 sm:gird-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center overflow-x-hidden">
         <div className="px-4" >
           <img

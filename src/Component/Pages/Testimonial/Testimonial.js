@@ -17,7 +17,7 @@ const Testimonial = () => {
   };
 
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto overflow-x-hidden">
       <div className="text-center font-poppins-font my-8">
         <h4 className="opacity-50 tracking-widest">TESTIMONIAL</h4>
         <span className="inline-flex h-1 w-32 bg-indigo-900"></span>
