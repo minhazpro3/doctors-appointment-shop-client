@@ -1,6 +1,7 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import Footer from "../Footer/Footer";
 import "./AllDoctors.css";
 
 const AllDoctors = () => {
@@ -45,6 +46,7 @@ const AllDoctors = () => {
          
         
       </div>
+      <Footer/>
 
     </div>
   );
