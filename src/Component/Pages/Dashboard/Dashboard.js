@@ -68,7 +68,7 @@ const Dashboard = () => {
             </li>
             <li class="relative my-3  ">
               <div className="flex justify-between px-4">
-                <NavLink to="/">
+                <NavLink to="/dashboard/addProducts">
                   <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
                     {" "}
                     Add A New Products{" "}
@@ -78,7 +78,7 @@ const Dashboard = () => {
             </li>
             <li class="relative my-3  ">
               <div className="flex justify-between px-4">
-                <NavLink to="/">
+                <NavLink to="/dashboard/addDoctors">
                   <h4 className="text-base bg-indigo-900 text-white py-1 px-3 rounded-lg">
                     Add A New Doctor
                   </h4>
@@ -98,7 +98,7 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-      <div className="container mx-auto">
+      <div className=" w-full">
         <div>
           <Outlet />
         </div>

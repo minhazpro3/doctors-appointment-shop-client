@@ -1,17 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../Images/lifecare logo.png";
+ 
 
 const Navbar = () => {
   return (
-    <nav className="px-2 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <nav className="px-2  bg-white border-gray-200  ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <NavLink to="/"
-        
-        >
+        <NavLink to="/">
           <img className="w-32" src={logo} alt="" />
         </NavLink>
-       
+
         <button
           data-collapse-toggle="mobile-menu"
           type="button"
@@ -26,7 +25,6 @@ const Navbar = () => {
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
-
             {/* akhane fill-rule silo ami sekhane fillRule kore disi */}
             {/* akahane clip-rule silo ami sekhane clipRule kore disi */}
             <path
@@ -82,7 +80,7 @@ const Navbar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                   fillRule="evenodd"
+                    fillRule="evenodd"
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                     clipRule="evenodd"
                   ></path>

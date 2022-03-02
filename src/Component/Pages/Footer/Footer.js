@@ -20,31 +20,61 @@ const Footer = () => {
           </div>
           <div className="">
             <h3 className="text-2xl font-medium">Explore</h3>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">About Us</h4>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">Service</h4>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">Doctors</h4>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">FAQ</h4>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">Appointment</h4>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              About Us
+            </h4>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              Service
+            </h4>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              Doctors
+            </h4>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              FAQ
+            </h4>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              Appointment
+            </h4>
           </div>
           <div>
             <h3 className="text-2xl font-medium">Service</h3>
-            <h3 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">Birthing Care</h3>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">Heart Care</h4>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">Emergencies</h4>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">Family medicine</h4>
-            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">Cancer Care</h4>
+            <h3 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              Birthing Care
+            </h3>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              Heart Care
+            </h4>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              Emergencies
+            </h4>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              Family medicine
+            </h4>
+            <h4 className="mt-3 hover:text-indigo-500 hover:cursor-pointer">
+              Cancer Care
+            </h4>
           </div>
           <div className="md:col-span-2">
             <h3 className="text-2xl font-medium">Subscribe</h3>
             <h3 className="my-3">Stay in the know with news and promotions</h3>
-            <input className="shadow appearance-none border rounded w-72 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="Email"/>
-                <br/>
-            <input className="shadow appearance-none  mt-4 rounded w-72 py-2 px-3 bg-sky-500 hover:bg-sky-600 text-white leading-tight focus:outline-none focus:shadow-outline hover:cursor-pointer"  type="submit" value="Sign Up"/>
+            <input
+              className="shadow appearance-none border rounded w-72 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text"
+              placeholder="Email"
+            />
+            <br />
+            <input
+              className="shadow appearance-none  mt-4 rounded w-72 py-2 px-3 bg-sky-500 hover:bg-sky-600 text-white leading-tight focus:outline-none focus:shadow-outline hover:cursor-pointer"
+              type="submit"
+              value="Sign Up"
+            />
           </div>
         </div>
         <footer className="container mx-auto mt-8 text-center text-white">
-        <hr/>
-          <h4 className="mt-8">Copyright © 2022 All rights reserved Minhaz!!</h4>
+          <hr />
+          <h4 className="mt-8">
+            Copyright © 2022 All rights reserved Minhaz!!
+          </h4>
         </footer>
       </div>
     </div>

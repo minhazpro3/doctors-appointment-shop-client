@@ -1,8 +1,12 @@
 import React from 'react';
+import Footer from "../Footer/Footer"
 
 const PatientInfo = () => {
     return (
         <div>
+          <div className="container mx-auto ">
+
+          
             <div class="flex flex-col">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
@@ -92,6 +96,8 @@ const PatientInfo = () => {
     </div>
   </div>
 </div>
+</div>
+<Footer/>
         </div>
     );
 };

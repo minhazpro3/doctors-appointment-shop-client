@@ -10,6 +10,8 @@ import MakeAppointment from "./Component/Pages/MakeAppointment/MakeAppointment";
 import Dashboard from "./Component/Pages/Dashboard/Dashboard";
 import PatientInfo from "./Component/Pages/PetaintInfo/PatientInfo";
 import ShopInfo from "./Component/Pages/ShopInfo/ShopInfo";
+import AddProducts from "./Component/Pages/AddProducts/AddProducts";
+import AddDcotor from "./Component/Pages/AddDoctor/AddDcotor";
 
 function App() {
   return (
@@ -26,7 +28,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="/dashboard/" element={<PatientInfo />}></Route>
             <Route path="/dashboard/shopInfo" element={<ShopInfo />}></Route>
-            <Route />
+            <Route path="/dashboard/addProducts" element={<AddProducts />}></Route>
+            <Route path="/dashboard/addDoctors" element={<AddDcotor />}></Route>
+            
           </Route>
         </Routes>
       </BrowserRouter>
