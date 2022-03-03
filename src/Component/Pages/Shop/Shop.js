@@ -26,7 +26,7 @@ const Shop = () => {
                 <div className="w-80 relative hoverDIv h-[26rem] duration-1000 rounded border-2 overflow-x-hidden shadow-lg overflow-y-hidden">
                   <img
                     className="w-full h-72   object-cover static "
-                    src="http://ary-themes.com/html/bold_touch/medicoz/images/resource/products/1.jpg"
+                    src="https://i.ibb.co/xJG0X1R/1.jpg"
                     alt="Sunset in the mountains"
                   />
                   <div>
@@ -68,7 +68,7 @@ const Shop = () => {
                 <div className="w-80 relative hoverDIv h-[26rem] duration-1000 rounded border-2 overflow-x-hidden shadow-lg overflow-y-hidden">
                   <img
                     className="w-full h-72   object-cover static "
-                    src="http://ary-themes.com/html/bold_touch/medicoz/images/resource/products/1.jpg"
+                    src="https://i.ibb.co/xJG0X1R/1.jpg"
                     alt="Sunset in the mountains"
                   />
                   <div>
@@ -110,7 +110,7 @@ const Shop = () => {
                 <div className="w-80 relative hoverDIv h-[26rem] duration-1000 rounded border-2 overflow-x-hidden shadow-lg overflow-y-hidden">
                   <img
                     className="w-full h-72   object-cover static "
-                    src="http://ary-themes.com/html/bold_touch/medicoz/images/resource/products/1.jpg"
+                    src="https://i.ibb.co/xJG0X1R/1.jpg"
                     alt="Sunset in the mountains"
                   />
                   <div>
@@ -151,7 +151,7 @@ const Shop = () => {
                 <div className="w-80 relative hoverDIv h-[26rem] duration-1000 rounded border-2 overflow-x-hidden shadow-lg overflow-y-hidden">
                   <img
                     className="w-full h-72   object-cover static "
-                    src="http://ary-themes.com/html/bold_touch/medicoz/images/resource/products/1.jpg"
+                    src="https://i.ibb.co/xJG0X1R/1.jpg"
                     alt="Sunset in the mountains"
                   />
                   <div>
@@ -192,7 +192,7 @@ const Shop = () => {
                 <div className="w-80 relative hoverDIv h-[26rem] duration-1000 rounded border-2 overflow-x-hidden shadow-lg overflow-y-hidden">
                   <img
                     className="w-full h-72   object-cover static "
-                    src="http://ary-themes.com/html/bold_touch/medicoz/images/resource/products/1.jpg"
+                    src="https://i.ibb.co/xJG0X1R/1.jpg"
                     alt="Sunset in the mountains"
                   />
                   <div>
@@ -233,7 +233,7 @@ const Shop = () => {
                 <div className="w-80 relative hoverDIv h-[26rem] duration-1000 rounded border-2 overflow-x-hidden shadow-lg overflow-y-hidden">
                   <img
                     className="w-full h-72   object-cover static "
-                    src="http://ary-themes.com/html/bold_touch/medicoz/images/resource/products/1.jpg"
+                    src="https://i.ibb.co/xJG0X1R/1.jpg"
                     alt="Sunset in the mountains"
                   />
                   <div>
