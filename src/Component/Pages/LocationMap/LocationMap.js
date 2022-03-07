@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import Swal from "sweetalert2";
 
 const containerStyle = {
   width: "86%",
@@ -16,10 +17,27 @@ const LocationMap = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
+    reset,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+
+     data.status="Processing"
+    fetch("http://localhost:5000/allPatients", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire("Good job!", "Your Appointment Submitted", "success");
+          reset();
+        }
+      });
+  };
 
   return (
     <div>
@@ -77,7 +95,7 @@ const LocationMap = () => {
                 className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3"
                 type="email"
                 placeholder="Email"
-                {...register("Your Email")}
+                {...register("email")}
                 required
               />
               <br />
@@ -119,7 +137,7 @@ const LocationMap = () => {
                 className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3 h-40"
                 type="date"
                 placeholder="Your Message"
-                {...register("date")}
+                {...register("description")}
                 required
               />
               <br />

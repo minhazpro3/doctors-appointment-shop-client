@@ -32,6 +32,7 @@
     "react-slick": "^0.28.1",
     "rerousel": "^0.1.9",
     "slick-carousel": "^1.8.1",
+    "sweetalert2": "^11.4.4",
     "swiper": "^8.0.6",
     "tw-elements": "^1.0.0-alpha11",
     "web-vitals": "^2.1.3"
