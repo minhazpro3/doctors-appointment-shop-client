@@ -12,6 +12,7 @@ import PatientInfo from "./Component/Pages/PetaintInfo/PatientInfo";
 import ShopInfo from "./Component/Pages/ShopInfo/ShopInfo";
 import AddProducts from "./Component/Pages/AddProducts/AddProducts";
 import AddDcotor from "./Component/Pages/AddDoctor/AddDcotor";
+import MakeAdmin from "./Component/Pages/MakeAdmin/MakeAdmin";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/dashboard/shopInfo" element={<ShopInfo />}></Route>
             <Route path="/dashboard/addProducts" element={<AddProducts />}></Route>
             <Route path="/dashboard/addDoctors" element={<AddDcotor />}></Route>
+            <Route path="/dashboard/makeAdmin" element={<MakeAdmin />}></Route>
             
           </Route>
         </Routes>

@@ -87,10 +87,10 @@ const Dashboard = () => {
             </li>
             <li class="relative my-3  ">
               <div className="flex justify-between px-4">
-                <NavLink to="/">
+                <NavLink to="/dashboard/makeAdmin">
                   <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
-                    {" "}
-                    Add A New Admin{" "}
+                     
+                    Add A New Admin 
                   </h4>
                 </NavLink>
               </div>
