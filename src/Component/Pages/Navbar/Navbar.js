@@ -1,9 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../Images/lifecare logo.png";
+import useFirebase from "../../hooks/useFirebase"
  
 
 const Navbar = () => {
+  const {logOut}=useFirebase();
   return (
     <nav className="px-2  bg-white border-gray-200  ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -155,10 +157,19 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
+              onClick={logOut}
                 to="/"
                 className="block py-2 px-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
               >
                 Logout
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/login"
+                className="block py-2 px-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+              >
+                Login
               </NavLink>
             </li>
           </ul>

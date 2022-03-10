@@ -42,7 +42,7 @@ const PatientInfo = () => {
 
   if (allPatients.length == " ") {
     return (
-      <div className="text-center text-3xl text-medium text-blue-800">
+      <div className="text-center text-3xl text-medium my-28 text-blue-800">
         Loading...
       </div>
     );

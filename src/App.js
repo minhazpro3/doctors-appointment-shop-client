@@ -13,10 +13,15 @@ import ShopInfo from "./Component/Pages/ShopInfo/ShopInfo";
 import AddProducts from "./Component/Pages/AddProducts/AddProducts";
 import AddDcotor from "./Component/Pages/AddDoctor/AddDcotor";
 import MakeAdmin from "./Component/Pages/MakeAdmin/MakeAdmin";
+import Login from "./Component/Pages/Login/Login";
+import Register from "./Component/Pages/Register/Register";
+import useFirebase from "./Component/hooks/useFirebase";
+import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
+     <useFirebase>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -24,10 +29,10 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
           <Route path="/doctorProfile" element={<DoctorProfile />}></Route>
           <Route path="/about" element={<AboutPage />}></Route>
-          <Route path="/shop" element={<Shop />}></Route>
+          <Route path="/shop" element={<PrivateRoute><Shop /></PrivateRoute>}></Route>
           <Route path="/doctors" element={<AllDoctors />}></Route>
           <Route path="/makAppointment" element={<MakeAppointment />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
             <Route path="/dashboard/" element={<PatientInfo />}></Route>
             <Route path="/dashboard/shopInfo" element={<ShopInfo />}></Route>
             <Route path="/dashboard/addProducts" element={<AddProducts />}></Route>
@@ -35,8 +40,11 @@ function App() {
             <Route path="/dashboard/makeAdmin" element={<MakeAdmin />}></Route>
             
           </Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
       </BrowserRouter>
+      </useFirebase>
     </div>
   );
 }
