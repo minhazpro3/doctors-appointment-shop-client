@@ -2,10 +2,12 @@ import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 const AboutDoctors = () => {
   return (
     <div>
+      <Navbar/>
       <div className="container mx-4 md:mx-auto lg:mx-auto font-poppins-font my-4">
         <h6 className=" font-semibold opacity-50 tracking-[.25rem]">
           {" "}

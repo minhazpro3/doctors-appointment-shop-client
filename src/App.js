@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {  BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Component/Pages/Home/Home";
 import AboutPage from "./Component/Pages/AboutPage/AboutPage";
 import Navbar from "./Component/Pages/Navbar/Navbar";
@@ -17,13 +17,14 @@ import Login from "./Component/Pages/Login/Login";
 import Register from "./Component/Pages/Register/Register";
 import useFirebase from "./Component/hooks/useFirebase";
 import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
+import AuthProvider from "./Component/AuthProvider/AuthProvider";
 
 function App() {
   return (
     <div className="App">
-     <useFirebase>
-      <BrowserRouter>
-        <Navbar />
+     <AuthProvider>
+      < Router>
+        
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
@@ -43,8 +44,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
         </Routes>
-      </BrowserRouter>
-      </useFirebase>
+      </Router>
+      </AuthProvider>
     </div>
   );
 }

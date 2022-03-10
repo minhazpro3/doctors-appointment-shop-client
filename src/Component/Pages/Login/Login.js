@@ -1,19 +1,49 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
-import useFirebase from "../../hooks/useFirebase";
+import { useLocation, useNavigate } from "react-router";
+
 import loginImg from "../../Images/login img.png";
 import Footer from "../Footer/Footer";
+import useAuth from "../../hooks/useAuth";
+import Navbar from "../Navbar/Navbar";
 
 const Login = () => {
-  // const {googleSignIn,setUser}=useFirebase()
+  const {user, setUser, googleSignIn, isLoading, createUser, logOut, updateName,setIsLoading, loginEmailPassword} =useAuth()
+
+
   const { register, handleSubmit } = useForm();
-   
+  const navigate = useNavigate();
+const location = useLocation();
+const url = location.state?.from || '/';
 
-const onSubmit =  data =>{
-  console.log(data);
-}
+const onSubmit = async data => {
+  await loginEmailPassword(data.email,data.password)
+  .then((userCredential) => {
+     setUser(userCredential.user)
+     navigate(url)
+     setIsLoading(true)
+   })
+   .catch((error) => {
+    //  warning(false)
+     
+   }).finally(()=>setIsLoading(false));
 
+ } ;
+
+
+//  google sign in
+    const handleGoolgeLogin = ()=>{
+      googleSignIn()
+        .then((result) => {
+            setUser(result.user);
+            // handleSaveUser(result.user)
+            navigate(url)
+            setIsLoading(true)
+        }).catch((error) => {
+        
+        }).finally(()=>setIsLoading(false))
+    }
 
   
 
@@ -21,6 +51,7 @@ const onSubmit =  data =>{
 
   return (
     <div >
+      <Navbar/>
       <div className="container mx-auto font-poppins-font  md:p-28">
         <div className="bg-red-500 p-8 md:p-32">
           <div className="grid  lg:grid-cols-2 justify-center gap-8 bg-red-300	 rounded-md">
@@ -38,7 +69,7 @@ const onSubmit =  data =>{
                   <h3 className="text-2xl font-bold pt-10">
                     Get's Started
                   </h3>
-                  <button className="my-3 w-full bg-blue-700 text-white py-2 px-4 rounded-md">
+                  <button onClick={handleGoolgeLogin} className="my-3 w-full bg-blue-700 text-white py-2 px-4 rounded-md">
                     <i className="fa fa-google-plus"></i> Signup with google
                   </button>
                 </div>

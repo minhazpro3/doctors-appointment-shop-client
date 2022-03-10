@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../Images/lifecare logo.png";
-import useFirebase from "../../hooks/useFirebase"
+import useAuth from "../../hooks/useAuth"
  
 
 const Navbar = () => {
-  const {logOut}=useFirebase();
+  const {logOut}=useAuth();
   return (
     <nav className="px-2  bg-white border-gray-200  ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">

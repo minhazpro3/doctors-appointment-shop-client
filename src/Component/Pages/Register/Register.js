@@ -1,18 +1,55 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router";
-import useFirebase from "../../hooks/useFirebase";
+import useAuth from "../../hooks/useAuth";
 import regImg from "../../Images/register img.png";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 const Register = () => {
+
+  const {user, setUser, googleSignIn, isLoading, createUser, logOut, updateName,setIsLoading} =useAuth()
+
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const url = location.state?.from || '/';
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const onSubmit = async data =>{
+    if(data.password === data.password2){
+      await createUser(data.email,data.password)
+      .then((userCredential) => {
+          setUser(userCredential.user)
+          // handleSaveUser(userCredential.user)
+         
+          navigate(url)
+          setIsLoading(true)
+        })
+        .catch((error) => {
+         alert(false)
+        }).finally(()=>setIsLoading(false))
+    }
+    else{
+      alert(false)
+    }
+    updateName(data.name)
+};
+
+
+const handleGoolgeLogin = ()=>{
+  googleSignIn()
+  .then((result) => {
+      setUser(result.user);
+      navigate(url)
+      setIsLoading(true)
+  }).catch((error) => {
+  
+  }).finally(()=>setIsLoading(false));
+}
 
   return (
     <div>
+      <Navbar/>
       <div className="container mx-auto  md:p-28">
         <div className="bg-red-500 font-poppins-font p-8 md:p-32">
           <div className="grid  lg:grid-cols-2 justify-center gap-8 bg-red-300	 rounded-md">
@@ -30,7 +67,7 @@ const Register = () => {
                   <h3 className="text-xl font-bold pt-10">
                     Sign up to Dribbble
                   </h3>
-                  <button className="my-3 w-full bg-blue-700 text-white py-2 px-4 rounded-md">
+                  <button onClick={handleGoolgeLogin} className="my-3 w-full bg-blue-700 text-white py-2 px-4 rounded-md">
                     <i className="fa fa-google-plus"></i> Signup with google
                   </button>
                 </div>
