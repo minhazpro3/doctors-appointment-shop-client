@@ -10,6 +10,8 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const [isLoading,setIsLoading]=useState(true)
 
+    // store 
+    
     
     // google sign in
     const googleSignIn = () =>{

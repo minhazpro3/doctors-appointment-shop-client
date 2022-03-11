@@ -3,10 +3,46 @@ import { useForm } from "react-hook-form";
 import AddProductsPic from "../../Images/add_products-removebg-preview.png";
 import Footer from "../Footer/Footer";
 import "./AddProducts.css";
+ 
+
 
 const AddProducts = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit =   data => {
+    
+    const formData = new FormData();
+    formData.append('name', data.name)
+    formData.append('rating', data.rating)
+    formData.append('price', data.price)
+    formData.append('discountPrice', data.discountPrice)
+    formData.append('discount', data.discount)
+    formData.append('description', data.description)
+    formData.append('image', data.image[0])
+
+    const url = 'http://localhost:5000/addProduct'
+    fetch(url, {
+      method: "POST",
+      body: formData
+       
+    })
+    .then(res=>res.json())
+    .then(data=>{
+     
+      if(data.acknowledged){
+        // reset()
+        // warning(true)
+        alert("success fully")
+      }
+    
+    })
+    
+
+}
+
+ 
+
+    
+
   return (
     <div>
       <div className="container mx-auto font-poppins-font my-12">
@@ -86,6 +122,7 @@ const AddProducts = () => {
                     className="border-2 mt-2 border-black rounded-lg w-full  focus:outline-blue-900	"
                     {...register("image")}
                     type="file"
+                    accept="image/*"
                     placeholder=""
                     required
                   />

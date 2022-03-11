@@ -1,13 +1,12 @@
 import React from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Navbar from "../Navbar/Navbar";
 
 AOS.init();
 const About = () => {
   return (
    <div>
-     <Navbar/>
+     
       <div className=" container mx-auto mb-24 ">
       <div className=" grid gap-x-8 sm:gird-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center overflow-x-hidden">
         <div className="px-4" >
