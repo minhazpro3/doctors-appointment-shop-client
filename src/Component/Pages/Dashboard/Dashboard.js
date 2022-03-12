@@ -10,14 +10,14 @@ const Dashboard = () => {
 
   return (
 
-    <div>
+    <div className=" ">
     
     <div className="flex">
       <div className="font-poppins-font">
         {sidebar && (
           <button onClick={showSidebar}>
             <img
-              className="w-8 fixed  "
+              className="w-8 fixed "
               src="https://i.ibb.co/2K4cfzC/menu.png"
               alt="menu-bar"
             />

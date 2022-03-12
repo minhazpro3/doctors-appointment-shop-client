@@ -7,7 +7,7 @@ import useAuth from "../../hooks/useAuth"
 const Navbar = () => {
   const {logOut}=useAuth();
   return (
-    <nav className="px-2  bg-white border-gray-200  ">
+    <nav className="px-2  bg-white border-gray-200 shadow-lg ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <NavLink to="/">
           <img className="w-32" src={logo} alt="" />

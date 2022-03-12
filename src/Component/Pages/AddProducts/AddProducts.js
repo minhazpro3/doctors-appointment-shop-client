@@ -3,11 +3,12 @@ import { useForm } from "react-hook-form";
 import AddProductsPic from "../../Images/add_products-removebg-preview.png";
 import Footer from "../Footer/Footer";
 import "./AddProducts.css";
+import Swal from "sweetalert2"
  
 
 
 const AddProducts = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset} = useForm();
   const onSubmit =   data => {
     
     const formData = new FormData();
@@ -29,9 +30,12 @@ const AddProducts = () => {
     .then(data=>{
      
       if(data.acknowledged){
-        // reset()
-        // warning(true)
-        alert("success fully")
+        Swal.fire(
+          'Good job!',
+          'You Product added the Successful!',
+          'success'
+        )
+        reset()
       }
     
     })
@@ -84,7 +88,7 @@ const AddProducts = () => {
                     {...register("price")}
                     type="number"
                     placeholder="Regular Price"
-                    required
+                    
                   />
                   <br />
                   <input
@@ -92,7 +96,7 @@ const AddProducts = () => {
                     {...register("discount")}
                     type="number"
                     placeholder="Discount %"
-                    required
+                    
                   />
                   <br />
                   <input
@@ -130,7 +134,7 @@ const AddProducts = () => {
                   <br />
 
                   <input
-                    className="border-2 mt-2 border-black rounded-lg w-full py-2 px-2"
+                    className="border-2 mt-2 cursor-pointer text-white bg-sky-900 hover:bg-orange-500 border-black rounded-lg w-full py-2 px-2"
                     placeholder=""
                     type="submit"
                   />

@@ -50,22 +50,13 @@ const PatientInfo = () => {
 
   return (
     <div className="font-poppins-font">
-      <div className="relative mb-12">
-        <div>
-          <img
-            className="object-cover object-top w-full h-[30rem]"
-            src="https://nl-zone-qnaaspihscz84txxn.netdna-ssl.com/wp-content/uploads/2021/07/minimum-order-quantity.png"
-            alt="banner order"
-          />
-        </div>
-        <h4 className="text-blue-900 font-bold text-4xl absolute top-48 right-16">
-          Your Booking list
-        </h4>
-      </div>
+      
       <div className="container mx-auto ">
-        <h4 className="text-2xl text-center text-blue-900 font-bold">
+       <div className="text-center">
+       <h4 className="text-2xl  my-12   border-t-gray-300  px-4 py-3 inline-block text-blue-900 font-bold">
           Happy Care
         </h4>
+       </div>
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">

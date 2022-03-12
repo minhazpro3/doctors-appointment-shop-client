@@ -7,12 +7,11 @@ import Testimonial from '../Testimonial/Testimonial';
 import DoctorsHome from '../DoctorsHome/DoctorsHome';
 import Footer from '../Footer/Footer';
 import LocationMap from '../LocationMap/LocationMap';
-import Navbar from '../Navbar/Navbar';
 
 const Home = () => {
     return (
         <div>
-            <Navbar />
+           
             <Banner/>
             <About/>
             <Services/>
