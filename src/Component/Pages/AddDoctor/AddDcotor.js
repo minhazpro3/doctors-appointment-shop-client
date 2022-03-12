@@ -2,10 +2,41 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "../AddProducts/AddProducts.css";
 import Footer from "../Footer/Footer";
+import Swal from "sweetalert2";
 
 const AddDcotor = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit,reset } = useForm();
+  const onSubmit = (data) => {
+
+    const formData = new FormData();
+    formData.append('name', data.name)
+    formData.append('email', data.email)
+    formData.append('jobTittle', data.jobTittle)
+    formData.append('age', data.age)
+    formData.append('address', data.address)
+    formData.append('phone', data.phone)
+    formData.append('image', data.image[0])
+
+    const url = 'http://localhost:5000/addDoctor'
+    fetch(url, {
+      method: "POST",
+      body: formData
+       
+    })
+    .then(res=>res.json())
+    .then(data=>{
+     
+      if(data.acknowledged){
+        Swal.fire(
+          'Good job!',
+          'You Product added the Successful!',
+          'success'
+        )
+        reset()
+      }
+    
+    })
+  };
   return (
     <div>
       <div className="container mx-auto ">
@@ -29,7 +60,7 @@ const AddDcotor = () => {
                 />
                 <input
                   className="border-2 border-black  w-80 md:w-72  lg:w-72 py-2 rounded-lg focus:outline-blue-900 ml-2 my-6 px-2"
-                  {...register("Email")}
+                  {...register("email")}
                   placeholder="Email *"
                   type="email"
                   required
@@ -54,9 +85,10 @@ const AddDcotor = () => {
                 <input
                   className="border-2 border-black  w-80 md:w-72  lg:w-72 py-2 rounded-lg focus:outline-blue-900 ml-2 my-6 px-2"
                   {...register("biography")}
-                  placeholder="Biography *"
+                  placeholder="Biography "
                   type="text"
-                  required
+                   disabled
+                   
                 />
 
                 <input
@@ -81,7 +113,7 @@ const AddDcotor = () => {
                 />
 
                 <input
-                  className="border-2 border-black w-80 md:w-72 lg:w-72  py-2 rounded-lg focus:outline-blue-900 ml-2 my-6 px-2"
+                  className="border-2 border-black hover:text-white cursor-pointer hover:bg-indigo-500 w-80 md:w-72 lg:w-72  py-2 rounded-lg focus:outline-blue-900 ml-2 my-6 px-2"
                   type="submit"
                 />
               </div>
