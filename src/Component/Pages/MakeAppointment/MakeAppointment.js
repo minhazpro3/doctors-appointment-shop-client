@@ -1,8 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Footer from '../Footer/Footer';
-import Navbar from '../Navbar/Navbar';
-
+ 
 const MakeAppointment = () => {
     const {
         register,
@@ -11,7 +10,7 @@ const MakeAppointment = () => {
       const onSubmit = (data) => console.log(data);
     return (
         <div>
-          <Navbar/>
+        
             <div className="container mx-auto">
             <div className="flex  justify-center shadow-2xl py-12 ">
                   <form   onSubmit={handleSubmit(onSubmit)}>

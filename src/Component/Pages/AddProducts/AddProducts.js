@@ -45,6 +45,7 @@ const AddProducts = () => {
 
   return (
     <div>
+    
       <div className="container mx-auto font-poppins-font my-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex justify-center">

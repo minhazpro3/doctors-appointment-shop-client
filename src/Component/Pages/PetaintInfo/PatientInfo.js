@@ -49,54 +49,69 @@ const PatientInfo = () => {
   }
 
   return (
-    <div>
+    <div className="font-poppins-font">
+      <div className="relative mb-12">
+        <div>
+          <img
+            className="object-cover object-top w-full h-[30rem]"
+            src="https://nl-zone-qnaaspihscz84txxn.netdna-ssl.com/wp-content/uploads/2021/07/minimum-order-quantity.png"
+            alt="banner order"
+          />
+        </div>
+        <h4 className="text-blue-900 font-bold text-4xl absolute top-48 right-16">
+          Your Booking list
+        </h4>
+      </div>
       <div className="container mx-auto ">
-        <div class="flex flex-col">
-          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-              <div class="overflow-hidden">
-                <table class="min-w-full text-center">
-                  <thead class="border-b bg-gray-800">
+        <h4 className="text-2xl text-center text-blue-900 font-bold">
+          Happy Care
+        </h4>
+        <div className="flex flex-col">
+          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+              <div className="overflow-hidden">
+                <table className="min-w-full text-center">
+                  <thead className="border-b bg-gray-800">
                     <tr>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-white px-6 py-4"
+                        className="text-sm font-medium text-white px-6 py-4"
                       >
                         SL
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-white px-6 py-4"
+                        className="text-sm font-medium text-white px-6 py-4"
                       >
                         Profile
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-white px-6 py-4"
+                        className="text-sm font-medium text-white px-6 py-4"
                       >
                         Name
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-white px-6 py-4"
+                        className="text-sm font-medium text-white px-6 py-4"
                       >
                         Doctor
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-white px-6 py-4"
+                        className="text-sm font-medium text-white px-6 py-4"
                       >
                         Date
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-white px-6 py-4"
+                        className="text-sm font-medium text-white px-6 py-4"
                       >
                         Book Status
                       </th>
                       <th
                         scope="col"
-                        class="text-sm font-medium text-white px-6 py-4"
+                        className="text-sm font-medium text-white px-6 py-4"
                       >
                         Delete
                       </th>
@@ -129,11 +144,11 @@ const PatientInfo = () => {
                           </td>
                         </tr>
                       ) : (
-                        <tr class="bg-white border-b">
-                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <tr className="bg-white border-b">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             {index + 1}
                           </td>
-                          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             <div className="flex justify-center">
                               <img
                                 className="w-10"
@@ -142,25 +157,27 @@ const PatientInfo = () => {
                               />
                             </div>
                           </td>
-                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             {patient?.name}
                           </td>
-                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             {patient?.doctor}
                           </td>
-                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             {patient?.date}
                           </td>
                           <td
-                            class={
-                              patient.status == "Processing"
-                                ? "text-orange-600 font-medium  px-6 py-4 whitespace-nowrap"
-                                : "text-green-600 font-medium  px-6 py-4 whitespace-nowrap"
+                            className={
+                              patient.status === "Processing"
+                                ? "text-orange-600 font-medium    whitespace-nowrap "
+                                : "text-green-900 font-medium   whitespace-nowrap"
                             }
                           >
-                            {patient?.status}
+                            <h4 className="bg-emerald-300 px-0 py-2 rounded-full">
+                              {patient?.status}
+                            </h4>
                           </td>
-                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             <div>
                               <svg
                                 onClick={() => handleDelete(patient._id)}

@@ -3,13 +3,12 @@ import { BsArrowRight } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import HomeCounter from "../HomeCounter/HomeCounter";
-import Navbar from "../Navbar/Navbar";
-import "./AllDoctors.css";
+ import "./AllDoctors.css";
 
 const AllDoctors = () => {
   return (
     <div>
-      <Navbar/>
+     
       <div className="bg-allDoctors-banner object-cover w-full h-96 font-poppins-font">
         <h3 className=" text-3xl md:text-5xl lg:text-5xl py-20 mx-12 font-bold text-blue-900 text-shadow-xl tracking-wider	">
           Life Care Family !!

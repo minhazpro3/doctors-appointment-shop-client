@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Dashboard.css";
-import Navbar from "../Navbar/Navbar";
-
+ 
 const Dashboard = () => {
   const [sidebar, setSidebar] = useState(true);
 
@@ -12,7 +11,7 @@ const Dashboard = () => {
   return (
 
     <div>
-      <Navbar/>
+    
     <div className="flex">
       <div className="font-poppins-font">
         {sidebar && (

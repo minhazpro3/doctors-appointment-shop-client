@@ -4,8 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import regImg from "../../Images/register img.png";
 import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
-const Register = () => {
+ const Register = () => {
 
   const {user, setUser, googleSignIn, isLoading, createUser, logOut, updateName,setIsLoading} =useAuth()
 
@@ -49,7 +48,7 @@ const handleGoolgeLogin = ()=>{
 
   return (
     <div>
-      <Navbar/>
+     
       <div className="container mx-auto  md:p-28">
         <div className="bg-red-500 font-poppins-font p-8 md:p-32">
           <div className="grid  lg:grid-cols-2 justify-center gap-8 bg-red-300	 rounded-md">

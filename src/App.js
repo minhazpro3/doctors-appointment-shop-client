@@ -15,7 +15,6 @@ import AddDcotor from "./Component/Pages/AddDoctor/AddDcotor";
 import MakeAdmin from "./Component/Pages/MakeAdmin/MakeAdmin";
 import Login from "./Component/Pages/Login/Login";
 import Register from "./Component/Pages/Register/Register";
-import useFirebase from "./Component/hooks/useFirebase";
 import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
 import AuthProvider from "./Component/AuthProvider/AuthProvider";
 
@@ -24,7 +23,7 @@ function App() {
     <div className="App">
      <AuthProvider>
       < Router>
-        
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>

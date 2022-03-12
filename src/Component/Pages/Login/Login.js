@@ -6,8 +6,7 @@ import { useLocation, useNavigate } from "react-router";
 import loginImg from "../../Images/login img.png";
 import Footer from "../Footer/Footer";
 import useAuth from "../../hooks/useAuth";
-import Navbar from "../Navbar/Navbar";
-
+ 
 const Login = () => {
   const {user, setUser, googleSignIn, isLoading, createUser, logOut, updateName,setIsLoading, loginEmailPassword} =useAuth()
 
@@ -51,7 +50,7 @@ const onSubmit = async data => {
 
   return (
     <div >
-      <Navbar/>
+     
       <div className="container mx-auto font-poppins-font  md:p-28">
         <div className="bg-red-500 p-8 md:p-32">
           <div className="grid  lg:grid-cols-2 justify-center gap-8 bg-red-300	 rounded-md">

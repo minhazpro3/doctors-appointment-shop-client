@@ -7,14 +7,13 @@ import call from "../../Images/call.png";
 import mail from "../../Images/gmail.png";
 import rec from "../../Images/rec.png";
 import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
-
+ 
 const DoctorProfile = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
     <div>
-      <Navbar/>
+   
       <div className="font-poppins-font">
         <img
           className="w-full relative h-80 object-cover opacity-50 "

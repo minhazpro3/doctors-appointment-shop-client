@@ -3,12 +3,11 @@ import Rating from "react-rating";
 import "./Shop.css";
 import med2 from "../../Images/med-2.png";
 import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
-
+ 
 const Shop = () => {
   return (
     <div>
-      <Navbar/>
+       
       <div className="mb-6 relative">
         <img className="w-full object-cover" src={med2} alt="banner" />
         <div className="container mx-auto">
