@@ -110,7 +110,7 @@ const Dashboard = () => {
             </li>
             <li class="relative my-3  ">
               <div className="flex justify-between px-4">
-                <NavLink to="/dashboard/makeAdmin">
+                <NavLink to="/dashboard/allProducts">
                   <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
                      
                     All Products

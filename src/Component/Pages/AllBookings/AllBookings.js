@@ -1,54 +1,80 @@
-import React, { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
-import Footer from '../Footer/Footer';
+import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import Footer from "../Footer/Footer";
+import update from "../../Images/update-svgrepo-com.svg";
+import { useForm } from "react-hook-form";
 
 const AllBookings = () => {
+  const [allBookings, setAllBookings] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/allBookings")
+      .then((res) => res.json())
+      .then((data) => {
+        setAllBookings(data);
+      });
+  }, []);
 
-        const [allBookings, setAllBookings]=useState([])
-         useEffect(()=>{
-        fetch("http://localhost:5000/allBookings")
-        .then(res=>res.json())
-        .then(data =>{
-        setAllBookings(data)
+  
+  // delete patient
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+
+        fetch(`http://localhost:5000/deletePatient/${id}`, {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
         })
-    },[])
+          .then((res) => res.json())
+          .then((data) => {
+            setAllBookings(allBookings.filter((data) => data._id !== id));
+          });
+      }
+    });
+  };
 
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
-    // delete patient
-    const handleDelete = (id) => {
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-    
-            fetch(`http://localhost:5000/deletePatient/${id}`, {
-              method: "DELETE",
-              headers: {
-                "content-type": "application/json",
-              },
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                setAllBookings(allBookings.filter((data) => data._id !== id));
-              });
-          }
-        });
-      };
-    
+  // update status
+  // const handleUpdate = (id) => {
+  //   const updateData = {
+  //     status: "Shipped",
+  //   };
+  //   const process = window.confirm("Are You Sure For Update Status?");
+  //   if (process) {
+  //     fetch(`https://powerful-bayou-53286.herokuapp.com/updateStatus/${id}`, {
+  //       method: "PUT",
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(updateData),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         // setReload(data)
+  //       });
+  //   }
+  // };
 
-    return (
-        <div className="font-poppins-font">
+  return (
+    <div className="font-poppins-font">
       <div className="container mx-auto ">
         <div className="text-center">
           <h4 className="text-2xl  my-12   border-t-gray-300  px-4 py-3 inline-block text-blue-900 font-bold">
-           Bookings Of Our Happy Patients
+            Bookings Of Our Happy Patients
           </h4>
         </div>
         <div className="flex flex-col">
@@ -128,15 +154,42 @@ const AllBookings = () => {
                         </td>
                         <td
                           className={
-                            patient.status === "Processing"
+                            (patient.status === "Processing"
                               ? "text-orange-600 font-medium    whitespace-nowrap "
-                              : "text-green-900 font-medium   whitespace-nowrap"
+                              : "text-green-900 font-medium   whitespace-nowrap",
+                            patient.status === "Absent" && "text-red-600")
                           }
                         >
-                          <h4 className="bg-emerald-300 px-0 py-2 rounded-full">
-                            {patient?.status}
-                          </h4>
+                          <form
+                            onSubmit={() => handleSubmit(onSubmit(patient._id))}
+                          >
+                            <h4 className="bg-emerald-300 inline-block px-2 py-2 rounded-full">
+                              <ul className="flex justify-center px-2  gap-6">
+                                <select
+                                  className="bg-emerald-300 rounded-full border-0 outline-none"
+                                  {...register("status")}
+                                  required
+                                >
+                                  <option selected disabled>
+                                    {" "}
+                                    {patient?.status}
+                                  </option>
+                                  <option>Approved</option>
+                                  <option>Absent</option>
+                                  <option>Done</option>
+                                </select>
+                                <button type="submit">
+                                  <img
+                                    className="w-6 cursor-pointer "
+                                    src={update}
+                                    alt=""
+                                  />{" "}
+                                </button>
+                              </ul>
+                            </h4>
+                          </form>
                         </td>
+
                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           <div>
                             <svg
@@ -185,7 +238,7 @@ const AllBookings = () => {
       </div>
       <Footer />
     </div>
-    );
+  );
 };
 
 export default AllBookings;

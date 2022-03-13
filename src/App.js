@@ -1,5 +1,5 @@
 import "./App.css";
-import {  BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Component/Pages/Home/Home";
 import AboutPage from "./Component/Pages/AboutPage/AboutPage";
 import Navbar from "./Component/Pages/Navbar/Navbar";
@@ -18,33 +18,67 @@ import Register from "./Component/Pages/Register/Register";
 import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
 import AuthProvider from "./Component/AuthProvider/AuthProvider";
 import AllBookings from "./Component/Pages/AllBookings/AllBookings";
+import AllProducts from "./Component/Pages/AllProducts/AllProducts";
 
 function App() {
   return (
     <div className="App">
-     <AuthProvider>
-      < Router>
-        <Navbar/>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/doctorProfile/:doctorId" element={<DoctorProfile />}></Route>
-          <Route path="/about" element={<AboutPage />}></Route>
-          <Route path="/shop" element={<PrivateRoute><Shop /></PrivateRoute>}></Route>
-          <Route path="/doctors" element={<AllDoctors />}></Route>
-          <Route path="/makAppointment" element={<MakeAppointment />}></Route>
-          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
-            <Route path="/dashboard/" element={<PatientInfo />}></Route>
-            <Route path="/dashboard/shopInfo" element={<ShopInfo />}></Route>
-            <Route path="/dashboard/addProducts" element={<AddProducts />}></Route>
-            <Route path="/dashboard/addDoctors" element={<AddDcotor />}></Route>
-            <Route path="/dashboard/makeAdmin" element={<MakeAdmin />}></Route>
-            <Route path="/dashboard/allBookings" element={<AllBookings />}></Route>
-          </Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-        </Routes>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route
+              path="/doctorProfile/:doctorId"
+              element={<DoctorProfile />}
+            ></Route>
+            <Route path="/about" element={<AboutPage />}></Route>
+            <Route
+              path="/shop"
+              element={
+                <PrivateRoute>
+                  <Shop />
+                </PrivateRoute>
+              }
+            ></Route>
+            <Route path="/doctors" element={<AllDoctors />}></Route>
+            <Route path="/makAppointment" element={<MakeAppointment />}></Route>
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            >
+              <Route path="/dashboard/" element={<PatientInfo />}></Route>
+              <Route path="/dashboard/shopInfo" element={<ShopInfo />}></Route>
+              <Route
+                path="/dashboard/addProducts"
+                element={<AddProducts />}
+              ></Route>
+              <Route
+                path="/dashboard/addDoctors"
+                element={<AddDcotor />}
+              ></Route>
+              <Route
+                path="/dashboard/makeAdmin"
+                element={<MakeAdmin />}
+              ></Route>
+              <Route
+                path="/dashboard/allBookings"
+                element={<AllBookings />}
+              ></Route>
+              <Route
+                path="/dashboard/allProducts"
+                element={<AllProducts />}
+              ></Route>
+            </Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+          </Routes>
+        </Router>
       </AuthProvider>
     </div>
   );
