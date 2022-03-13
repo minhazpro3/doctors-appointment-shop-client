@@ -1,54 +1,54 @@
-import React, { useEffect, useState } from "react";
-import Footer from "../Footer/Footer";
-import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
+import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
+import Footer from '../Footer/Footer';
 
-const PatientInfo = () => {
-  const { user } = useAuth();
-  const [allPatients, setAllPatients] = useState([]);
+const AllBookings = () => {
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/yourBookings/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllPatients(data);
-        console.log(data.name);
-      });
-  }, []);
-
-  const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
-
-        fetch(`http://localhost:5000/deleteMySerial/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
+        const [allBookings, setAllBookings]=useState([])
+         useEffect(()=>{
+        fetch("http://localhost:5000/allBookings")
+        .then(res=>res.json())
+        .then(data =>{
+        setAllBookings(data)
         })
-          .then((res) => res.json())
-          .then((data) => {
-            setAllPatients(allPatients.filter((data) => data._id !== id));
-          });
-      }
-    });
-  };
+    },[])
 
-  return (
-    <div className="font-poppins-font">
+
+    // delete patient
+    const handleDelete = (id) => {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    
+            fetch(`http://localhost:5000/deletePatient/${id}`, {
+              method: "DELETE",
+              headers: {
+                "content-type": "application/json",
+              },
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                setAllBookings(allBookings.filter((data) => data._id !== id));
+              });
+          }
+        });
+      };
+    
+
+    return (
+        <div className="font-poppins-font">
       <div className="container mx-auto ">
         <div className="text-center">
           <h4 className="text-2xl  my-12   border-t-gray-300  px-4 py-3 inline-block text-blue-900 font-bold">
-            Happy Care Of Your Bookings
+           Bookings Of Our Happy Patients
           </h4>
         </div>
         <div className="flex flex-col">
@@ -102,7 +102,7 @@ const PatientInfo = () => {
                       </th>
                     </tr>
                   </thead>
-                  {allPatients.map((patient, index) => (
+                  {allBookings.map((patient, index) => (
                     <tbody key={patient._id}>
                       <tr className="bg-white border-b">
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -185,7 +185,7 @@ const PatientInfo = () => {
       </div>
       <Footer />
     </div>
-  );
+    );
 };
 
-export default PatientInfo;
+export default AllBookings;

@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth"
 
 const containerStyle = {
   width: "86%",
@@ -14,6 +15,7 @@ const center = {
 };
 
 const LocationMap = () => {
+  const {user}=useAuth()
   const {
     register,
     handleSubmit,
@@ -23,7 +25,7 @@ const LocationMap = () => {
   const onSubmit = (data) => {
 
      data.status="Processing"
-    fetch("http://localhost:5000/allPatients", {
+    fetch("http://localhost:5000/postAllPatients", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -96,6 +98,7 @@ const LocationMap = () => {
                 type="email"
                 placeholder="Email"
                 {...register("email")}
+                value={user?.email}
                 required
               />
               <br />

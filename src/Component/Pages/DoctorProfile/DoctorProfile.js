@@ -14,13 +14,15 @@ const DoctorProfile = () => {
   const [singleDoctor, setSingleDoctor] = useState({});
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/singleDoctor/${doctorId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+       
         setSingleDoctor(data);
 
         // setFresh(true)

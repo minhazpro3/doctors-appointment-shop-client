@@ -55,7 +55,7 @@ const Dashboard = () => {
               <div className="flex justify-between px-4">
                 <NavLink to="/dashboard/">
                   <h4 className="text-base bg-indigo-900 text-white py-1 px-3 rounded-lg">
-                    Patients Info
+                    Your Bookings
                   </h4>
                 </NavLink>
               </div>
@@ -94,6 +94,26 @@ const Dashboard = () => {
                   <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
                      
                     Add A New Admin 
+                  </h4>
+                </NavLink>
+              </div>
+            </li>
+            <li class="relative my-3  ">
+              <div className="flex justify-between px-4">
+                <NavLink to="/dashboard/allBookings">
+                  <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
+                     
+                    All Bookings
+                  </h4>
+                </NavLink>
+              </div>
+            </li>
+            <li class="relative my-3  ">
+              <div className="flex justify-between px-4">
+                <NavLink to="/dashboard/makeAdmin">
+                  <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
+                     
+                    All Products
                   </h4>
                 </NavLink>
               </div>

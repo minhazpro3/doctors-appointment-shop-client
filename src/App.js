@@ -17,6 +17,7 @@ import Login from "./Component/Pages/Login/Login";
 import Register from "./Component/Pages/Register/Register";
 import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
 import AuthProvider from "./Component/AuthProvider/AuthProvider";
+import AllBookings from "./Component/Pages/AllBookings/AllBookings";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
             <Route path="/dashboard/addProducts" element={<AddProducts />}></Route>
             <Route path="/dashboard/addDoctors" element={<AddDcotor />}></Route>
             <Route path="/dashboard/makeAdmin" element={<MakeAdmin />}></Route>
-            
+            <Route path="/dashboard/allBookings" element={<AllBookings />}></Route>
           </Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>

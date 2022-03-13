@@ -5,12 +5,12 @@ import initializeFirebaseApp from '../firebase/firebase.initialize';
     initializeFirebaseApp()
 const useFirebase = () => {
     const [user, setUser]=useState({})
-    console.log(user)
+    
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const [isLoading,setIsLoading]=useState(true)
 
-    // store 
+    
     
     
     // google sign in
