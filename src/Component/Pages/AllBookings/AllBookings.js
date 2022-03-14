@@ -1,16 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import Swal from "sweetalert2";
 import Footer from "../Footer/Footer";
-import update from "../../Images/update-svgrepo-com.svg";
 import AllBooking from "../AllBooking/AllBooking";
-
-
 
 const AllBookings = () => {
   const [allBookings, setAllBookings] = useState([]);
-  const [update,setUpdate]=useState({})
+  const [update, setUpdate] = useState({});
   const inputRef = useRef();
-  
+
   useEffect(() => {
     fetch("http://localhost:5000/allBookings")
       .then((res) => res.json())
@@ -19,7 +16,6 @@ const AllBookings = () => {
       });
   }, []);
 
-  
   // delete patient
   const handleDelete = (id) => {
     Swal.fire({
@@ -48,43 +44,35 @@ const AllBookings = () => {
     });
   };
 
- 
-
-  // const handleUpdate = (e)=>{
-  //   e.preventDefault()
-  //   console.log(e.target.value) 
-      
-    
-  // }
-
- 
-
-
-  
-  const updateStatus = (id,inputRef)=>{
+  const updateStatus = (id, inputRef) => {
     const data = {
-      status: inputRef.current.value
-    }
-    console.log(data)
-    const process = window.confirm("Are You Sure For Update Status?")
-    if(process){
+      status: inputRef.current.value,
+    };
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Update Your Status!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Update It!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Updated!", "Your file has been updated.", "success");
+
         fetch(`http://localhost:5000/updatePatient/${id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body:JSON.stringify(data)
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data),
         })
-        .then(res=>res.json())
-        .then(data=>{
-            
-
-        })
-    }
-}
-
- 
-
+          .then((res) => res.json())
+          .then((data) => {});
+      }
+    });
+  };
 
   return (
     <div className="font-poppins-font">
@@ -145,8 +133,15 @@ const AllBookings = () => {
                       </th>
                     </tr>
                   </thead>
-                  {allBookings.map((patient, index) => <AllBooking key={patient._id} 
-                 patient={patient} index={index} updateStatus={updateStatus} handleDelete={handleDelete}  /> )} 
+                  {allBookings.map((patient, index) => (
+                    <AllBooking
+                      key={patient._id}
+                      patient={patient}
+                      index={index}
+                      updateStatus={updateStatus}
+                      handleDelete={handleDelete}
+                    />
+                  ))}
                 </table>
               </div>
             </div>
