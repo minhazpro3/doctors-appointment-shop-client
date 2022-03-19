@@ -9,7 +9,7 @@ const AllDoctors = () => {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/getDoctors")
+    fetch("https://serene-atoll-01832.herokuapp.com/getDoctors")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);

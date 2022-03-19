@@ -17,7 +17,7 @@ const AddDcotor = () => {
     formData.append('phone', data.phone)
     formData.append('image', data.image[0])
 
-    const url = 'http://localhost:5000/addDoctor'
+    const url = 'https://serene-atoll-01832.herokuapp.com/addDoctor'
     fetch(url, {
       method: "POST",
       body: formData

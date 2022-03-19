@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Dashboard.css";
+import useAuth from "../../hooks/useAuth";
  
 const Dashboard = () => {
+  const {user}=useAuth()
   const [sidebar, setSidebar] = useState(true);
-
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
@@ -41,7 +42,7 @@ const Dashboard = () => {
                     alt="user"
                   />
                 </NavLink>
-                <h4 className="text-base">Jamal</h4>
+                <h4 className="text-base">{user?.displayName.slice(0,7)}</h4>
                 <button className="mx-12" onClick={showSidebar}>
                   <img
                     className="w-5  fixed"

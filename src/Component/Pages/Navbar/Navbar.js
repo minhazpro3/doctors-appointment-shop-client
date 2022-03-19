@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth"
  
 
 const Navbar = () => {
-  const {logOut}=useAuth();
+  const {logOut,user}=useAuth();
   return (
     <nav className="px-2  bg-white border-gray-200 shadow-lg ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -143,12 +143,12 @@ const Navbar = () => {
               <NavLink to="/">
                 <img
                   className="w-8 rounded-full ml-2 md:m-0 lg:m-0 "
-                  src="https://kit.pndrnt.com/medific/wp-content/uploads/sites/5/2020/10/collage-of-a-diverse-group-of-laughing-entrepreneu-KMF3QCG_b.jpg"
+                  src={"https://kit.pndrnt.com/medific/wp-content/uploads/sites/5/2020/10/collage-of-a-diverse-group-of-laughing-entrepreneu-KMF3QCG_b.jpg"}
                   alt="user"
                 />
               </NavLink>
             </li>
-            <li>
+           {user.email? <li>
               <NavLink
               onClick={logOut}
                 to="/"
@@ -157,6 +157,7 @@ const Navbar = () => {
                 Logout
               </NavLink>
             </li>
+            :
             <li>
               <NavLink
                 to="/login"
@@ -164,7 +165,7 @@ const Navbar = () => {
               >
                 Login
               </NavLink>
-            </li>
+            </li>}
           </ul>
         </div>
       </div>

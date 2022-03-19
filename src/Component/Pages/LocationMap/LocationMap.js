@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth"
+import useAuth from "../../hooks/useAuth";
 
 const containerStyle = {
   width: "86%",
   height: "250px",
 };
+
+/* REACT_APP_GOOGLE_MAP_API_KEY=AIzaSyA1Y2jg6I4bfdp1T1vPPF6pV5Sf3HsXEnw
+
+REACT_APP_GOOGLE_MAP_API_KEY=AIzaSyBEYc0pF8doUaqqaksgFw1w20f-3Yyk8bw */
 
 const center = {
   lat: 24.848078,
@@ -15,7 +19,8 @@ const center = {
 };
 
 const LocationMap = () => {
-  const {user}=useAuth()
+  const [doctors, setDoctors] = useState([]);
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -23,9 +28,8 @@ const LocationMap = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-
-     data.status="Processing"
-    fetch("http://localhost:5000/postAllPatients", {
+    data.status = "Processing";
+    fetch("https://serene-atoll-01832.herokuapp.com/postAllPatients", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -40,6 +44,15 @@ const LocationMap = () => {
         }
       });
   };
+
+  useEffect(() => {
+    fetch("https://serene-atoll-01832.herokuapp.com/getDoctors")
+      .then((res) => res.json())
+      .then((data) => {
+        setDoctors(data);
+        console.log(data, "map");
+      });
+  }, []);
 
   return (
     <div>
@@ -120,10 +133,13 @@ const LocationMap = () => {
                     {" "}
                     --Select Doctor--
                   </option>
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
+                  {doctors.map((doctor, index) => (
+                    <option className="px-2" key={doctor._id}>
+                      {doctor?.name}
+                    </option>
+                  ))}
                 </select>
+
                 <div className="pointer-events-none  absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
                     className="fill-current h-4 w-4"

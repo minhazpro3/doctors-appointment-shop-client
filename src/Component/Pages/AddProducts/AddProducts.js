@@ -20,7 +20,7 @@ const AddProducts = () => {
     formData.append('description', data.description)
     formData.append('image', data.image[0])
 
-    const url = 'http://localhost:5000/addProduct'
+    const url = 'https://serene-atoll-01832.herokuapp.com/addProduct'
     fetch(url, {
       method: "POST",
       body: formData

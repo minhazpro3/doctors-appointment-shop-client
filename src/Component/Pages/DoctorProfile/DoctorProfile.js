@@ -8,8 +8,10 @@ import mail from "../../Images/gmail.png";
 import rec from "../../Images/rec.png";
 import Footer from "../Footer/Footer";
 import { useParams } from "react-router";
+import useAuth from "../../hooks/useAuth"
 
 const DoctorProfile = () => {
+  const {user}=useAuth()
   const { doctorId } = useParams();
   const [singleDoctor, setSingleDoctor] = useState({});
 
@@ -19,7 +21,7 @@ const DoctorProfile = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleDoctor/${doctorId}`)
+    fetch(`https://serene-atoll-01832.herokuapp.com/singleDoctor/${doctorId}`)
       .then((res) => res.json())
       .then((data) => {
        
@@ -44,7 +46,7 @@ const DoctorProfile = () => {
       <div className="container mx-auto px-4">
         <div className="my-12 font-poppins-font">
           <div className="grid grid-cols-1 md:grid-flow-col lg:grid-flow-col gap-20">
-            <div className=" md:col-span-6 lg:col-span-6   ">
+            <div className=" md:col-span-6 lg:col-span-6">
               <div className=" flex justify-center">
               {!singleDoctor.image? <div className="w-full h-96 text-center py-36 border-2"><svg role="status" className="text-center inline mr-2 w-14 h-14 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
@@ -151,6 +153,7 @@ const DoctorProfile = () => {
                       type="text"
                       placeholder="Your Name"
                       {...register("name")}
+                      value={user?.name}
                       required
                     />
                     <br />
@@ -159,6 +162,7 @@ const DoctorProfile = () => {
                       type="email"
                       placeholder="Email"
                       {...register("Your Email")}
+                      value={user?.email}
                       required
                     />
                     <br />
