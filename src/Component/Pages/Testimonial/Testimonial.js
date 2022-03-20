@@ -1,21 +1,11 @@
 import React from "react";
-import Slider from "react-slick";
-import './Testimonial.css'
+import { Autoplay, FreeMode, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import Rating from "react-rating";
 
 const Testimonial = () => {
-
-  const settings = {
-    autoplay: true,
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    
-   
-    
-  };
-
   return (
     <div className="container mx-auto overflow-x-hidden">
       <div className="text-center font-poppins-font my-8">
@@ -26,114 +16,151 @@ const Testimonial = () => {
         </h3>
       </div>
 
-      <Slider className="grid grid-cols-12 slider-margin" {...settings}>
-        <div className="font-poppins-font h-full  text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
-          
-            <img
-              className="w-12 inline-flex justify-center my-2"
-              src="https://i.ibb.co/cXDGS25/quote.png" alt="pic" />
-            <p className="leading-relax">
-              Faucibus sed orci. Vivamus neque elit, pellentesque non nunc eget, laoreet convallis dui. Vestibulum luctus urna eu sapien lacinia, </p>
+      <Swiper
+        breakpoints={{
+          // when window width is >= 350px
+          300: {
+            width: 300,
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          // when window width is >= 640px
+          640: {
+            width: 640,
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          // when window width is >= 768px
+          768: {
+            width: 768,
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+        }}
+        // slidesPerView={3}
 
-            <div className="flex justify-center">
+        centeredSlides={true}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        navigation={true}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay, Pagination, FreeMode, Navigation]}
+        className="mySwiper"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
+          <SwiperSlide className="flex justify-center">
+            {" "}
+            <div className="font-poppins-font h-96 md:h-full lg:h-full w-80  text-center bg-indigo-200 p-4 hover:bg-blue-300 hover:text-white rounded-lg slider-margin">
               <img
-                className="h-24 w-24 my-4   rounded-full object-cover border-4 border-blue-900 "
-                src="https://i.ibb.co/Mg36V8p/download.jpg" alt="" />
+                className="w-12 inline-flex justify-center my-2"
+                src="https://i.ibb.co/cXDGS25/quote.png"
+                alt="pic"
+              />
+              <p className="leading-relax">
+                Faucibus sed orci. Vivamus neque elit, pellentesque non nunc
+                eget, laoreet convallis dui. Vestibulum luctus urna eu sapien
+                lacinia,{" "}
+              </p>
+
+              <div className="flex justify-center">
+                <img
+                  className="h-24 w-24 my-4   rounded-full object-cover border-4 border-blue-900 "
+                  src="https://i.ibb.co/Mg36V8p/download.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div>
+                <Rating
+                  className="text-orange-600   "
+                  initialRating="3"
+                  readonly
+                  emptySymbol="far fa-star"
+                  fullSymbol="fas fa-star"
+                ></Rating>
+                <span className="inline-flex h-1  bg-indigo-900"></span>
+                <h3 className="tracking-wide">Patient Minhaz</h3>
+              </div>
             </div>
+          </SwiperSlide>
+          <SwiperSlide className="flex justify-center">
+            {" "}
+            <div className="font-poppins-font h-96 md:h-full lg:h-full w-80  text-center bg-indigo-200 p-4 hover:bg-blue-300 hover:text-white rounded-lg slider-margin">
+              <img
+                className="w-12 inline-flex justify-center my-2"
+                src="https://i.ibb.co/cXDGS25/quote.png"
+                alt="pic"
+              />
+              <p className="leading-relax">
+                Faucibus sed orci. Vivamus neque elit, pellentesque non nunc
+                eget, laoreet convallis dui. Vestibulum luctus urna eu sapien
+                lacinia,{" "}
+              </p>
 
-            <div>
-              <span className="inline-flex h-1  bg-indigo-900"></span>
-              <h3 className="tracking-wide">User Minhaz</h3>
-              <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
+              <div className="flex justify-center">
+                <img
+                  className="h-24 w-24 my-4   rounded-full object-cover border-4 border-blue-900 "
+                  src="https://i.ibb.co/Mg36V8p/download.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div>
+                <Rating
+                  className="text-orange-600   "
+                  initialRating="3"
+                  readonly
+                  emptySymbol="far fa-star"
+                  fullSymbol="fas fa-star"
+                ></Rating>
+                <span className="inline-flex h-1  bg-indigo-900"></span>
+                <h3 className="tracking-wide">Patient Minhaz</h3>
+              </div>
             </div>
+          </SwiperSlide>
+          <SwiperSlide className="flex justify-center">
+            {" "}
+            <div className="font-poppins-font h-96 md:h-full lg:h-full w-80  text-center bg-indigo-200 p-4 hover:bg-blue-300 hover:text-white rounded-lg slider-margin">
+              <img
+                className="w-12 inline-flex justify-center my-2"
+                src="https://i.ibb.co/cXDGS25/quote.png"
+                alt="pic"
+              />
+              <p className="leading-relax">
+                Faucibus sed orci. Vivamus neque elit, pellentesque non nunc
+                eget, laoreet convallis dui. Vestibulum luctus urna eu sapien
+                lacinia,{" "}
+              </p>
+
+              <div className="flex justify-center">
+                <img
+                  className="h-24 w-24 my-4   rounded-full object-cover border-4 border-blue-900 "
+                  src="https://i.ibb.co/Mg36V8p/download.jpg"
+                  alt=""
+                />
+              </div>
+
+              <div>
+                <Rating
+                  className="text-orange-600   "
+                  initialRating="3"
+                  readonly
+                  emptySymbol="far fa-star"
+                  fullSymbol="fas fa-star"
+                ></Rating>
+                <span className="inline-flex h-1  bg-indigo-900"></span>
+                <h3 className="tracking-wide">Patient Minhaz</h3>
+              </div>
+            </div>
+          </SwiperSlide>
         </div>
-        <div className="font-poppins-font  h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
-          <img
-            className="w-12 inline-flex justify-center my-2"
-            src="https://i.ibb.co/cXDGS25/quote.png" alt="pic" />
-
-          <p className="leading-relax">
-            Faucibus sed orci. Vivamus neque elit, pellentesque non nunc eget, laoreet convallis dui. Vestibulum luctus urna eu sapien lacinia,
-          </p>
-
-          <div className="flex justify-center">
-            <img
-              className="h-24 w-24 my-4   rounded-full object-cover border-4 border-blue-900 "
-              src="https://i.ibb.co/Mg36V8p/download.jpg" alt="" />
-          </div>
-
-          <div>
-            <span className="inline-flex h-1  bg-indigo-900"></span>
-            <h3 className="tracking-wide">User Naeem</h3>
-            <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
-          </div>
-        </div>
-        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
-          <img
-            className="w-12 inline-flex justify-center my-2"
-            src="https://i.ibb.co/cXDGS25/quote.png" alt="pic" />
-
-          <p className="leading-relax">
-            Faucibus sed orci. Vivamus neque elit, pellentesque non nunc eget, laoreet convallis dui. Vestibulum luctus urna eu sapien lacinia,
-          </p>
-
-          <div className="flex justify-center">
-            <img
-              className="h-24 w-24 my-4   rounded-full object-cover border-4 border-blue-900 "
-              src="https://i.ibb.co/Mg36V8p/download.jpg" alt="" />
-          </div>
-
-          <div>
-            <span className="inline-flex h-1  bg-indigo-900"></span>
-            <h3 className="tracking-wide">User Name</h3>
-            <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
-          </div>
-        </div>
-
-        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
-          <img
-            className="w-12 inline-flex justify-center my-2"
-            src="https://i.ibb.co/cXDGS25/quote.png" alt="pic"/>
-
-          <p>
-            Faucibus sed orci. Vivamus neque elit, pellentesque non nunc eget, laoreet convallis dui. Vestibulum luctus urna eu sapien lacinia,
-          </p>
-
-          <div className="flex justify-center">
-            <img
-              className="h-24 w-24 my-4   rounded-full object-cover border-4 border-blue-900 "
-              src="https://i.ibb.co/Mg36V8p/download.jpg" alt="" />
-          </div>
-
-          <div>
-            <span className="inline-flex h-1  bg-indigo-900"></span>
-            <h3 className="tracking-wide">User Name</h3>
-            <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
-          </div>
-        </div>
-        <div className="font-poppins-font h-full text-center bg-indigo-200 p-4 hover:bg-gray-300 rounded-lg slider-margin">
-          <img
-            className="w-12 inline-flex justify-center my-2"
-            src="https://i.ibb.co/cXDGS25/quote.png" alt="pic" />
-
-          <p className="leading-relax">
-            Faucibus sed orci. Vivamus neque elit, pellentesque non nunc eget,
-            laoreet convallis dui. Vestibulum luctus urna eu sapien lacinia,
-          </p>
-
-          <div className="flex justify-center">
-            <img
-              className="h-24 w-24 my-4   rounded-full object-cover border-4 border-blue-900 "
-              src="https://i.ibb.co/Mg36V8p/download.jpg" alt="" />
-          </div>
-
-          <div>
-            <span className="inline-flex h-1  bg-indigo-900"></span>
-            <h3 className="tracking-wide">User Name</h3>
-            <h4 className="text-gray-700 mb-4">Your Job Title & Position</h4>
-          </div>
-        </div>
-      </Slider>
+      </Swiper>
     </div>
   );
 };

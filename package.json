@@ -15,6 +15,7 @@
     "aos-animations": "0.0.7",
     "axios": "^0.26.1",
     "boxicons": "^2.1.1",
+    "brew": "0.0.8",
     "fa-icons": "^0.2.0",
     "filereader": "^0.10.3",
     "firebase": "^9.6.8",
@@ -44,7 +45,7 @@
     "rerousel": "^0.1.9",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.4.4",
-    "swiper": "^8.0.6",
+    "swiper": "^8.0.7",
     "tw-elements": "^1.0.0-alpha11",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.3"

@@ -7,6 +7,7 @@ import Testimonial from '../Testimonial/Testimonial';
 import DoctorsHome from '../DoctorsHome/DoctorsHome';
 import Footer from '../Footer/Footer';
 import LocationMap from '../LocationMap/LocationMap';
+import Pakages from '../Pakages/Pakages';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <About/>
             <Services/>
             <HomeCounter/>
+            <Pakages/>
             <Testimonial/>
             <DoctorsHome/>
             <LocationMap/>
