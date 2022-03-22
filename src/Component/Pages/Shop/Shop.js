@@ -8,10 +8,11 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://serene-atoll-01832.herokuapp.com/getProducts")
+    fetch("https://serene-atoll-01832.herokuapp.com/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
+        
        
       });
   }, []);

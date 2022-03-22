@@ -6,19 +6,49 @@ import Footer from "../Footer/Footer";
 const AllProducts = () => {
   const [productInfo, setProductInfo] = useState([]);
   const [loading, setLoading] = useState(false);
+  
+  const [page, setPage] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [totalProduct, setTotalProduct] = useState(0);
+
+  const size = 5;
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://serene-atoll-01832.herokuapp.com/getProducts")
+    fetch(`https://serene-atoll-01832.herokuapp.com/getProducts?page=${page}&&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
-        setProductInfo(data);
-        setLoading(false);
+        setProductInfo(data.product);
+        const count = data.counts;
+        setTotalProduct(parseInt(data.counts));
+        const pageNumber = Math.ceil(count / size);
+        setPageCount(pageNumber);
+        if (data) {
+          setLoading(false);
+        }
       });
-  }, []);
+  }, [page]);
+
+  function handlePrevious() {
+    setPage((p) => {
+      if (p === 0) {
+        return p;
+      }
+      return p - 1;
+    });
+  }
+
+  function handleNext() {
+    setPage((p) => {
+      if (p === pageCount) {
+        return p;
+      }
+      return p + 1;
+    });
+  }
 
   const handleDelete = (id) => {
-    console.log(id)
+    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -45,6 +75,7 @@ const AllProducts = () => {
     });
   };
 
+ 
 
   return (
     <div>
@@ -64,8 +95,12 @@ const AllProducts = () => {
       ) : (
         <div className="container mx-auto ">
           <div className="my-8">
-            <h5 className="text-center text-4xl my text-shadow-md text-blue-800">Total Products: {productInfo.length}</h5>
-            <h4 className="text-2xl text-center text-blue-800">Surgical && Medicine Products!!!</h4>
+            <h5 className="text-center text-4xl my text-shadow-md text-blue-800">
+              Total Products: {totalProduct}
+            </h5>
+            <h4 className="text-2xl text-center text-blue-800">
+              Surgical && Medicine Products!!!
+            </h4>
           </div>
           <div class="flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -84,20 +119,20 @@ const AllProducts = () => {
                           scope="col"
                           class="text-sm font-medium text-white px-6 py-4"
                         >
-                          Name
+                          Products
                         </th>
                         <th
                           scope="col"
                           class="text-sm font-medium text-white px-6 py-4"
                         >
-                          Price
+                          Name
                         </th>
 
                         <th
                           scope="col"
                           class="text-sm font-medium text-white px-6 py-4"
                         >
-                          Edit
+                          Price
                         </th>
                         <th
                           scope="col"
@@ -114,6 +149,7 @@ const AllProducts = () => {
                           index={index}
                           loading={loading}
                           handleDelete={handleDelete}
+                        
                         />
                       ))}
                     </tbody>
@@ -124,6 +160,45 @@ const AllProducts = () => {
           </div>
         </div>
       )}
+
+      <div class="flex justify-center mt-12 gap-7">
+        <button
+          className="page-link text-xl py-2 px-4 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none "
+          onClick={handlePrevious}
+        >
+          Previous
+        </button>
+        {[...Array(pageCount).keys()].map((number) => (
+          <button
+            key={number}
+            onClick={() => setPage(number)}
+            className={
+              number === page
+                ? "bg-blue-700 px-3 py-0 duration-300 border-2 text-white cursor-pointer "
+                : "   px-3  border-2 duration-300 hover:text-gray-800 hover:bg-gray-200 cursor-pointer focus:shadow-none"
+            }
+          >
+            {number + 1}
+          </button>
+        ))}
+        {page + 1 !== pageCount ? (
+          <button
+            className="page-link text-xl py-2 px-4 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+            onClick={handleNext}
+          >
+            Next
+          </button>
+        ) : (
+          <button className="page-link text-xl py-2 px-4 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md text-gray-800  focus:shadow-none">
+            Next
+          </button>
+        )}
+      </div>
+      <div className="flex justify-center">
+        <h4 className=" text-xl font-medium mt-4 mb-16 bg-indigo-500 inline-block text-white px-14 py-0">
+          {page + 1} of {pageCount}
+        </h4>
+      </div>
       <Footer />
     </div>
   );

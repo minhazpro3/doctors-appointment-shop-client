@@ -1,143 +1,32 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 
-const AllProduct = ({ productIn, index, handleDelete }) => {
-  const { register, handleSubmit, reset } = useForm();
-  const onSubmit = (data) => {};
+const AllProduct = ({
+  productIn,
+  index,
+  handleDelete,
+  
+  
+}) => {
+  
+ 
+
   return (
     <tr class="bg-white border-b">
       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-        {index + 1}
-      </td>
-      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-        {productIn?.name}
-      </td>
-      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-        {productIn.discountPrice}
+       <h4 className="text-base font-medium"> {index + 1}</h4>
       </td>
       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex justify-center ">
-        
-        <div
-          class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto duration-100"
-          id="exampleModalScrollable"
-          tabindex="-1"
-          aria-labelledby="exampleModalScrollableLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-scrollable relative w-auto pointer-events-none">
-            <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-              <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-                <h5
-                  class="text-xl font-medium leading-normal text-gray-800"
-                  id="exampleModalScrollableLabel"
-                >
-                  Update Product Info
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body relative p-4">
-                <div>
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <input
-                      className="border-2 mt-2 border-black rounded-lg w-80 py-2 px-2 focus:outline-blue-900	"
-                      {...register("name")}
-                      type="text"
-                      placeholder="Product Name"
-                      required
-                    />
-                    <br />
-                    <input
-                      className="border-2 mt-2 border-black rounded-lg w-80 py-2 px-2 focus:outline-blue-900	"
-                      {...register("description")}
-                      type="text"
-                      placeholder="Description"
-                      required
-                    />
-
-                    <br />
-                    <input
-                      className="border-2 mt-2 border-black rounded-lg w-80 py-2 px-2 focus:outline-blue-900	"
-                      {...register("price")}
-                      type="number"
-                      placeholder="Regular Price"
-                    />
-                    <br />
-                    <input
-                      className="border-2 mt-2 border-black rounded-lg w-80 py-2 px-2 focus:outline-blue-900	"
-                      {...register("discount")}
-                      type="number"
-                      placeholder="Discount %"
-                    />
-                    <br />
-                    <input
-                      className="border-2 mt-2 border-black rounded-lg w-80 py-2 px-2 focus:outline-blue-900	"
-                      {...register("discountPrice")}
-                      type="number"
-                      placeholder="Discount Price"
-                      required
-                    />
-                    <br />
-                    <select
-                      className="border-2 mt-2 border-black rounded-lg w-80 py-2 px-2 focus:outline-blue-900	"
-                      {...register("rating")}
-                      placeholder=""
-                      required
-                    >
-                      <option selected disabled className="opacity-25 ">
-                        Set Rating
-                      </option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                    <br />
-                    
-
-                    <input
-                      className="border-2 mt-2 cursor-pointer text-white bg-sky-900 hover:bg-orange-500 border-black rounded-lg w-80 py-2 px-2"
-                      placeholder=""
-                      type="submit"
-                    />
-                  </form>
-                </div>
-              </div>
-              <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-                <button
-                  type="button"
-                  class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                {/* <button type="button"
-          class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
-          Save changes
-        </button> */}
-              </div>
-            </div>
-          </div>
-        </div>
-        <svg
-          className="cursor-pointer"
-          fill="#000000"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 30 30"
-          width="30px"
-          height="30px"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModalScrollable"
-        >
-          {" "}
-          <path d="M 22.828125 3 C 22.316375 3 21.804562 3.1954375 21.414062 3.5859375 L 19 6 L 24 11 L 26.414062 8.5859375 C 27.195062 7.8049375 27.195062 6.5388125 26.414062 5.7578125 L 24.242188 3.5859375 C 23.851688 3.1954375 23.339875 3 22.828125 3 z M 17 8 L 5.2597656 19.740234 C 5.2597656 19.740234 6.1775313 19.658 6.5195312 20 C 6.8615312 20.342 6.58 22.58 7 23 C 7.42 23.42 9.6438906 23.124359 9.9628906 23.443359 C 10.281891 23.762359 10.259766 24.740234 10.259766 24.740234 L 22 13 L 17 8 z M 4 23 L 3.0566406 25.671875 A 1 1 0 0 0 3 26 A 1 1 0 0 0 4 27 A 1 1 0 0 0 4.328125 26.943359 A 1 1 0 0 0 4.3378906 26.939453 L 4.3632812 26.931641 A 1 1 0 0 0 4.3691406 26.927734 L 7 26 L 5.5 24.5 L 4 23 z" />
-        </svg>
+       
+        <img className="w-28" src={`data:image/*;base64,${productIn?.image}`} alt="product" />
+       
+       </td>
+      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+       <h4 className="text-base font-medium"> {productIn?.name}</h4>
       </td>
+      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+      <h4 className="text-base font-medium"> $  {productIn?.discountPrice}</h4>
+      </td>
+     
 
       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
         <div>
