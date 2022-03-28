@@ -3,9 +3,23 @@ import { useForm } from "react-hook-form";
 
 const MakeAdmin = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+
+    fetch("http://localhost:5000/madeAdmin", {
+      method: "PUT",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(data)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+    })
+  };
   return (
-    <div className="container mx-auto flex justify-center">
+    <div >
+      <div className="container mx-auto flex justify-center my-16">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <label
@@ -23,6 +37,7 @@ const MakeAdmin = () => {
         </div>
         <input className="shadow-2xl text-xl text-white bg-blue-900 w-full py-1 rounded-md hover:text-blue-900 hover:bg-white hover:border-2 hover:cursor-pointer" type="submit" />
       </form>
+      </div>
     </div>
   );
 };

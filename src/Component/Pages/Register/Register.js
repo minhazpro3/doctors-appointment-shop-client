@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import regImg from "../../Images/register img.png";
 import Footer from "../Footer/Footer";
@@ -14,6 +15,7 @@ const Register = () => {
     logOut,
     updateName,
     setIsLoading,
+    saveUsers,
   } = useAuth();
 
   const navigate = useNavigate();
@@ -26,19 +28,29 @@ const Register = () => {
       await createUser(data.email, data.password)
         .then((userCredential) => {
           setUser(userCredential.user);
-          // handleSaveUser(userCredential.user)
-
+          saveUsers(userCredential.user);
           navigate(url);
           setIsLoading(true);
         })
         .catch((error) => {
-          alert(false);
+          warning(false);
         })
         .finally(() => setIsLoading(false));
     } else {
-      alert(false);
+      warning(false);
     }
     updateName(data.name);
+  };
+
+  const warning = (value) => {
+    if (!value) {
+      Swal.fire({
+        title: "Invalid Your Input!",
+        text: "Please enter right key",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    }
   };
 
   const handleGoolgeLogin = () => {
@@ -54,7 +66,7 @@ const Register = () => {
 
   return (
     <div>
-      <div className="container mx-auto  md:p-28">
+      <div className="container mx-auto  my-12">
         <div className="bg-red-500 font-poppins-font p-8 md:p-32">
           <div className="grid  lg:grid-cols-2 justify-center gap-8 bg-red-300	 rounded-md">
             <div>
@@ -67,13 +79,13 @@ const Register = () => {
             </div>
             <div className="flex justify-center bg-white md:rounded-tr-md md:rounded-br-md ">
               <div>
-                <div>
+                <div class="mx-10 md:mx-8 lg:mx-0">
                   <h3 className="text-xl font-bold pt-10">
-                    Sign up to Dribbble
+                    Sign up to Started
                   </h3>
                   <button
                     onClick={handleGoolgeLogin}
-                    className="my-3 w-full bg-blue-700 text-white py-2 px-4 rounded-md"
+                    className="my-3 w-full bg-blue-700 text-sm md:text-base lg:text-base text-white py-2 rounded-md"
                   >
                     <i className="fa fa-google-plus"></i> Signup with google
                   </button>
@@ -84,54 +96,54 @@ const Register = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
                   >
-                    <div class="mb-4">
+                    <div class=" ">
                       <label class="block text-gray-700 text-sm font-bold ">
                         Username
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:outline-blue-900"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("name")}
                         type="text"
                         placeholder="Username"
                         required
                       />
                     </div>
-                    <div class="mb-6">
+                    <div class="mt-2 ">
                       <label class="block text-gray-700 text-sm font-bold  ">
                         Email
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:outline-blue-900"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("email")}
                         type="email"
                         placeholder="Email"
                       />
                     </div>
-                    <div class="mb-6">
+                    <div class="mt-2 ">
                       <label class="block text-gray-700 text-sm font-bold  ">
                         Password
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:outline-blue-900"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("password")}
                         type="password"
                         placeholder=" Password"
                       />
                     </div>
-                    <div class="mb-6">
+                    <div class="mt-2 ">
                       <label class="block text-gray-700 text-sm font-bold  ">
                         Confirm Password
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:outline-blue-900"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("password2")}
                         type="password"
                         placeholder="Re-type Password"
                       />
                     </div>
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between mt-2">
                       <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded   focus:shadow-outline text-xs md:text-sm lg:text-sm"
                         type="submit"
                       >
                         Sign Up

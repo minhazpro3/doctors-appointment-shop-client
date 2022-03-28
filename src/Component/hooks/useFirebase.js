@@ -1,4 +1,6 @@
 import React, { useState,useEffect  } from 'react';
+import axios from "axios";
+
 import { getAuth, signInWithPopup, GoogleAuthProvider,createUserWithEmailAndPassword,onAuthStateChanged ,signOut ,signInWithEmailAndPassword ,updateProfile  } from "firebase/auth";
 import initializeFirebaseApp from '../firebase/firebase.initialize';
 
@@ -33,6 +35,28 @@ const useFirebase = () => {
         return signInWithEmailAndPassword(auth, email, password)
          
     }
+
+
+    // save users
+     
+      const saveUsers = (saveUser) => {
+                 const info = {
+                   email:saveUser.email,
+                   role: "user"
+                 }
+        fetch('http://localhost:5000/saveUsers', {
+          method: "POST",
+          headers: {
+            "content-type":"application/json"
+          },
+          body:JSON.stringify(info)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data)
+        })
+     }
+    
 
     // onAuthStateChange
     useEffect(()=>{
@@ -83,6 +107,7 @@ const useFirebase = () => {
         updateName,
         loginEmailPassword,
         setIsLoading,
+        saveUsers
         
     }
 };
