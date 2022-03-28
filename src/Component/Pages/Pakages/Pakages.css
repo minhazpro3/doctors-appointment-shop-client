@@ -1,0 +1,7 @@
+ 
+ 
+
+
+.background-style:hover {
+    background-image: linear-gradient(to bottom right, skyblue, rgb(226, 226, 215)) !important;
+}

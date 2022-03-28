@@ -1,7 +1,10 @@
 import React from 'react';
 import Rating from 'react-rating';
-
+import useCartItems from '../../hooks/useCartItems'
+ 
 const ShopItems = ({product,index}) => {
+    const {addCart}=useCartItems()
+       
     return (
         <div  className="flex justify-center ">
         <div className="w-80 relative hoverDIv h-[26rem] duration-1000 rounded border-2 overflow-x-hidden shadow-lg overflow-y-hidden">
@@ -77,7 +80,7 @@ const ShopItems = ({product,index}) => {
             </div>
 
             <div className="text-center">
-              <button className="bg-slate-900 w-full text-white text-base font-medium my-2 py-3 rounded-xl hover:bg-sky-500">
+              <button onClick={()=>addCart(product)}  className="bg-slate-900 w-full text-white text-base font-medium my-2 py-3 rounded-xl hover:bg-sky-500">
                 Add To Cart
               </button>
             </div>

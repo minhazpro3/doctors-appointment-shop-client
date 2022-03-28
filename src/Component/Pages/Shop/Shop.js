@@ -4,8 +4,14 @@ import med2 from "../../Images/med-2.png";
 import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import ShopItems from "../ShopItems/ShopItems";
-const Shop = () => {
+import useAuth from "../../hooks/useAuth";
+ const Shop = () => {
   const [products, setProducts] = useState([]);
+  const {user}=useAuth()
+   
+
+   
+   
 
   useEffect(() => {
     fetch("https://serene-atoll-01832.herokuapp.com/getProductCart")
@@ -16,6 +22,9 @@ const Shop = () => {
        
       });
   }, []);
+
+   
+
   return (
     <div>
       <div className="mb-6 relative">
@@ -53,7 +62,7 @@ const Shop = () => {
               </div>
             ) : (
               <div className="grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-2">
-                {products.map((product, index) =><ShopItems key={product._id} product={product} index={index} /> )}
+                {products.map((product, index) =><ShopItems key={product._id} product={product} index={index}  />  )}
               </div>
             )}
           </div>
