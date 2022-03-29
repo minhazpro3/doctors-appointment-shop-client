@@ -3,9 +3,10 @@ import Footer from "../Footer/Footer";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import PetaintInfoCart from "./PetaintInfoCart";
+import adminPicture from "../../Images/admin.png"
 
 const PatientInfo = () => {
-  const { user } = useAuth();
+  const { user,admin } = useAuth();
   const [allPatients, setAllPatients] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -48,15 +49,7 @@ const PatientInfo = () => {
     });
   };
 
-  //   if(allPatients.length){
-
-  //     return setTimeout(() => {
-
-  //      <div></div>
-
-  //   }, 2000);
-
-  // }
+  
 
   return (
     <div className="font-poppins-font">
@@ -64,7 +57,7 @@ const PatientInfo = () => {
         <div>
           <h4 className="text-3xl my-32 text-center">Loading...</h4>
         </div>
-      ) : !allPatients.length ? (
+      ) : !allPatients.length && !admin ? (
         <div className="flex justify-center">
           <div className="border-2 rounded-md my-4 border-blue-900 py-24 px-20 inline-block md:py-40 md:px-56">
             <h4 className="text-center text-4xl font-medium text-blue-900">
@@ -75,7 +68,12 @@ const PatientInfo = () => {
             </h4>
           </div>
         </div>
-      ) : (
+      ) : admin ? <div>
+        
+        <div className="flex justify-center ">
+          <img className="w-full " src={adminPicture} alt="admin" />
+        </div>
+      </div>: (
         <div className="container mx-auto mb-24">
           <div className="text-center">
             <h4 className="text-2xl  my-12   border-t-gray-300  px-4 py-3 inline-block text-blue-900 font-bold">

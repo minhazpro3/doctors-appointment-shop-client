@@ -1,10 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const MakeAdmin = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const onSubmit = (data) => {
-
     fetch("http://localhost:5000/madeAdmin", {
       method: "PUT",
       headers:{
@@ -14,7 +14,15 @@ const MakeAdmin = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log(data);
+      if(data){
+        reset()
+        Swal.fire({
+          title: "Congratulations !",
+          text: "Admin Added Successfully!",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+      }
     })
   };
   return (

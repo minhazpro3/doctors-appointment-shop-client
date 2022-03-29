@@ -3,10 +3,12 @@ import axios from "axios";
 
 import { getAuth, signInWithPopup, GoogleAuthProvider,createUserWithEmailAndPassword,onAuthStateChanged ,signOut ,signInWithEmailAndPassword ,updateProfile  } from "firebase/auth";
 import initializeFirebaseApp from '../firebase/firebase.initialize';
+import Swal from 'sweetalert2';
 
     initializeFirebaseApp()
 const useFirebase = () => {
     const [user, setUser]=useState({})
+    const [admin,setAdmin]=useState(false)
     
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -56,6 +58,19 @@ const useFirebase = () => {
           console.log(data)
         })
      }
+
+
+    //  check admin
+    useEffect(()=>{
+      fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+      .then(res=>res.json())
+      .then(data=>{
+        if(data[0].role==="admin"){
+            setAdmin(true)
+           
+        }
+      })
+    },[user?.email])
     
 
     // onAuthStateChange
@@ -107,7 +122,8 @@ const useFirebase = () => {
         updateName,
         loginEmailPassword,
         setIsLoading,
-        saveUsers
+        saveUsers,
+        admin
         
     }
 };
