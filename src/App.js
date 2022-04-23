@@ -36,14 +36,11 @@ function App() {
             <Route path="/about" element={<AboutPage />}></Route>
             <Route
               path="/shop"
-              element={
-                <PrivateRoute>
-                  <Shop />
-                </PrivateRoute>
-              }
+              element={  <Shop />  }
             ></Route>
             <Route path="/doctors" element={<AllDoctors />}></Route>
             <Route path="/makAppointment" element={<MakeAppointment />}></Route>
+             
             <Route
               path="/dashboard"
               element={

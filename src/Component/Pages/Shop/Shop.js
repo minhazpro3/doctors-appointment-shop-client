@@ -4,15 +4,14 @@ import med2 from "../../Images/med-2.png";
 import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import ShopItems from "../ShopItems/ShopItems";
-import useAuth from "../../hooks/useAuth";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+
  const Shop = () => {
   const [products, setProducts] = useState([]);
-  const {user}=useAuth()
-   
-
-   
-   
-
+  const state = useSelector((state)=>state.HandleCart)
+    
   useEffect(() => {
     fetch("https://serene-atoll-01832.herokuapp.com/getProductCart")
       .then((res) => res.json())
@@ -62,7 +61,7 @@ import useAuth from "../../hooks/useAuth";
               </div>
             ) : (
               <div className="grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-2">
-                {products.map((product, index) =><ShopItems key={product._id} product={product} index={index}  />  )}
+                {products.map((product, index) =><ShopItems key={product._id} product={product} index={index}   />  )}
               </div>
             )}
           </div>
@@ -72,7 +71,7 @@ import useAuth from "../../hooks/useAuth";
                 <h3 className="text-2xl font-medium my-2">Order Summary</h3>
                 <div className="flex items-center justify-between">
                   <h3>Items:</h3>
-                  <h3>Pcs: 5</h3>
+                  <h3>Pcs: {state.length}</h3>
                 </div>
                 <hr />
                 <div className="flex items-center justify-between mt-4">
@@ -95,9 +94,11 @@ import useAuth from "../../hooks/useAuth";
                   <h3>USD: 00.00</h3>
                 </div>
                 <div className="text-center">
-                  <button className="text-xl py-2 px-3 w-full mt-10 mb-6 bg-slate-800 text-white">
+               <NavLink to="/">
+               <button className="text-xl py-2 px-3 w-full mt-10 mb-6 bg-slate-800 text-white">
                     Next
                   </button>
+               </NavLink>
                 </div>
               </div>
             </div>
