@@ -17,7 +17,7 @@ const Pakages = () => {
               <div className="mx-10 mt-10 ">
                 <h5>
                   {" "}
-                  It is a long established fact a reader will be distracted.
+                  It is a long established facts a reader will be    distracted.
                 </h5>
                 <div className="flex gap-2 ">
                   <i className="far fa-check-circle text-sky-600	 "></i>
