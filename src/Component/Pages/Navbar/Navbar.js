@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth"
  
 
 const Navbar = () => {
-  const {logOut,user}=useAuth();
+  const {logOut,user,admin}=useAuth();
   return (
     <nav className="px-2  bg-white border-gray-200 shadow-lg ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -59,7 +59,7 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            {!admin&&<li>
               <NavLink
                 to="/shop"
                 className="block py-2 pr-4 pl-3  rounded md:bg-transparent hover:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
@@ -67,7 +67,7 @@ const Navbar = () => {
               >
                 Shop
               </NavLink>
-            </li>
+            </li>}
            
             <li>
               <button
@@ -103,40 +103,40 @@ const Navbar = () => {
                       Dashboard
                     </NavLink>
                   </li>
-                  <li>
+                  {!admin&&<li>
                     <NavLink
                       to="/about"
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     >
                       About
                     </NavLink>
-                  </li>
-                  <li>
+                  </li>}
+                 {!admin&& <li>
                     <NavLink
                       to="/doctors"
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     >
                       Doctors
                     </NavLink>
-                  </li>
+                  </li>}
                  
-                  <li>
+                 {!admin&& <li>
                     <NavLink
                       to="/makAppointment"
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     >
                       Make Appointment
                     </NavLink>
-                  </li>
+                  </li>}
                 </ul>
-                <div className="py-1">
+               {!admin&& <div className="py-1">
                   <NavLink
                     to="/"
                     className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                   >
                     Contact
                   </NavLink>
-                </div>
+                </div>}
               </div>
             </li>
 
