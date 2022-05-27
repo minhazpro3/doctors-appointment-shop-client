@@ -47,7 +47,7 @@ const MakeAppointment = () => {
                         {...register("doctor")}
                         required
                       >
-                        <option selected disabled>
+                        <option  disabled>
                           {" "}
                           --Select Doctor--
                         </option>

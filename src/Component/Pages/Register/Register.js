@@ -79,7 +79,7 @@ const Register = () => {
             </div>
             <div className="flex justify-center bg-white md:rounded-tr-md md:rounded-br-md ">
               <div>
-                <div class="mx-10 md:mx-8 lg:mx-0">
+                <div className="mx-10 md:mx-8 lg:mx-0">
                   <h3 className="text-xl font-bold pt-10">
                     Sign up to Started
                   </h3>
@@ -91,70 +91,70 @@ const Register = () => {
                   </button>
                 </div>
 
-                <div class="w-full max-w-xs">
+                <div className="w-full max-w-xs">
                   <form
                     onSubmit={handleSubmit(onSubmit)}
-                    class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+                    className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
                   >
-                    <div class=" ">
-                      <label class="block text-gray-700 text-sm font-bold ">
+                    <div className=" ">
+                      <label className="block text-gray-700 text-sm font-bold ">
                         Username
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("name")}
                         type="text"
                         placeholder="Username"
                         required
                       />
                     </div>
-                    <div class="mt-2 ">
-                      <label class="block text-gray-700 text-sm font-bold  ">
+                    <div className="mt-2 ">
+                      <label className="block text-gray-700 text-sm font-bold  ">
                         Email
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("email")}
                         type="email"
                         placeholder="Email"
                       />
                     </div>
-                    <div class="mt-2 ">
-                      <label class="block text-gray-700 text-sm font-bold  ">
+                    <div className="mt-2 ">
+                      <label className="block text-gray-700 text-sm font-bold  ">
                         Password
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("password")}
                         type="password"
                         placeholder=" Password"
                       />
                     </div>
-                    <div class="mt-2 ">
-                      <label class="block text-gray-700 text-sm font-bold  ">
+                    <div className="mt-2 ">
+                      <label className="block text-gray-700 text-sm font-bold  ">
                         Confirm Password
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("password2")}
                         type="password"
                         placeholder="Re-type Password"
                       />
                     </div>
-                    <div class="flex items-center justify-between mt-2">
+                    <div className="flex items-center justify-between mt-2">
                       <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded   focus:shadow-outline text-xs md:text-sm lg:text-sm"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded   focus:shadow-outline text-xs md:text-sm lg:text-sm"
                         type="submit"
                       >
                         Sign Up
                       </button>
-                      <p class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 disable">
+                      <p className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 disable">
                         Forgot Password?
                       </p>
                     </div>
                   </form>
 
-                  <p class="text-center text-gray-900 text-xs pb-5">
+                  <p className="text-center text-gray-900 text-xs pb-5">
                     &copy;2022 Md Minhaz. All rights reserved.
                   </p>
                 </div>

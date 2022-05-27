@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
   const state = useSelector((state)=>state.HandleCart)
     
   useEffect(() => {
-    fetch("https://serene-atoll-01832.herokuapp.com/getProductCart")
+    fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -44,7 +44,7 @@ import { useSelector } from "react-redux";
               <div className="text-center text-3xl">
                 <svg
                   role="status"
-                  class="inline mr-2 w-20 h-16 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"
+                  className="inline mr-2 w-20 h-16 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"

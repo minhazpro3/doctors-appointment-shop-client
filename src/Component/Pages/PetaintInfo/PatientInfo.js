@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import PetaintInfoCart from "./PetaintInfoCart";
 import adminPicture from "../../Images/admin.png";
+import { Link } from "react-router-dom";
 
 const PatientInfo = () => {
   const { user, admin } = useAuth();
@@ -13,7 +14,7 @@ const PatientInfo = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://serene-atoll-01832.herokuapp.com/yourBookings/${user?.email}`
+      `https://aqueous-stream-06459.herokuapp.com/yourBookings/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -35,7 +36,7 @@ const PatientInfo = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
-        fetch(`https://serene-atoll-01832.herokuapp.com/deleteMySerial/${id}`, {
+        fetch(`https://aqueous-stream-06459.herokuapp.com/deleteMySerial/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",
@@ -62,7 +63,7 @@ const PatientInfo = () => {
               You don't have Bookings!!
             </h4>
             <h4 className="text-center text-2xl mt-2 text-blue-900">
-              Please Booking
+              Please Booking <Link to="/makAppointment"><span className="text-green-500" >Click now</span></Link>
             </h4>
           </div>
         </div>

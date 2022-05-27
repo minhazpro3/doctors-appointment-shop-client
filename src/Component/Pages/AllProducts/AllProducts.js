@@ -15,7 +15,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://serene-atoll-01832.herokuapp.com/getProducts?page=${page}&&size=${size}`)
+    fetch(`https://aqueous-stream-06459.herokuapp.com/getProducts?page=${page}&&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setProductInfo(data.product);
@@ -61,7 +61,7 @@ const AllProducts = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
-        fetch(`https://serene-atoll-01832.herokuapp.com/deleteProduct/${id}`, {
+        fetch(`https://aqueous-stream-06459.herokuapp.com/deleteProduct/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",
@@ -102,41 +102,41 @@ const AllProducts = () => {
               Surgical && Medicine Products!!!
             </h4>
           </div>
-          <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="overflow-hidden">
-                  <table class="min-w-full text-center">
-                    <thead class="border-b bg-gray-800">
+          <div className="flex flex-col">
+            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+                <div className="overflow-hidden">
+                  <table className="min-w-full text-center">
+                    <thead className="border-b bg-gray-800">
                       <tr>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-white px-6 py-4"
+                          className="text-sm font-medium text-white px-6 py-4"
                         >
                           SL
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-white px-6 py-4"
+                          className="text-sm font-medium text-white px-6 py-4"
                         >
                           Products
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-white px-6 py-4"
+                          className="text-sm font-medium text-white px-6 py-4"
                         >
                           Name
                         </th>
 
                         <th
                           scope="col"
-                          class="text-sm font-medium text-white px-6 py-4"
+                          className="text-sm font-medium text-white px-6 py-4"
                         >
                           Price
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-white px-6 py-4"
+                          className="text-sm font-medium text-white px-6 py-4"
                         >
                           Delete
                         </th>
@@ -161,7 +161,7 @@ const AllProducts = () => {
         </div>
       )}
 
-      <div class="flex justify-center mt-12 gap-7">
+      <div className="flex justify-center mt-12 gap-7">
         <button
           className="page-link text-xl py-2 px-4 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none "
           onClick={handlePrevious}

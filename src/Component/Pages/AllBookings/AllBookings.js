@@ -11,7 +11,7 @@ const AllBookings = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://serene-atoll-01832.herokuapp.com/allBookings")
+    fetch("https://aqueous-stream-06459.herokuapp.com/allBookings")
       .then((res) => res.json())
       .then((data) => {
         setAllBookings(data);
@@ -33,7 +33,7 @@ const AllBookings = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
-        fetch(`https://serene-atoll-01832.herokuapp.com/deletePatient/${id}`, {
+        fetch(`https://aqueous-stream-06459.herokuapp.com/deletePatient/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",
@@ -64,7 +64,7 @@ const AllBookings = () => {
       if (result.isConfirmed) {
         Swal.fire("Updated!", "Your file has been updated.", "success");
 
-        fetch(`https://serene-atoll-01832.herokuapp.com/updatePatient/${id}`, {
+        fetch(`https://aqueous-stream-06459.herokuapp.com/updatePatient/${id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

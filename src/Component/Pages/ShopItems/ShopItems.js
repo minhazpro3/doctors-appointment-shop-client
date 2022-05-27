@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import Rating from "react-rating";
 import { useDispatch } from "react-redux";
@@ -8,6 +9,13 @@ const ShopItems = ({ product, index }) => {
   const dispatch = useDispatch()
     const addProduct = (products) =>{
         dispatch(addItem(products))
+    }
+
+    const addItem = ()=>{
+      axios.post("https://aqueous-stream-06459.herokuapp.com/addCart")
+      .then(res=>{
+        console.log(res.data.data);
+      })
     }
 
    

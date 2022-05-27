@@ -20,7 +20,7 @@ const AddProducts = () => {
     formData.append('description', data.description)
     formData.append('image', data.image[0])
 
-    const url = 'https://serene-atoll-01832.herokuapp.com/addProduct'
+    const url = 'https://aqueous-stream-06459.herokuapp.com/addProduct'
     fetch(url, {
       method: "POST",
       body: formData
@@ -113,7 +113,7 @@ const AddProducts = () => {
                     placeholder=""
                     required
                   >
-                    <option selected disabled className="opacity-25 ">
+                    <option  disabled className="opacity-25 ">
                       Set Rating
                     </option>
                     <option>1</option>

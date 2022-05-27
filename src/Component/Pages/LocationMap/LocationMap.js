@@ -29,7 +29,7 @@ const LocationMap = () => {
   } = useForm();
   const onSubmit = (data) => {
     data.status = "Processing";
-    fetch("https://serene-atoll-01832.herokuapp.com/postAllPatients", {
+    fetch("https://aqueous-stream-06459.herokuapp.com/postAllPatients", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,11 +46,11 @@ const LocationMap = () => {
   };
 
   useEffect(() => {
-    fetch("https://serene-atoll-01832.herokuapp.com/getDoctors")
+    fetch("https://aqueous-stream-06459.herokuapp.com/getDoctors")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);
-        console.log(data, "map");
+        
       });
   }, []);
 
@@ -129,7 +129,7 @@ const LocationMap = () => {
                   {...register("doctor")}
                   required
                 >
-                  <option selected disabled>
+                  <option  disabled>
                     {" "}
                     --Select Doctor--
                   </option>

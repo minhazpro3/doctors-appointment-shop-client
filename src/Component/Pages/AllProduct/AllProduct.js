@@ -11,24 +11,24 @@ const AllProduct = ({
  
 
   return (
-    <tr class="bg-white border-b">
-      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+    <tr className="bg-white border-b">
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
        <h4 className="text-base font-medium"> {index + 1}</h4>
       </td>
-      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex justify-center ">
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex justify-center ">
        
         <img className="w-28" src={`data:image/*;base64,${productIn?.image}`} alt="product" />
        
        </td>
-      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
        <h4 className="text-base font-medium"> {productIn?.name}</h4>
       </td>
-      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
       <h4 className="text-base font-medium"> $  {productIn?.discountPrice}</h4>
       </td>
      
 
-      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
         <div>
           <svg
             onClick={() => handleDelete(productIn._id)}

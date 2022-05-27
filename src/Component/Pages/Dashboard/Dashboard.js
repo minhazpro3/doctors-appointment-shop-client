@@ -29,8 +29,8 @@ const Dashboard = () => {
                 : "w-60 h-full shadow-md bg-white  fixed"
             }
           >
-            <ul class="relative">
-              <li class="relative  ">
+            <ul className="relative">
+              <li className="relative  ">
                 <div className="flex justify-between items-center  px-2 my-4">
                   <NavLink to="/">
                     <img
@@ -40,7 +40,7 @@ const Dashboard = () => {
                     />
                   </NavLink>
                   <h4 className="text-base">
-                    {user?.displayName.slice(0, 10)}
+                    {user?.displayName}
                   </h4>
                   <button className="mx-12" onClick={showSidebar}>
                     <img
@@ -54,7 +54,7 @@ const Dashboard = () => {
 
               {!admin ? (
                 <div>
-                  <li class="relative my-3  ">
+                  <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/">
                         <h4 className="text-base bg-indigo-900 text-white py-1 px-3 rounded-lg">
@@ -63,7 +63,7 @@ const Dashboard = () => {
                       </NavLink>
                     </div>
                   </li>
-                  <li class="relative  ">
+                  <li className="relative  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/shopInfo">
                         <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
@@ -75,7 +75,7 @@ const Dashboard = () => {
                 </div>
               ) : (
                 <div>
-                  <li class="relative my-3  ">
+                  <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/addProducts">
                         <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
@@ -85,7 +85,7 @@ const Dashboard = () => {
                       </NavLink>
                     </div>
                   </li>
-                  <li class="relative my-3  ">
+                  <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/addDoctors">
                         <h4 className="text-base bg-indigo-900 text-white py-1 px-3 rounded-lg">
@@ -94,7 +94,7 @@ const Dashboard = () => {
                       </NavLink>
                     </div>
                   </li>
-                  <li class="relative my-3  ">
+                  <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/makeAdmin">
                         <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
@@ -103,7 +103,7 @@ const Dashboard = () => {
                       </NavLink>
                     </div>
                   </li>
-                  <li class="relative my-3  ">
+                  <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/allBookings">
                         <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
@@ -112,7 +112,7 @@ const Dashboard = () => {
                       </NavLink>
                     </div>
                   </li>
-                  <li class="relative my-3  ">
+                  <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/allProducts">
                         <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">

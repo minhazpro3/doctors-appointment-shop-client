@@ -3,39 +3,102 @@ import { useForm } from "react-hook-form";
 import "../AddProducts/AddProducts.css";
 import Footer from "../Footer/Footer";
 import Swal from "sweetalert2";
+import {useState} from "react"
+import axios from "axios"
 
 const AddDcotor = () => {
+  const [imgUrl,setImageUrl]=useState("")
   const { register, handleSubmit,reset } = useForm();
+  // const onSubmit = (data) => {
+  //   const formData1 = {
+  //     title: data.title,
+  //     regularPrice: data.regularPrice,
+  //     offerPrice: data.offerPrice,
+  //     description: data.description,
+  //     image: imgUrl,
+  //   };
+
+  //   const url = `https://rocky-river-82616.herokuapp.com/addBike`;
+  //   fetch(url, {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(formData1),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.acknowledged) {
+  //         reset();
+  //         setReload(true);
+  //         warning(true);
+  //       }
+  //     });
+  // };
   const onSubmit = (data) => {
 
-    const formData = new FormData();
-    formData.append('name', data.name)
-    formData.append('email', data.email)
-    formData.append('jobTittle', data.jobTittle)
-    formData.append('age', data.age)
-    formData.append('address', data.address)
-    formData.append('phone', data.phone)
-    formData.append('image', data.image[0])
-
-    const url = 'https://serene-atoll-01832.herokuapp.com/addDoctor'
-    fetch(url, {
-      method: "POST",
-      body: formData
-       
-    })
-    .then(res=>res.json())
-    .then(data=>{
-     
-      if(data.acknowledged){
-        Swal.fire(
-          'Good job!',
-          'You Product added the Successful!',
-          'success'
-        )
-        reset()
+      const formData1 = {
+        name: data.name,
+        email: data.email,
+        jobTittle:data.jobTittle,
+        age:data.age,
+        address:data.address,
+        phone:data.phone,
+        image:imgUrl
       }
-    
+   
+    const url = "https://aqueous-stream-06459.herokuapp.com/addDoctor"
+    fetch(url,{
+      method: "POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body: JSON.stringify(formData1),
     })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.acknowledged) {
+        reset();
+        // setReload(true);
+        // warning(true);
+      }
+    });
+
+    // const url = 'https://aqueous-stream-06459.herokuapp.com/addDoctor'
+    // fetch(url, {
+    //   method: "POST",
+    //   body: formData
+       
+    // })
+    // .then(res=>res.json())
+    // .then(data=>{
+     
+    //   if(data.acknowledged){
+    //     Swal.fire(
+    //       'Good job!',
+    //       'You Product added the Successful!',
+    //       'success'
+    //     )
+    //     reset()
+    //   }
+    
+    // })
+  };
+
+  const setImage = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.set("key", "d45a4ad9a09ad1464075aa3c82125b64");
+    formData.append("image", e.target.files[0]);
+
+    axios
+      .post("https://api.imgbb.com/1/upload", formData)
+      .then((res) => {
+        setImageUrl(res.data.data.url);
+        console.log(res.data.data.url);
+      })
+      .catch((error) => {});
   };
   return (
     <div>
@@ -109,6 +172,7 @@ const AddDcotor = () => {
                   className="border-2 border-black  w-80 md:w-72  lg:w-72   rounded-lg focus:outline-blue-900 ml-2 my-6  "
                   {...register("image")}
                   type="file"
+                  onChange={setImage}
                   required
                 />
 

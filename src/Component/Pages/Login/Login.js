@@ -96,32 +96,32 @@ const Login = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     className="bg-white shadow-md rounded w-full p-4 mb-4"
                   >
-                    <div class="mb-6">
-                      <label class="block text-gray-700 text-sm font-bold  ">
+                    <div className="mb-6">
+                      <label className="block text-gray-700 text-sm font-bold  ">
                         Email
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("email")}
                         type="email"
                         placeholder="Email"
                       />
                     </div>
-                    <div class="mb-6">
-                      <label class="block text-gray-700 text-sm font-bold  ">
+                    <div className="mb-6">
+                      <label className="block text-gray-700 text-sm font-bold  ">
                         Password
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight   focus:shadow-outline focus:outline-blue-900"
                         {...register("password")}
                         type="password"
                         placeholder=" Password"
                       />
                     </div>
 
-                    <div class="flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                       <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
                       >
                         Sign In
@@ -134,7 +134,7 @@ const Login = () => {
                     </NavLink>
                   </form>
 
-                  <p class="text-center text-gray-900 text-xs pb-5">
+                  <p className="text-center text-gray-900 text-xs pb-5">
                     &copy;2022 Md Minhaz. All rights reserved.
                   </p>
                 </div>

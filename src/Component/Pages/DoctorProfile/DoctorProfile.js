@@ -21,7 +21,7 @@ const DoctorProfile = () => {
   };
 
   useEffect(() => {
-    fetch(`https://serene-atoll-01832.herokuapp.com/singleDoctor/${doctorId}`)
+    fetch(`https://aqueous-stream-06459.herokuapp.com/singleDoctor/${doctorId}`)
       .then((res) => res.json())
       .then((data) => {
        
@@ -181,7 +181,7 @@ const DoctorProfile = () => {
                         required
                       >
                        
-                        <option selected defaultValue>{singleDoctor.name}</option>
+                        <option  defaultValue>{singleDoctor.name}</option>
                       </select>
                       <div className="pointer-events-none  absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <svg
