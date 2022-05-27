@@ -1,13 +1,31 @@
-import React from 'react';
+import axios from 'axios';
+import React,{ useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Footer from '../Footer/Footer';
+
  
 const MakeAppointment = () => {
+  const [doctor,setDoctor]=useState([])
     const {
         register,
         handleSubmit,
       } = useForm();
-      const onSubmit = (data) => console.log(data);
+      const onSubmit = (data) => {
+        axios.post("https://aqueous-stream-06459.herokuapp.com/postAllPatients")
+        .then(res=>{
+          console.log(res.data);
+          alert("done")
+        })
+      };
+
+      useEffect(()=>{
+        axios.get("https://aqueous-stream-06459.herokuapp.com/getDoctors")
+        .then(res=>{
+          console.log(res.data);
+          setDoctor(res.data)
+        })
+      },[])
+
     return (
         <div>
         

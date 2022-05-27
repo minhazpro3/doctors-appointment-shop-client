@@ -96,7 +96,7 @@ const AddDcotor = () => {
       .post("https://api.imgbb.com/1/upload", formData)
       .then((res) => {
         setImageUrl(res.data.data.url);
-        console.log(res.data.data.url);
+        console.log(res.data);
       })
       .catch((error) => {});
   };
