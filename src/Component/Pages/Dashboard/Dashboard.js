@@ -6,6 +6,7 @@ import useAuth from "../../hooks/useAuth";
 
 const Dashboard = () => {
   const { user, admin } = useAuth();
+  console.log(admin);
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -25,7 +26,7 @@ const Dashboard = () => {
           <div
             className={
               sidebar
-                ? "hidden w-60 h-full shadow-md bg-white     fixed"
+                ? "hidden w-60 h-full shadow-md bg-white fixed"
                 : "w-60 h-full shadow-md bg-white  fixed"
             }
           >
@@ -52,9 +53,8 @@ const Dashboard = () => {
                 </div>
               </li>
 
-              {!admin ? (
-                <div>
-                  <li className="relative my-3  ">
+              <div>
+                 {!admin&& <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/">
                         <h4 className="text-base bg-indigo-900 text-white py-1 px-3 rounded-lg">
@@ -62,8 +62,8 @@ const Dashboard = () => {
                         </h4>
                       </NavLink>
                     </div>
-                  </li>
-                  <li className="relative  ">
+                  </li>}
+                {!admin&&   <li className="relative  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/shopInfo">
                         <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
@@ -71,9 +71,8 @@ const Dashboard = () => {
                         </h4>
                       </NavLink>
                     </div>
-                  </li>
+                  </li>}
                 </div>
-              ) : (
                 <div>
                   <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
@@ -122,7 +121,7 @@ const Dashboard = () => {
                     </div>
                   </li>
                 </div>
-              )}
+              
             </ul>
           </div>
         </div>
