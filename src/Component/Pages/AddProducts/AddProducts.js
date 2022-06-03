@@ -16,37 +16,44 @@ const AddProducts = () => {
 
     const formData1 = {
       name: data.name,
-      email: data.email,
-      jobTittle:data.jobTittle,
-      age:data.age,
-      address:data.address,
-      phone:data.phone,
+      description:data.description,
+      price:data.price,
+      discount:data.discount,
+      discountPrice:data.discountPrice,
+      rating:data.rating,
       image:imgUrl
     }
 
- console.log(formData1);
-  const url = "http://localhost:5000/"
-  fetch(url,{
-    method: "POST",
-    headers:{
-      "content-type":"application/json"
-    },
-    body: JSON.stringify(formData1),
-  })
-  .then((res) => res.json())
-  .then((data) => {
-    if (data.acknowledged) {
-      Swal.fire(
-        'Good job!',
-        'You Product added the Successful!',
-        'success'
-      )
-      reset();
+
+    axios.post("http://localhost:5000/addProduct", formData1)
+    .then(res=>{
+      console.log(res.data);
       
-      // setReload(true);
-      // warning(true);
-    }
-  });
+    })
+
+ console.log(formData1);
+  // const url = "http://localhost:5000/"
+  // fetch(url,{
+  //   method: "POST",
+  //   headers:{
+  //     "content-type":"application/json"
+  //   },
+  //   body: JSON.stringify(formData1),
+  // })
+  // .then((res) => res.json())
+  // .then((data) => {
+  //   if (data.acknowledged) {
+  //     Swal.fire(
+  //       'Good job!',
+  //       'You Product added the Successful!',
+  //       'success'
+  //     )
+  //     reset();
+      
+  //     setReload(true);
+  //     warning(true);
+  //   }
+  // });
 
     
 

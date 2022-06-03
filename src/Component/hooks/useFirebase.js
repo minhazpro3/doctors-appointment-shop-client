@@ -52,7 +52,6 @@ const useFirebase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
       });
   };
 
@@ -99,6 +98,8 @@ const useFirebase = () => {
       .then(() => {})
       .catch((error) => {});
   };
+
+ 
 
   return {
     googleSignIn,
