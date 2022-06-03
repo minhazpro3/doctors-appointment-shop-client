@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 
 const Dashboard = () => {
   const { user, admin } = useAuth();
-  console.log(admin);
+  console.log(admin,"admin and ", user,"user");
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -53,8 +53,8 @@ const Dashboard = () => {
                 </div>
               </li>
 
-              <div>
-                 {!admin&& <li className="relative my-3  ">
+             {!admin==="admin" || admin ==="" ? <div>
+                  <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/">
                         <h4 className="text-base bg-indigo-900 text-white py-1 px-3 rounded-lg">
@@ -62,8 +62,8 @@ const Dashboard = () => {
                         </h4>
                       </NavLink>
                     </div>
-                  </li>}
-                {!admin&&   <li className="relative  ">
+                  </li>
+                 <li className="relative  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/shopInfo">
                         <h4 className="text-base bg-indigo-900 w-full text-white py-1 px-3 rounded-lg">
@@ -71,9 +71,9 @@ const Dashboard = () => {
                         </h4>
                       </NavLink>
                     </div>
-                  </li>}
+                  </li>
                 </div>
-                <div>
+            : <div>
                   <li className="relative my-3  ">
                     <div className="flex justify-between px-4">
                       <NavLink to="/dashboard/addProducts">
@@ -120,7 +120,7 @@ const Dashboard = () => {
                       </NavLink>
                     </div>
                   </li>
-                </div>
+                </div>}
               
             </ul>
           </div>

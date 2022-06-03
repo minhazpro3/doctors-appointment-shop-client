@@ -19,6 +19,7 @@ const PatientInfo = () => {
       .then((res) => res.json())
       .then((data) => {
         setAllPatients(data);
+        console.log(data);
         setLoading(false);
       });
   }, []);

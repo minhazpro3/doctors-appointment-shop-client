@@ -9,14 +9,7 @@ import axios  from 'axios';
 const AllDoctors = () => {
   const [doctors, setDoctors] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("https://aqueous-stream-06459.herokuapp.com/getDoctors")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setDoctors(data);
-       
-  //     });
-  // }, []);
+ 
   useEffect(()=>{
     axios.get("https://aqueous-stream-06459.herokuapp.com/getDoctors")
     .then(res=>{
@@ -24,30 +17,7 @@ const AllDoctors = () => {
       setDoctors(res.data)
     })
   },[])
-  /* \
-  
-
-
-Dr. Marvin Robbins
-Cardiology
-
-
-
-Dr. Hellen Hill
-Oncologist
-
-Audrey Button
-Gastroenterologist
-
-Dr. Suji Bates
-Pulmonologist
-
-Dr. Mitaly Roy
-Nephrologist
-
-Dr. Staine Del
-Endocrinologist
-  */
+   
   return (
     <div>
       <div className="bg-allDoctors-banner object-cover w-full h-96 font-poppins-font">

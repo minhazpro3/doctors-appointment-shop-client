@@ -1,50 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import AddProductsPic from "../../Images/add_products-removebg-preview.png";
 import Footer from "../Footer/Footer";
 import "./AddProducts.css";
 import Swal from "sweetalert2"
+import axios from "axios";
  
 
 
 const AddProducts = () => {
+  const [imgUrl,setImgUrl]=useState()
   const { register, handleSubmit, reset} = useForm();
   const onSubmit =   data => {
-    
-    const formData = new FormData();
-    formData.append('name', data.name)
-    formData.append('rating', data.rating)
-    formData.append('price', data.price)
-    formData.append('discountPrice', data.discountPrice)
-    formData.append('discount', data.discount)
-    formData.append('description', data.description)
-    formData.append('image', data.image[0])
+    console.log(data);
 
-    const url = 'https://aqueous-stream-06459.herokuapp.com/addProduct'
-    fetch(url, {
-      method: "POST",
-      body: formData
-       
-    })
-    .then(res=>res.json())
-    .then(data=>{
-     
-      if(data.acknowledged){
-        Swal.fire(
-          'Good job!',
-          'You Product added the Successful!',
-          'success'
-        )
-        reset()
-      }
-    
-    })
+    const formData1 = {
+      name: data.name,
+      email: data.email,
+      jobTittle:data.jobTittle,
+      age:data.age,
+      address:data.address,
+      phone:data.phone,
+      image:imgUrl
+    }
+
+ console.log(formData1);
+  const url = "http://localhost:5000/"
+  fetch(url,{
+    method: "POST",
+    headers:{
+      "content-type":"application/json"
+    },
+    body: JSON.stringify(formData1),
+  })
+  .then((res) => res.json())
+  .then((data) => {
+    if (data.acknowledged) {
+      Swal.fire(
+        'Good job!',
+        'You Product added the Successful!',
+        'success'
+      )
+      reset();
+      
+      // setReload(true);
+      // warning(true);
+    }
+  });
+
     
 
 }
 
  
+const setImage = (e) => {
+  e.preventDefault();
 
+  const formData = new FormData();
+  formData.set("key", "d45a4ad9a09ad1464075aa3c82125b64");
+  formData.append("image", e.target.files[0]);
+
+  axios
+    .post("https://api.imgbb.com/1/upload", formData)
+    .then((res) => {
+      setImgUrl(res.data.data.url);
+      console.log(res.data);
+    })
+    .catch((error) => {});
+};
     
 
   return (
@@ -130,6 +153,7 @@ const AddProducts = () => {
                     accept="image/*"
                     placeholder=""
                     required
+                    onChange={setImage}
                   />
                   <br />
 

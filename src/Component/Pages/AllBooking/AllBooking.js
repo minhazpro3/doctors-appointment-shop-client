@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 
 const AllBooking = ({ patient, index, updateStatus, handleDelete }) => {
+  console.log(patient);
   const inputRef = useRef();
   return (
     <tbody>
@@ -43,7 +44,7 @@ const AllBooking = ({ patient, index, updateStatus, handleDelete }) => {
                   ref={inputRef}
                   required
                 >
-                  <option  disabled>{patient?.status}</option>
+                  <option selected disabled>{patient?.status}</option>
                   <option value="approved">Approved</option>
                   <option value="absent">Absent</option>
                   <option value="done">Done</option>

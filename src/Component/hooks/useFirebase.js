@@ -15,8 +15,8 @@ import initializeFirebaseApp from "../firebase/firebase.initialize";
 initializeFirebaseApp();
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [admin, setAdmin] = useState(false);
-
+  const [admin, setAdmin] = useState("");
+  
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
   const [isLoading, setIsLoading] = useState(true);
@@ -63,7 +63,8 @@ const useFirebase = () => {
       .then((data) => {
         
         if (data[0]?.role === "admin") {
-          setAdmin(true);
+          setAdmin(data[0]?.role)
+           
         }
       });
   }, [user?.email]);

@@ -9,32 +9,7 @@ import axios from "axios"
 const AddDcotor = () => {
   const [imgUrl,setImageUrl]=useState("")
   const { register, handleSubmit,reset } = useForm();
-  // const onSubmit = (data) => {
-  //   const formData1 = {
-  //     title: data.title,
-  //     regularPrice: data.regularPrice,
-  //     offerPrice: data.offerPrice,
-  //     description: data.description,
-  //     image: imgUrl,
-  //   };
-
-  //   const url = `https://rocky-river-82616.herokuapp.com/addBike`;
-  //   fetch(url, {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData1),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.acknowledged) {
-  //         reset();
-  //         setReload(true);
-  //         warning(true);
-  //       }
-  //     });
-  // };
+  
   const onSubmit = (data) => {
 
       const formData1 = {
@@ -59,7 +34,13 @@ const AddDcotor = () => {
     .then((res) => res.json())
     .then((data) => {
       if (data.acknowledged) {
+        Swal.fire(
+          'Good job!',
+          'You Product added the Successful!',
+          'success'
+        )
         reset();
+        
         // setReload(true);
         // warning(true);
       }

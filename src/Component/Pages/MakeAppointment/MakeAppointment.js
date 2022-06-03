@@ -9,8 +9,17 @@ const MakeAppointment = () => {
   const [doctor, setDoctor] = useState([]);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
+    const info = {
+      name:data.name,
+      email:user?.email,
+      date:data.date,
+      doctor:data.doctor,
+      description:data.desc,
+      status:"Processing"
+
+    }
     axios
-      .post("https://aqueous-stream-06459.herokuapp.com/postAllPatients")
+      .post("https://aqueous-stream-06459.herokuapp.com/postAllPatients", info )
       .then((res) => {
         console.log(res.data);
         alert("done");
@@ -88,7 +97,7 @@ const MakeAppointment = () => {
               className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3 h-40"
               type="date"
               placeholder="Your Message"
-              {...register("date")}
+              {...register("desc")}
               required
             />
             <br />
