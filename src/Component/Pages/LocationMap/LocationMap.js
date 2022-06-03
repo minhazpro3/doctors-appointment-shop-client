@@ -20,7 +20,8 @@ const center = {
 
 const LocationMap = () => {
   const [doctors, setDoctors] = useState([]);
-  const { user } = useAuth();
+  const { user,admin } = useAuth();
+  const [adminMes,setAdminMes]=useState("")
   const {
     register,
     handleSubmit,
@@ -28,6 +29,7 @@ const LocationMap = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
+   
     data.status = "Processing";
     fetch("https://aqueous-stream-06459.herokuapp.com/postAllPatients", {
       method: "POST",
@@ -53,6 +55,10 @@ const LocationMap = () => {
         
       });
   }, []);
+
+  if(adminMes){
+   return Swal.fire("Good job!", "Your Appointment Submitted", "success");
+  }
 
   return (
     <div>
@@ -111,8 +117,9 @@ const LocationMap = () => {
                 type="email"
                 placeholder="Email"
                 {...register("email")}
-                value={user?.email}
+                value={admin==="admin"?"You are a admin":user?.email}
                 required
+                 
               />
               <br />
               <input

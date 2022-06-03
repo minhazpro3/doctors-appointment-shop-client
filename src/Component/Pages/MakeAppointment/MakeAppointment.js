@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import Footer from "../Footer/Footer";
 
 const MakeAppointment = () => {
-  const {user}=useAuth()
+  const {user,admin}=useAuth()
   const [doctor, setDoctor] = useState([]);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -55,8 +55,8 @@ const MakeAppointment = () => {
               type="email"
               placeholder="Email"
               {...register("Your Email")}
-              required
-              value={user?.email}
+              value={admin==="admin"?"You are a admin":user?.email}
+                required
             />
             <br />
             <input
