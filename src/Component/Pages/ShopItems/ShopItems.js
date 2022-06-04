@@ -45,7 +45,7 @@ const ShopItems = ({ product, index }) => {
         ) : (
           <img
             className="w-full h-72   object-cover static "
-            src={`data:image/*;base64,${product.image}`}
+            src={product.image}
             alt="Sunset in the mountains"
           />
         )}

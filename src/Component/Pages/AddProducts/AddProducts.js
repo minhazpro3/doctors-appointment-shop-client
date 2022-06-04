@@ -28,6 +28,9 @@ const AddProducts = () => {
     axios.post("http://localhost:5000/addProduct", formData1)
     .then(res=>{
       console.log(res.data);
+      if(res.data){
+        reset()
+      }
       
     })
 
