@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import "./Shop.css";
 import med2 from "../../Images/med-2.png";
@@ -7,22 +8,33 @@ import ShopItems from "../ShopItems/ShopItems";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
- const Shop = () => {
+const Shop = () => {
   const [products, setProducts] = useState([]);
-  const state = useSelector((state)=>state.HandleCart)
-    
+  const [totalPrice, setTotalPrice]=useState(0)
+  console.log(totalPrice);
+
+  const state = useSelector((state) => state.HandleCart);
+console.log(state);
   useEffect(() => {
     fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        
-       
       });
   }, []);
 
-   
+
+  const total = ()=>{
+    let price = 0;
+    state.cart.map(ele => {
+      price=parseInt(ele.discountPrice)  * parseInt(ele.qty) + parseInt(price)
+    })
+    setTotalPrice(price)
+  }
+
+  useEffect(()=>{
+    total();
+  },[total])
 
   return (
     <div>
@@ -61,7 +73,13 @@ import { useSelector } from "react-redux";
               </div>
             ) : (
               <div className="grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-2">
-                {products.map((product, index) =><ShopItems key={product._id} product={product} index={index}   />  )}
+                {products.map((product, index) => (
+                  <ShopItems
+                    key={product._id}
+                    product={product}
+                    index={index}
+                  />
+                ))}
               </div>
             )}
           </div>
@@ -70,35 +88,21 @@ import { useSelector } from "react-redux";
               <div className=" border-2 py-6 px-4 ">
                 <h3 className="text-2xl font-medium my-2">Order Summary</h3>
                 <div className="flex items-center justify-between">
-                  <h3>Items:</h3>
-                  <h3>Pcs: {state.length}</h3>
+                  <h3>Quantity:</h3>
+                  <h3>  </h3>
                 </div>
                 <hr />
-                <div className="flex items-center justify-between mt-4">
-                  <h3>Total Cost:</h3>
-                  <h3>USD: 100.00</h3>
-                </div>
-                <hr />
-                <div className="flex items-center justify-between mt-4">
-                  <h3>Shipping:</h3>
-                  <h3>USD: 15</h3>
-                </div>
-                <hr />
-                <div className="flex items-center justify-between mt-4">
-                  <h3>Tax:</h3>
-                  <h3>USD: 12</h3>
-                </div>
-                <hr />
+
                 <div className="flex items-center justify-between mt-4">
                   <h3 className="text-xl">Total Price:</h3>
-                  <h3>USD: 00.00</h3>
+                  <h3>USD {totalPrice} </h3>
                 </div>
                 <div className="text-center">
-               <NavLink to="/">
-               <button className="text-xl py-2 px-3 w-full mt-10 mb-6 bg-slate-800 text-white">
-                    Next
-                  </button>
-               </NavLink>
+                  <NavLink to="/saveCart">
+                    <button className="text-xl py-2 px-3 w-full mt-10 mb-6 bg-slate-800 text-white">
+                      Cart
+                    </button>
+                  </NavLink>
                 </div>
               </div>
             </div>

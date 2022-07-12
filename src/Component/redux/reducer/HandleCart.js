@@ -1,42 +1,97 @@
 /* eslint-disable no-unreachable */
+import { axios } from 'axios';
+  
+ const initialState = {
+    cart:[],
+    qty:0,
+    totalPrice:0,
+    
+ }
  
- const cart = []
 
-const HandleCart = (state=cart, action) => {
+const HandleCart = (state=initialState, action) => {
     const product = action.payload;
+     console.log(product);
+    
     switch (action.type) {
         case "ADDITEM":
-            // check if product already exist 
-            if(state.qty>0){
-                return state.map((x)=> x._id === product._id&& {...x, qty: x.qty + 1}  )
 
+        const itemIndex = state.cart.findIndex(item=>item._id===action.payload._id);
+        if(itemIndex >=0){
+            state.cart[itemIndex].qty += 1
+        }
+        else {
+            const newCart = {...action.payload, qty:1}
+             return{
+                ...state,
+                cart:[...state.cart, newCart]
             }
-            else{
-                const product = action.payload;
-                return [
-                    ...state,
-                    {
-                        ...product, qty: 1
+        }
+
+           
+
+            // eslint-disable-next-line no-fallthrough
+            case "DELITEM" :
+                let datas = state.cart.filter((e)=>e._id !== action.payload)
+                return {
+                   ...state,
+                   cart:datas
+                }
+
+
+                case "REMOVE_ONE":
+                    const itemIndex_dec = state.cart.findIndex(item=>item._id===action.payload._id);
+                if(state.cart[itemIndex_dec].qty >= 1){
+                    const dltItem = state.cart[itemIndex_dec].qty -=1 
+                    console.log([...state.cart, dltItem]);
+
+                    return {
+                        ...state,
+                        cart:[...state.cart,]
                     }
-                ]
-            }
-            
-            break;
+                }
+                else if(state.cart[itemIndex_dec].qty === 1){
+                    let datas = state.cart.filter((e)=>e._id !== action.payload)
+                    return {
+                       ...state,
+                       cart:datas
+                    }
+    
+                }
 
-            case "DELITEM":
-            const exist1 = state.find((x,index)=> x._id === product._id)
-            if(exist1.qty===1){
-                return state.filter((x)=> x._id!==product._id)
-            }
-            else{
-                return state.map((x)=> x._id === product._id ? {...x, qty: x.qty-1}: x)
-            }
-            break;
+            
+        
+
+    // return {
+    //     ...state,
+    //      cart: [...state.cart, action.payload],
+    //     qty: state.qty + 1,
+    //     totalPrice: state.totalPrice + parseInt(action.payload.discountPrice),
+         
+    // }
     
         default:
-            return state
-            break;
+           return state;
     }
 }
 
 export default HandleCart;
+
+
+// const handleAddToCart = (selectedProduct) =>{
+//     console.log(selectedProduct);
+//     let newCart = [];
+//     const exists = cart.find(product => product._id === selectedProduct._id);
+//     if(!exists){
+//         selectedProduct.quantity = 1;
+//         newCart = [...cart, selectedProduct];
+//     }
+//     else{
+//         const rest = cart.filter(product => product._id !== selectedProduct._id);
+//         exists.quantity = exists.quantity + 1;
+// newCart = [...rest, exists];
+//     }
+    
+//     setCart(newCart);
+//     addToDb(selectedProduct._id);
+// }

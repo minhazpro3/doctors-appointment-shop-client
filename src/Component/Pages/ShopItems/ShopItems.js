@@ -1,22 +1,73 @@
-import axios from "axios";
+ import axios from "axios";
 import React from "react";
 import Rating from "react-rating";
-import { useDispatch } from "react-redux";
-import { addItem } from "../../redux/action";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, deleteItem } from "../../redux/action";
+ 
  
 const ShopItems = ({ product, index }) => {
-
+  
   const dispatch = useDispatch()
-    const addProduct = (products) =>{
-        dispatch(addItem(products))
+ 
+  const state = useSelector(state=>state.HandleCart)
+  console.log(state);
+
+  // const addProduct = ( ) =>{
+     
+     
+  //     const item ={
+  //       _id,
+  //         discountPrice,
+  //         image,
+  //         name,
+  //         rating,
+  //         qty:1
+  //     }
+  //       dispatch(addItem(item))
+  //       // addItemss()
+  //       // putedItem(item.id)
+
+        
+  //   }
+
+
+   
+
+    // const addItemss = ()=>{
+    //   axios.post("http://localhost:5000/saveCart", state)
+    //   .then(res=>{
+    //     // console.log(res.data);
+    //   })
+    // }
+
+    // const putedItem = (id)=>{
+    //   const alreadyAdded = state.cart.filter(x=>x._id===id)
+    //   console.log(alreadyAdded);
+    //   if(alreadyAdded){
+    //     const updPro = {
+          
+    //     }
+    //     // axios.put("http://localhost:5000/updatePQty", )
+    //     // .then(res=>{
+    //     //   console.log(res.data);
+    //     // })
+    //   }
+    // }
+
+    const send = (e)=>{
+      console.log(e);
+       const items = {
+        discountPrice:e.discountPrice,
+        image:e.image,
+        name:e.name,
+        rating:e.rating,
+        _id:e._id,
+        qty:0
+       }
+      dispatch(addItem(items))
     }
 
-    const addItem = ()=>{
-      axios.post("https://aqueous-stream-06459.herokuapp.com/addCart")
-      .then(res=>{
-        console.log(res.data.data);
-      })
-    }
+    
 
    
 
@@ -64,7 +115,7 @@ const ShopItems = ({ product, index }) => {
           <div className="font-bold text-xl  text-blue-900 ">
             <Rating
               className="text-orange-600   "
-              initialRating={product.rating}
+              initialRating="5"
               readonly
               emptySymbol="far fa-star"
               fullSymbol="fas fa-star"
@@ -89,11 +140,12 @@ const ShopItems = ({ product, index }) => {
 
           <div className="text-center">
             <button
-               onClick={()=>addProduct(product)}
+               onClick={()=>send(product)}
               className="bg-slate-900 w-full text-white text-base font-medium my-2 py-3 rounded-xl hover:bg-sky-500"
             >
               Add To Cart
             </button>
+          
           </div>
         </div>
       </div>

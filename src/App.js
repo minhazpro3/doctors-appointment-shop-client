@@ -19,6 +19,7 @@ import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
 import AuthProvider from "./Component/AuthProvider/AuthProvider";
 import AllBookings from "./Component/Pages/AllBookings/AllBookings";
 import AllProducts from "./Component/Pages/AllProducts/AllProducts";
+import SaveCart from "./Component/Pages/SaveCart/SaveCart";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               element={<DoctorProfile />}
             ></Route>
             <Route path="/about" element={<AboutPage />}></Route>
+            <Route path="/saveCart" element={<SaveCart />}></Route>
             <Route
               path="/shop"
               element={  <Shop />  }
