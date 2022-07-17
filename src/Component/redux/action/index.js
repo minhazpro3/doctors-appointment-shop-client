@@ -1,3 +1,4 @@
+import axios from "axios"
 
 
 // add item to cart
@@ -32,3 +33,17 @@ export const removeItem = (item)=>{
         payload: item
     }
 }
+
+
+// export const addCart = (obj)=>{
+//         return (dispatch)=>{
+//             axios.post("http://localhost:5000/saveCart", (obj))
+//             .then(res=>{
+//                 console.log(res.data);
+//                 dispatch({
+//                     type: "ADDITEM",
+//                     payload: res.data
+//                 })
+//             })
+//         }
+// }

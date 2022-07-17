@@ -1,32 +1,39 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import useAuth from '../../hooks/useAuth';
 import { addItem, removeItem } from '../../redux/action';
 import SaveCartItems from './SaveCartItems';
 
 
 const SaveCart = () => {
+  const {user}=useAuth()
+  const [items, setItems]=useState([])
+  console.log(items);
+  // akhane raikha dilam 
   const [totalPrice, setTotalPrice]=useState(0)
     const state = useSelector(state=>state.HandleCart)
       const dispatch = useDispatch()
         const {cart}=state
        
 
-        const total = ()=>{
-          let price = 0;
-          state.cart.map(ele => {
-            price=parseInt(ele.discountPrice) * parseInt(ele.qty) + parseInt(price)
-          })
-          setTotalPrice(price)
-        }
+        // const total = ()=>{
+        //   let price = 0;
+        //   state.cart.map(ele => {
+        //     price=parseInt(ele.discountPrice) * parseInt(ele.qty) + parseInt(price)
+        //   })
+        //   setTotalPrice(price)
+        // }
       
-        useEffect(()=>{
-          total();
-        },[total])
+        // useEffect(()=>{
+        //   total();
+        // },[total])
 
 
         const send = (e)=>{
-          console.log(e);
+          
            const items = {
             discountPrice:e.discountPrice,
             image:e.image,
@@ -35,31 +42,37 @@ const SaveCart = () => {
             _id:e._id,
             qty:0
            }
-          dispatch(addItem(items))
+          // dispatch(addItem(items))
         }
 
 
         const remove = (e)=>{
-          dispatch(removeItem(e))
+          // dispatch(removeItem(e))
         }
+
+
+     useEffect(() => {
+   
+    fetch("http://localhost:5000/getCart")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+       setItems(data)
+      });
+  }, []);
 
 
 
     return (
         <div >
-            {/* {cart.map(pd=>
-            <div key={pd.qty}>
-                <h4>{pd.name}</h4>
-            </div>)} */}
+           
             <div className="relative">
                 <h4 className="text-center text-3xl mt-4">Save Products</h4>
                 <h4 className="bg-orange-400 py-4"></h4>
             </div>
 
             <div className="container mx-auto">
-                    {/* <div>
-                        <SaveCartItems/>
-                    </div> */}
+                
                     <div className="flex flex-col">
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
@@ -92,12 +105,7 @@ const SaveCart = () => {
                         >
                           Id
                         </th>
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-white px-6 py-4"
-                        >
-                          Quantity
-                        </th>
+                        
                         <th
                           scope="col"
                           className="text-sm font-medium text-white px-6 py-4"
@@ -112,7 +120,7 @@ const SaveCart = () => {
                         </th>
                       </tr>
                     </thead>
-                    {cart.map((prod, index) => (
+                    {items.map((prod, index) => (
                       <SaveCartItems
                         key={index}
                         prod={prod}

@@ -1,11 +1,9 @@
 /* eslint-disable no-unreachable */
 import { axios } from 'axios';
+import { useEffect } from 'react';
   
  const initialState = {
-    cart:[],
-    qty:0,
-    totalPrice:0,
-    
+    cart:[]   
  }
  
 
@@ -13,15 +11,24 @@ const HandleCart = (state=initialState, action) => {
     const product = action.payload;
      console.log(product);
     
+
+
+
     switch (action.type) {
         case "ADDITEM":
 
         const itemIndex = state.cart.findIndex(item=>item._id===action.payload._id);
         if(itemIndex >=0){
+
             state.cart[itemIndex].qty += 1
         }
         else {
             const newCart = {...action.payload, qty:1}
+            
+               
+             
+        
+               
              return{
                 ...state,
                 cart:[...state.cart, newCart]
@@ -59,17 +66,13 @@ const HandleCart = (state=initialState, action) => {
     
                 }
 
+                
             
         
 
-    // return {
-    //     ...state,
-    //      cart: [...state.cart, action.payload],
-    //     qty: state.qty + 1,
-    //     totalPrice: state.totalPrice + parseInt(action.payload.discountPrice),
-         
-    // }
+
     
+        // eslint-disable-next-line no-fallthrough
         default:
            return state;
     }

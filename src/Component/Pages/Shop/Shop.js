@@ -13,8 +13,7 @@ const Shop = () => {
   const [totalPrice, setTotalPrice]=useState(0)
   console.log(totalPrice);
 
-  const state = useSelector((state) => state.HandleCart);
-console.log(state);
+  // const state = useSelector((state) => state.HandleCart);
   useEffect(() => {
     fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
       .then((res) => res.json())
@@ -24,17 +23,17 @@ console.log(state);
   }, []);
 
 
-  const total = ()=>{
-    let price = 0;
-    state.cart.map(ele => {
-      price=parseInt(ele.discountPrice)  * parseInt(ele.qty) + parseInt(price)
-    })
-    setTotalPrice(price)
-  }
+  // const total = ()=>{
+  //   let price = 0;
+  //   state.cart.map(ele => {
+  //     price=parseInt(ele.discountPrice)  * parseInt(ele.qty) + parseInt(price)
+  //   })
+  //   setTotalPrice(price)
+  // }
 
-  useEffect(()=>{
-    total();
-  },[total])
+  // useEffect(()=>{
+  //   total();
+  // },[total])
 
   return (
     <div>

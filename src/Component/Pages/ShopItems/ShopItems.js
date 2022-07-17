@@ -1,71 +1,66 @@
- import axios from "axios";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, deleteItem } from "../../redux/action";
+import useAuth from './../../hooks/useAuth';
  
  
 const ShopItems = ({ product, index }) => {
-  
-  const dispatch = useDispatch()
- 
-  const state = useSelector(state=>state.HandleCart)
-  console.log(state);
-
-  // const addProduct = ( ) =>{
-     
-     
-  //     const item ={
-  //       _id,
-  //         discountPrice,
-  //         image,
-  //         name,
-  //         rating,
-  //         qty:1
-  //     }
-  //       dispatch(addItem(item))
-  //       // addItemss()
-  //       // putedItem(item.id)
-
-        
-  //   }
-
-
-   
-
-    // const addItemss = ()=>{
-    //   axios.post("http://localhost:5000/saveCart", state)
-    //   .then(res=>{
-    //     // console.log(res.data);
-    //   })
-    // }
-
-    // const putedItem = (id)=>{
-    //   const alreadyAdded = state.cart.filter(x=>x._id===id)
-    //   console.log(alreadyAdded);
-    //   if(alreadyAdded){
-    //     const updPro = {
-          
-    //     }
-    //     // axios.put("http://localhost:5000/updatePQty", )
-    //     // .then(res=>{
-    //     //   console.log(res.data);
-    //     // })
-    //   }
-    // }
+  const {user}=useAuth()
+  const [items, setItems]=useState([])
 
     const send = (e)=>{
-      console.log(e);
-       const items = {
+       const item = {
         discountPrice:e.discountPrice,
         image:e.image,
         name:e.name,
         rating:e.rating,
         _id:e._id,
-        qty:0
+        qty:1
        }
-      dispatch(addItem(items))
+      // dispatch(addItem(items))
+
+      const itemIndex = items.filter(item=>item._id===e._id);
+      
+       console.log(itemIndex[0]);
+       if(itemIndex[0]){
+       
+        axios.put(`http://localhost:5000/updatePQty`,item)
+        .then(res=>{
+          console.log(res.data);
+        })
+        .catch(err=>{
+          console.log(err.message);
+         })
+      
+       }
+       else {
+        
+         axios.post("http://localhost:5000/saveCart",(item))
+         .then(res=>{
+             console.log(res.data); 
+             
+           })
+           .catch(err=>{
+            console.log(err.message);
+           })
+       }
     }
+
+    
+
+
+
+    useEffect(() => {
+
+      user.email ? axios.get('http://localhost:5000/getCart')
+          .then(res => {
+              console.log(res.data)
+              setItems(res.data)
+          }) : setItems([])
+
+  }, [user])
 
     
 
@@ -102,7 +97,7 @@ const ShopItems = ({ product, index }) => {
         )}
         <div>
           <h4
-            className={
+             className={
               !product.discount
                 ? "hidden"
                 : "text-base absolute top-0 text-white inline-block py-1 px-2 font-bold bg-orange-600"
