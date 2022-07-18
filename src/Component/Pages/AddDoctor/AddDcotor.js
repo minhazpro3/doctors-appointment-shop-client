@@ -22,7 +22,6 @@ const AddDcotor = () => {
         image:imgUrl
       }
 
-   console.log(formData1);
     const url = "http://localhost:5000/addDoctor"
     fetch(url,{
       method: "POST",
@@ -36,35 +35,16 @@ const AddDcotor = () => {
       if (data.acknowledged) {
         Swal.fire(
           'Good job!',
-          'You Product added the Successful!',
+          ' Added a new doctor the Successful!',
           'success'
         )
         reset();
         
-        // setReload(true);
-        // warning(true);
+        
       }
     });
 
-    // const url = 'https://aqueous-stream-06459.herokuapp.com/addDoctor'
-    // fetch(url, {
-    //   method: "POST",
-    //   body: formData
-       
-    // })
-    // .then(res=>res.json())
-    // .then(data=>{
-     
-    //   if(data.acknowledged){
-    //     Swal.fire(
-    //       'Good job!',
-    //       'You Product added the Successful!',
-    //       'success'
-    //     )
-    //     reset()
-    //   }
     
-    // })
   };
 
   const setImage = (e) => {
@@ -82,6 +62,7 @@ const AddDcotor = () => {
       })
       .catch((error) => {});
   };
+  
   return (
     <div>
       <div className="container mx-auto ">

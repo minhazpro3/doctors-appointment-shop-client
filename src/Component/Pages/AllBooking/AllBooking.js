@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 
 const AllBooking = ({ patient, index, updateStatus, handleDelete }) => {
-  console.log(patient);
   const inputRef = useRef();
   return (
     <tbody>

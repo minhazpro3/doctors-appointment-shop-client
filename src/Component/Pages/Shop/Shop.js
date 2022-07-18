@@ -11,8 +11,7 @@ import { useSelector } from "react-redux";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice]=useState(0)
-  console.log(totalPrice);
-
+const [items, setItems]=useState([])
   // const state = useSelector((state) => state.HandleCart);
   useEffect(() => {
     fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
@@ -23,17 +22,28 @@ const Shop = () => {
   }, []);
 
 
-  // const total = ()=>{
-  //   let price = 0;
-  //   state.cart.map(ele => {
-  //     price=parseInt(ele.discountPrice)  * parseInt(ele.qty) + parseInt(price)
-  //   })
-  //   setTotalPrice(price)
-  // }
+  const total = ()=>{
+    let price = 0;
+    items.map(ele => {
+      price=parseInt(ele.discountPrice)  * parseInt(ele.qty) + parseInt(price)
+    })
+    setTotalPrice(price)
+  }
 
-  // useEffect(()=>{
-  //   total();
-  // },[total])
+  useEffect(()=>{
+    total();
+  },[total])
+
+
+  useEffect(() => {
+   
+    fetch("http://localhost:5000/getCart")
+      .then((res) => res.json())
+      .then((data) => {
+       
+       setItems(data)
+      });
+  }, [total]);
 
   return (
     <div>
@@ -87,8 +97,8 @@ const Shop = () => {
               <div className=" border-2 py-6 px-4 ">
                 <h3 className="text-2xl font-medium my-2">Order Summary</h3>
                 <div className="flex items-center justify-between">
-                  <h3>Quantity:</h3>
-                  <h3>  </h3>
+                  <h3>Items:</h3>
+                  <h3> {items?.length} </h3>
                 </div>
                 <hr />
 

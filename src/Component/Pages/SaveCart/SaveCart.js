@@ -4,37 +4,30 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import useAuth from '../../hooks/useAuth';
-import { addItem, removeItem } from '../../redux/action';
 import SaveCartItems from './SaveCartItems';
 
 
 const SaveCart = () => {
-  const {user}=useAuth()
-  const [items, setItems]=useState([])
-  console.log(items);
-  // akhane raikha dilam 
+  const [items, setItems]=useState([])  
   const [totalPrice, setTotalPrice]=useState(0)
-    const state = useSelector(state=>state.HandleCart)
-      const dispatch = useDispatch()
-        const {cart}=state
-       
-
-        // const total = ()=>{
-        //   let price = 0;
-        //   state.cart.map(ele => {
-        //     price=parseInt(ele.discountPrice) * parseInt(ele.qty) + parseInt(price)
-        //   })
-        //   setTotalPrice(price)
-        // }
       
-        // useEffect(()=>{
-        //   total();
-        // },[total])
+
+        const total = ()=>{
+          let price = 0;
+          items.map(ele => {
+            price=parseInt(ele.discountPrice) * parseInt(ele.qty) + parseInt(price)
+          })
+          setTotalPrice(price)
+        }
+      useEffect(()=>{
+        total()
+      },[total])
+        
 
 
         const send = (e)=>{
           
-           const items = {
+           const item = {
             discountPrice:e.discountPrice,
             image:e.image,
             name:e.name,
@@ -42,24 +35,73 @@ const SaveCart = () => {
             _id:e._id,
             qty:0
            }
-          // dispatch(addItem(items))
+          const itemIndex = items.filter(item=>item._id===e._id);
+      
+          if(itemIndex[0]){
+          
+           axios.put(`http://localhost:5000/updatePQty`,item)
+           .then(res=>{
+             console.log(res.data);
+             if(res.data){
+              total()
+             }
+           })
+           .catch(err=>{
+            })
+         
+          }
+          else {
+           
+            axios.post("http://localhost:5000/saveCart",(item))
+            .then(res=>{
+                if(res.data){
+                  total()
+                }
+                
+              })
+              .catch(err=>{
+              })
+          }
         }
 
 
         const remove = (e)=>{
-          // dispatch(removeItem(e))
+          const item = {
+            _id:e._id,
+            type:"Dec"
+          }
+          axios.put(`http://localhost:5000/updatePQty`,item)
+          .then(res=>{
+            console.log(res.data);
+          })
+          .catch(err=>{
+            console.log(err.message);
+           })
+        }
+
+        const handleDelete = (id)=>{
+          axios.delete(`http://localhost:5000/deleteProd/${id}`)
+          .then(res=>{
+            console.log(res.data);
+            if(res.data){
+              setItems(items.filter(product => product._id !== id))
+            }
+          })
+          .catch(err=>{
+            console.log(err.message);
+           })
         }
 
 
+
+
      useEffect(() => {
-   
     fetch("http://localhost:5000/getCart")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
        setItems(data)
       });
-  }, []);
+  }, [total]);
 
 
 
@@ -129,7 +171,7 @@ const SaveCart = () => {
                         send={send}
                         remove={remove}
                         // updateStatus={updateStatus}
-                        // handleDelete={handleDelete}
+                        handleDelete={handleDelete}
                       />
                     ))}
                   </table>

@@ -28,38 +28,16 @@ const AddProducts = () => {
     axios.post("http://localhost:5000/addProduct", formData1)
     .then(res=>{
       console.log(res.data);
-      if(res.data){
+      if(res.data.acknowledged){
+        Swal.fire(
+                'Good job!',
+                'You Product added the Successfully!',
+                'success'
+              )
         reset()
       }
       
-    })
-
- console.log(formData1);
-  // const url = "http://localhost:5000/"
-  // fetch(url,{
-  //   method: "POST",
-  //   headers:{
-  //     "content-type":"application/json"
-  //   },
-  //   body: JSON.stringify(formData1),
-  // })
-  // .then((res) => res.json())
-  // .then((data) => {
-  //   if (data.acknowledged) {
-  //     Swal.fire(
-  //       'Good job!',
-  //       'You Product added the Successful!',
-  //       'success'
-  //     )
-  //     reset();
-      
-  //     setReload(true);
-  //     warning(true);
-  //   }
-  // });
-
-    
-
+    })   
 }
 
  
@@ -73,7 +51,14 @@ const setImage = (e) => {
   axios
     .post("https://api.imgbb.com/1/upload", formData)
     .then((res) => {
-      setImgUrl(res.data.data.url);
+      if(res.data){
+        Swal.fire(
+          'Yaaa!',
+          ' Image uploaded!',
+          'success'
+        )
+        setImgUrl(res.data.data.url);
+      }
       console.log(res.data);
     })
     .catch((error) => {});

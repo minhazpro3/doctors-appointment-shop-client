@@ -7,8 +7,8 @@ import useAuth from './../../hooks/useAuth';
  
  
 const ShopItems = ({ product, index }) => {
-  const {user}=useAuth()
   const [items, setItems]=useState([])
+  const [singleItem, setSingleItem]=useState(Number)
 
     const send = (e)=>{
        const item = {
@@ -22,13 +22,16 @@ const ShopItems = ({ product, index }) => {
       // dispatch(addItem(items))
 
       const itemIndex = items.filter(item=>item._id===e._id);
+      if(itemIndex){
+
+      }
       
-       console.log(itemIndex[0]);
        if(itemIndex[0]){
-       
+        setSingleItem(itemIndex[0].qty)
         axios.put(`http://localhost:5000/updatePQty`,item)
         .then(res=>{
           console.log(res.data);
+          setSingleItem(singleItem + 1)
         })
         .catch(err=>{
           console.log(err.message);
@@ -54,13 +57,14 @@ const ShopItems = ({ product, index }) => {
 
     useEffect(() => {
 
-      user.email ? axios.get('http://localhost:5000/getCart')
+       axios.get('http://localhost:5000/getCart')
           .then(res => {
-              console.log(res.data)
+              
               setItems(res.data)
-          }) : setItems([])
+             
+          }) 
 
-  }, [user])
+  }, [])
 
     
 

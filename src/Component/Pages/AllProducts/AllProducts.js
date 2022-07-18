@@ -6,7 +6,6 @@ import Footer from "../Footer/Footer";
 const AllProducts = () => {
   const [productInfo, setProductInfo] = useState([]);
   const [loading, setLoading] = useState(false);
-  
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [totalProduct, setTotalProduct] = useState(0);
@@ -48,7 +47,6 @@ const AllProducts = () => {
   }
 
   const handleDelete = (id) => {
-    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -145,6 +143,7 @@ const AllProducts = () => {
                     <tbody>
                       {productInfo.map((productIn, index) => (
                         <AllProduct
+                        key={index}
                           productIn={productIn}
                           index={index}
                           loading={loading}

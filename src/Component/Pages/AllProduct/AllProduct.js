@@ -7,6 +7,7 @@ const AllProduct = ({
   
   
 }) => {
+
   
  
 
@@ -17,7 +18,7 @@ const AllProduct = ({
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex justify-center ">
        
-        <img className="w-28" src={`data:image/*;base64,${productIn?.image}`} alt="product" />
+        <img className="w-28" src={productIn?.image} alt="product" />
        
        </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">

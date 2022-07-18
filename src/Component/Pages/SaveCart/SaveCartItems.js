@@ -2,12 +2,15 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "../../redux/action";
 
-const SaveCartItems = ({ index, prod, send, remove }) => {
+const SaveCartItems = ({ index, prod, send, remove,handleDelete }) => {
   const dispatch = useDispatch();
 
-  // const delt = (id) => {
-  //   dispatch(deleteItem(id));
-  // };
+  const delt = (id) => {
+    // dispatch(deleteItem(id));
+  };
+
+
+
 
   return (
     <tbody>
@@ -32,13 +35,13 @@ const SaveCartItems = ({ index, prod, send, remove }) => {
               <ul className="flex justify-center px-2  gap-6">
                 <button onClick={() => send(prod)}>+</button>
                 <h4>{prod.qty}</h4>
-                {/* <button
+                <button
                   onClick={
-                    prod.qty === 1 ? () => delt(prod._id) : () => remove(prod)
+                    prod.qty === 1 ? () => handleDelete(prod._id) : () => remove(prod)
                   }
                 >
                   -
-                </button> */}
+                </button>
               </ul>
             </h4>
           </div>
@@ -47,7 +50,7 @@ const SaveCartItems = ({ index, prod, send, remove }) => {
         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
           <div>
             <svg
-              // onClick={() => delt(prod._id)}
+              onClick={() => handleDelete(prod._id)}
               className="  inline cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 100 100"
