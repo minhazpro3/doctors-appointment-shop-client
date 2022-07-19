@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import doctorPic from "../../Images/doc-profile banner.jpg";
-import doctor1 from "../../Images/doctor-1.jpg";
 import location from "../../Images/location.png";
 import call from "../../Images/call.png";
 import mail from "../../Images/gmail.png";
@@ -14,7 +13,6 @@ const DoctorProfile = () => {
   const {user}=useAuth()
   const { doctorId } = useParams();
   const [singleDoctor, setSingleDoctor] = useState({});
-  console.log(singleDoctor);
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {

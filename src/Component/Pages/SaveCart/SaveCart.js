@@ -2,8 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import useAuth from '../../hooks/useAuth';
 import SaveCartItems from './SaveCartItems';
 
 

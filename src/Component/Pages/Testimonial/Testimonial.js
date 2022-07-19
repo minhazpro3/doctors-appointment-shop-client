@@ -1,5 +1,5 @@
 import React from "react";
-import { Autoplay, FreeMode, Navigation, Pagination } from "swiper";
+import {  FreeMode,  Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Testimonial.css";
 

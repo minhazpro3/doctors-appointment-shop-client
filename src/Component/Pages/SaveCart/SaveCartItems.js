@@ -1,15 +1,9 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { deleteItem } from "../../redux/action";
+
 
 const SaveCartItems = ({ index, prod, send, remove,handleDelete }) => {
-  const dispatch = useDispatch();
 
-  const delt = (id) => {
-    // dispatch(deleteItem(id));
-  };
-
-
+  
 
 
   return (

@@ -6,7 +6,6 @@ import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import ShopItems from "../ShopItems/ShopItems";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);

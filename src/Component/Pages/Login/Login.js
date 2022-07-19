@@ -2,21 +2,15 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router";
-
-import loginImg from "../../Images/login img.png";
 import Footer from "../Footer/Footer";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const {
-    user,
+    
     setUser,
     googleSignIn,
-    isLoading,
-    createUser,
-    logOut,
-    updateName,
     setIsLoading,
     loginEmailPassword,
   } = useAuth();

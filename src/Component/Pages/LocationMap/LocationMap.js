@@ -21,7 +21,6 @@ const center = {
 const LocationMap = () => {
   const [doctors, setDoctors] = useState([]);
   const { user,admin } = useAuth();
-  const [adminMes,setAdminMes]=useState("")
   const {
     register,
     handleSubmit,
@@ -56,9 +55,7 @@ const LocationMap = () => {
       });
   }, []);
 
-  if(adminMes){
-   return Swal.fire("Good job!", "Your Appointment Submitted", "success");
-  }
+  
 
   return (
     <div>

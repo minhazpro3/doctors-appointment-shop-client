@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Footer from "../Footer/Footer";
 import AllBooking from "../AllBooking/AllBooking";
 
 const AllBookings = () => {
   const [allBookings, setAllBookings] = useState([]);
-  const [update, setUpdate] = useState({});
-  const inputRef = useRef();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

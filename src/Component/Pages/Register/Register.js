@@ -7,12 +7,9 @@ import regImg from "../../Images/register img.png";
 import Footer from "../Footer/Footer";
 const Register = () => {
   const {
-    user,
     setUser,
     googleSignIn,
-    isLoading,
     createUser,
-    logOut,
     updateName,
     setIsLoading,
     saveUsers,

@@ -1,9 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, deleteItem } from "../../redux/action";
-import useAuth from './../../hooks/useAuth';
+
  
  
 const ShopItems = ({ product, index }) => {
@@ -19,7 +17,6 @@ const ShopItems = ({ product, index }) => {
         _id:e._id,
         qty:1
        }
-      // dispatch(addItem(items))
 
       const itemIndex = items.filter(item=>item._id===e._id);
       if(itemIndex){
