@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Services.css";
 
 const Services = () => {
@@ -11,6 +12,7 @@ const Services = () => {
 
       <div className="my-16">
         <div className="grid gap-4 lg:grid-cols-3 sm:grid-cols-2  ">
+          <NavLink to="/makAppointment">
           <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
             <div>
               <div className="flex justify-center ">
@@ -26,6 +28,8 @@ const Services = () => {
               </h5>
             </div>
           </div>
+          </NavLink>
+          <NavLink to="/makAppointment">
           <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
             <div>
               <div className="flex justify-center ">
@@ -41,7 +45,9 @@ const Services = () => {
               </h5>
             </div>
           </div>
-          <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
+          </NavLink>
+        <NavLink to="/makAppointment">
+        <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
             <div>
               <div className="flex justify-center ">
                 <img
@@ -56,7 +62,9 @@ const Services = () => {
               </h5>
             </div>
           </div>
-          <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
+        </NavLink>
+       <NavLink to="/makAppointment">
+       <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
             <div>
               <div className="flex justify-center ">
                 <img
@@ -71,7 +79,9 @@ const Services = () => {
               </h5>
             </div>
           </div>
-          <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
+       </NavLink>
+         <NavLink to="/makAppointment">
+         <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
             <div>
               <div className="flex justify-center ">
                 <img
@@ -86,7 +96,9 @@ const Services = () => {
               </h5>
             </div>
           </div>
-          <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
+         </NavLink>
+         <NavLink to="/makAppointment">
+         <div className="group block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 hover:text-white font-poppins-font border bg-white">
             <div>
               <div className="flex justify-center ">
                 <img
@@ -101,6 +113,7 @@ const Services = () => {
               </h5>
             </div>
           </div>
+         </NavLink>
         </div>
       </div>
 

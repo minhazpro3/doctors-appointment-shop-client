@@ -1,13 +1,32 @@
 import React from "react";
 import "./Pakages.css";
+import img1 from "../../Images/patient.png"
+import img2 from "../../Images/patient-1.png"
 
 const Pakages = () => {
   return (
     <div>
-      <div className="container mx-auto font-poppins-font mb-8">
+
+      <div className="container mx-auto">
+      <div>
+         <h2 className="text-4xl font-serif text-center ">  Our Society</h2>
+         <h2 className="text-2xl font-serif text-center mb-8">  Service is our goal, we are committed</h2>
+      </div>
+      <div className=" md:flex  justify-center items-center md:gap-4"> 
+        <div>
+          <img src={img1} alt="" />
+        </div>
+        <div className="">
+          <img src={img2} alt="" />
+        </div>
+      </div>
+      </div>
+
+
+     {/*  <div className="container mx-auto font-poppins-font mb-8">
         <h5 className="text-3xl font-bold text-center my-12">Packages</h5>
         <div className="grid   justify-items-center  gap-4 items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-          {/* cart 1 */}
+        
           <div className="w-80 h-[450px]  shadow-md shadow-blue-900 p-6 border-indigo-700 border-2 background-style hover:border-purple-900 ">
             <div className=" rounded-sm  border-dashed hover:border-white border-2 border-blue-900 h-96">
               <div className="text-center my-5 ">
@@ -46,7 +65,7 @@ const Pakages = () => {
               </div>
             </div>
           </div>
-          {/* cart 2 */}
+         
           <div className="w-80 h-[450px]  shadow-md shadow-blue-900 p-6 border-indigo-700 border-2 background-style hover:border-purple-900 ">
             <div className=" rounded-sm  border-dashed hover:border-white border-2 border-blue-900 h-96">
               <div className="text-center my-5 ">
@@ -85,7 +104,7 @@ const Pakages = () => {
               </div>
             </div>
           </div>
-          {/* cart 3 */}
+         
           <div className="w-80 h-[450px]  shadow-md shadow-blue-900 p-6 border-indigo-700 border-2 background-style hover:border-purple-900 ">
             <div className=" rounded-sm  border-dashed hover:border-white border-2 border-blue-900 h-96">
               <div className="text-center my-5 ">
@@ -125,7 +144,7 @@ const Pakages = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

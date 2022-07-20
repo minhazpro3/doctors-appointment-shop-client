@@ -20,6 +20,7 @@ import AuthProvider from "./Component/AuthProvider/AuthProvider";
 import AllBookings from "./Component/Pages/AllBookings/AllBookings";
 import AllProducts from "./Component/Pages/AllProducts/AllProducts";
 import SaveCart from "./Component/Pages/SaveCart/SaveCart";
+import NotFound from "./Component/Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -28,54 +29,95 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/home" element={<Home />}></Route>
+
+            <Route
+            path="/"
+            element={<Home />}
+            ></Route>
+
+            <Route 
+            path="/home" 
+            element={<Home />}
+            ></Route>
+
             <Route
               path="/doctorProfile/:doctorId"
               element={<DoctorProfile />}
             ></Route>
-            <Route path="/about" element={<AboutPage />}></Route>
-            <Route path="/saveCart" element={<SaveCart />}></Route>
-            <Route
-              path="/shop"
-              element={  <Shop />  }
+
+            <Route 
+            path="/about" 
+            element={<AboutPage />}
             ></Route>
-            <Route path="/doctors" element={<AllDoctors />}></Route>
-            <Route path="/makAppointment" element={<MakeAppointment />}></Route>
+
+            <Route 
+            path="/saveCart" 
+            element={<SaveCart />}
+            ></Route>
+
+            <Route
+            path="/shop"
+            element={  <Shop />  }
+            ></Route>
+
+            <Route 
+            path="/doctors" 
+            element={<AllDoctors />}
+            ></Route>
+
+            <Route 
+            path="/makAppointment" 
+            element={<MakeAppointment />}
+            ></Route>
              
             <Route
-              path="/dashboard"
-              element={
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
-              }
+              path="/dashboard" 
+              element={ <PrivateRoute><Dashboard /></PrivateRoute>}
             >
-              <Route path="/dashboard/" element={<PatientInfo />}></Route>
-              <Route path="/dashboard/shopInfo" element={<ShopInfo />}></Route>
+              <Route 
+              path="/dashboard/" 
+              element={<PatientInfo />}
+              ></Route>
+
+              <Route 
+              path="/dashboard/shopInfo" 
+              element={<ShopInfo />}
+              ></Route>
+
               <Route
                 path="/dashboard/addProducts"
                 element={<AddProducts />}
               ></Route>
+
               <Route
                 path="/dashboard/addDoctors"
                 element={<AddDcotor />}
               ></Route>
+
               <Route
                 path="/dashboard/makeAdmin"
                 element={<MakeAdmin />}
               ></Route>
+
               <Route
                 path="/dashboard/allBookings"
                 element={<AllBookings />}
               ></Route>
+
               <Route
                 path="/dashboard/allProducts"
                 element={<AllProducts />}
               ></Route>
+
             </Route>
-            <Route path="/login" element={<Login />}></Route>
+            
+            <Route 
+            path="/login" 
+            element={<Login />}
+            ></Route>
+
             <Route path="/register" element={<Register />}></Route>
+            <Route path="/*" element={<NotFound />}></Route>
           </Routes>
         </Router>
       </AuthProvider>
