@@ -25,7 +25,7 @@ const AddProducts = () => {
     }
 
 
-    axios.post("http://localhost:5000/addProduct", formData1)
+    axios.post("https://aqueous-stream-06459.herokuapp.com/addProduct", formData1)
     .then(res=>{
       console.log(res.data);
       if(res.data.acknowledged){

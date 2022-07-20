@@ -36,7 +36,7 @@ const [items, setItems]=useState([])
 
   useEffect(() => {
    
-    fetch("http://localhost:5000/getCart")
+    fetch("https://aqueous-stream-06459.herokuapp.com/getCart")
       .then((res) => res.json())
       .then((data) => {
        

@@ -25,7 +25,7 @@ const ShopItems = ({ product, index }) => {
       
        if(itemIndex[0]){
         setSingleItem(itemIndex[0].qty)
-        axios.put(`http://localhost:5000/updatePQty`,item)
+        axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,item)
         .then(res=>{
           console.log(res.data);
           setSingleItem(singleItem + 1)
@@ -37,7 +37,7 @@ const ShopItems = ({ product, index }) => {
        }
        else {
         
-         axios.post("http://localhost:5000/saveCart",(item))
+         axios.post("https://aqueous-stream-06459.herokuapp.com/saveCart",(item))
          .then(res=>{
              console.log(res.data); 
              
@@ -54,7 +54,7 @@ const ShopItems = ({ product, index }) => {
 
     useEffect(() => {
 
-       axios.get('http://localhost:5000/getCart')
+       axios.get('https://aqueous-stream-06459.herokuapp.com/getCart')
           .then(res => {
               
               setItems(res.data)

@@ -2,10 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../Images/lifecare logo.png";
 import useAuth from "../../hooks/useAuth"
+import profile from "../../Images/gmail.png"
  
 
 const Navbar = () => {
   const {logOut,user,admin}=useAuth();
+  console.log();
+  if(user.photoURL){
+    
+  }
   return (
     <nav className="px-2  bg-white border-gray-200 shadow-lg ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -142,11 +147,23 @@ const Navbar = () => {
 
             <li>
               <NavLink to="/">
-                <img
+             {!user?.email && <img
                   className="w-8 rounded-full ml-2 md:m-0 lg:m-0 "
-                  src={"https://kit.pndrnt.com/medific/wp-content/uploads/sites/5/2020/10/collage-of-a-diverse-group-of-laughing-entrepreneu-KMF3QCG_b.jpg"}
-                  alt="user"
+               src="https://i.ibb.co/6JBN8sZ/images.png"
+                  alt=""
+                />}
+               {user.photoURL===null && user.email? 
+               <img
+                  className="w-8 rounded-full ml-2 md:m-0 lg:m-0 "
+               src="https://i.ibb.co/6JBN8sZ/images.png"
+                  alt=""
+                />:
+               <img
+                  className="w-8 rounded-full ml-2 md:m-0 lg:m-0 "
+               src={user.photoURL}
+                  alt=""
                 />
+              }
               </NavLink>
             </li>
            {user.email? <li>
@@ -175,3 +192,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+// AIzaSyBE1XvRgTye_0gjyb0yAqV7jdxvjimd07Q
