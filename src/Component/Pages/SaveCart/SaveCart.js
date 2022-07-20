@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Footer from '../Footer/Footer';
 import SaveCartItems from './SaveCartItems';
 
 
@@ -183,7 +184,7 @@ const SaveCart = () => {
               <h4 className="font-bold">Total price:  {totalPrice  } USD</h4>
             </div>
            </div>
-            
+            <Footer/>
         </div>
     );
 };
