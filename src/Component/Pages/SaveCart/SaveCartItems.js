@@ -1,8 +1,10 @@
 import React from "react";
+import useAuth from "../../hooks/useAuth";
 
 
 const SaveCartItems = ({ index, prod, send, remove,handleDelete }) => {
-
+  const {user}=useAuth()
+  
   
 
 
@@ -17,7 +19,7 @@ const SaveCartItems = ({ index, prod, send, remove,handleDelete }) => {
           <img className="w-32" src={prod?.image} alt="img" />
         </td>
         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-          {prod?.name} Tittle
+          {prod?.name} 
         </td>
         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
           {prod?._id}
@@ -27,7 +29,7 @@ const SaveCartItems = ({ index, prod, send, remove,handleDelete }) => {
           <div>
             <h4 className="bg-emerald-300 inline-block px-2 py-2 rounded-full">
               <ul className="flex justify-center px-2  gap-6">
-                <button onClick={() => send(prod)}>+</button>
+                <button onClick={() => send((prod))}>+</button>
                 <h4>{prod.qty}</h4>
                 <button
                   onClick={

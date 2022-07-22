@@ -42,7 +42,7 @@ function App() {
 
             <Route
               path="/doctorProfile/:doctorId"
-              element={<DoctorProfile />}
+              element={<PrivateRoute><DoctorProfile /></PrivateRoute>}
             ></Route>
 
             <Route 
@@ -52,12 +52,12 @@ function App() {
 
             <Route 
             path="/saveCart" 
-            element={<SaveCart />}
+            element={<PrivateRoute><SaveCart /></PrivateRoute>}
             ></Route>
 
             <Route
             path="/shop"
-            element={  <Shop />  }
+            element={ <PrivateRoute><Shop /></PrivateRoute>   }
             ></Route>
 
             <Route 
@@ -67,7 +67,7 @@ function App() {
 
             <Route 
             path="/makAppointment" 
-            element={<MakeAppointment />}
+            element={<PrivateRoute><MakeAppointment /></PrivateRoute>}
             ></Route>
              
             <Route

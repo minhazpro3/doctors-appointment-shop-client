@@ -1,15 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
+import useAuth from "../../hooks/useAuth";
 
  
  
 const ShopItems = ({ product, index }) => {
   const [items, setItems]=useState([])
   const [singleItem, setSingleItem]=useState(Number)
+  const {user}=useAuth()
 
     const send = (e)=>{
-       const item = {
+      
+       const itemSp = {
+        email:user.email,
         discountPrice:e.discountPrice,
         image:e.image,
         name:e.name,
@@ -17,15 +21,24 @@ const ShopItems = ({ product, index }) => {
         _id:e._id,
         qty:1
        }
+       console.log(itemSp);
+       const item = {
+        
+        discountPrice:e.discountPrice,
+        image:e.image,
+        name:e.name,
+        rating:e.rating,
+        _id:e._id,
+        qty:1
+       }
+       console.log(item);
 
       const itemIndex = items.filter(item=>item._id===e._id);
-      if(itemIndex){
-
-      }
-      
+     
        if(itemIndex[0]){
+       
         setSingleItem(itemIndex[0].qty)
-        axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,item)
+        axios.put(`http://localhost:5000/updatePQty`,item)
         .then(res=>{
           console.log(res.data);
           setSingleItem(singleItem + 1)
@@ -37,14 +50,15 @@ const ShopItems = ({ product, index }) => {
        }
        else {
         
-         axios.post("https://aqueous-stream-06459.herokuapp.com/saveCart",(item))
-         .then(res=>{
-             console.log(res.data); 
-             
-           })
-           .catch(err=>{
-            console.log(err.message);
-           })
+        axios.post("http://localhost:5000/saveCart",itemSp)
+        .then(res=>{
+            if(res.data){
+              console.log(res.data);
+            }
+            
+          })
+          .catch(err=>{
+          })
        }
     }
 
@@ -54,14 +68,14 @@ const ShopItems = ({ product, index }) => {
 
     useEffect(() => {
 
-       axios.get('https://aqueous-stream-06459.herokuapp.com/getCart')
+       axios.get(`http://localhost:5000/getCart/${user?.email}`)
           .then(res => {
               
               setItems(res.data)
              
           }) 
 
-  }, [])
+  }, [user.email])
 
     
 
@@ -135,7 +149,7 @@ const ShopItems = ({ product, index }) => {
           </div>
 
           <div className="text-center">
-            <button
+           <button
                onClick={()=>send(product)}
               className="bg-slate-900 w-full text-white text-base font-medium my-2 py-3 rounded-xl hover:bg-sky-500"
             >

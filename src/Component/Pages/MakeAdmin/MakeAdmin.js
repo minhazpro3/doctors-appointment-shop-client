@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    fetch("https://aqueous-stream-06459.herokuapp.com/madeAdmin", {
+    fetch("http://localhost:5000/madeAdmin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

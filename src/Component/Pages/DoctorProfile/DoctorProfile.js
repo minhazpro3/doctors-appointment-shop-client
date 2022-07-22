@@ -20,7 +20,7 @@ const DoctorProfile = () => {
   };
 
   useEffect(() => {
-    fetch(`https://aqueous-stream-06459.herokuapp.com/singleDoctor/${doctorId}`)
+    fetch(`http://localhost:5000/singleDoctor/${doctorId}`)
       .then((res) => res.json())
       .then((data) => {
        

@@ -9,7 +9,7 @@ const AboutDoctors = () => {
 
  
   useEffect(()=>{
-    axios.get("https://aqueous-stream-06459.herokuapp.com/getDoctors")
+    axios.get("http://localhost:5000/getDoctors")
     .then(res=>{
       console.log(res.data);
       setDoctors(res.data.slice(0,3))

@@ -6,14 +6,16 @@ import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import ShopItems from "../ShopItems/ShopItems";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice]=useState(0)
 const [items, setItems]=useState([])
-  // const state = useSelector((state) => state.HandleCart);
+const {user}=useAuth()
+
   useEffect(() => {
-    fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
+    fetch("http://localhost:5000/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -36,7 +38,7 @@ const [items, setItems]=useState([])
 
   useEffect(() => {
    
-    fetch("https://aqueous-stream-06459.herokuapp.com/getCart")
+    fetch(`http://localhost:5000/getCart/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
        

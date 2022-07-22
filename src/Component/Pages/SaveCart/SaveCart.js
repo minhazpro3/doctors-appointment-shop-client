@@ -1,12 +1,15 @@
+/* eslint-disable no-lone-blocks */
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 import Footer from '../Footer/Footer';
 import SaveCartItems from './SaveCartItems';
 
 
 const SaveCart = () => {
+  const {user}=useAuth()
   const [items, setItems]=useState([])  
   const [totalPrice, setTotalPrice]=useState(0)
       
@@ -38,7 +41,7 @@ const SaveCart = () => {
       
           if(itemIndex[0]){
           
-           axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,item)
+           axios.put(`http://localhost:5000/updatePQty`,item)
            .then(res=>{
              console.log(res.data);
              if(res.data){
@@ -51,7 +54,7 @@ const SaveCart = () => {
           }
           else {
            
-            axios.post("https://aqueous-stream-06459.herokuapp.com/saveCart",(item))
+            axios.post("http://localhost:5000/saveCart",(item))
             .then(res=>{
                 if(res.data){
                   total()
@@ -69,7 +72,7 @@ const SaveCart = () => {
             _id:e._id,
             type:"Dec"
           }
-          axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,item)
+          axios.put(`http://localhost:5000/updatePQty`,item)
           .then(res=>{
             console.log(res.data);
           })
@@ -79,7 +82,7 @@ const SaveCart = () => {
         }
 
         const handleDelete = (id)=>{
-          axios.delete(`https://aqueous-stream-06459.herokuapp.com/deleteProd/${id}`)
+          axios.delete(`http://localhost:5000/deleteProd/${id}`)
           .then(res=>{
             console.log(res.data);
             if(res.data){
@@ -94,13 +97,15 @@ const SaveCart = () => {
 
 
 
-     useEffect(() => {
-    fetch("https://aqueous-stream-06459.herokuapp.com/getCart")
-      .then((res) => res.json())
-      .then((data) => {
-       setItems(data)
-      });
-  }, [total]);
+        useEffect(() => {
+          fetch(`http://localhost:5000/getCart/${user?.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+             setItems(data)
+            });
+        }, [total]);
+
+   
 
 
 
