@@ -15,7 +15,7 @@ const [items, setItems]=useState([])
 const {user}=useAuth()
 
   useEffect(() => {
-    fetch("http://localhost:5000/getProductCart")
+    fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -38,7 +38,7 @@ const {user}=useAuth()
 
   useEffect(() => {
    
-    fetch(`http://localhost:5000/getCart/${user?.email}`)
+    fetch(`https://aqueous-stream-06459.herokuapp.com/getCart/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
        

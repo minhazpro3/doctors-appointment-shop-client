@@ -22,7 +22,7 @@ const AddDcotor = () => {
         image:imgUrl
       }
 
-    const url = "http://localhost:5000/addDoctor"
+    const url = "https://aqueous-stream-06459.herokuapp.com/addDoctor"
     fetch(url,{
       method: "POST",
       headers:{

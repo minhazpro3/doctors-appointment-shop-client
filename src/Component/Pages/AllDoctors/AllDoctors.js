@@ -11,7 +11,7 @@ const AllDoctors = () => {
 
  
   useEffect(()=>{
-    axios.get("http://localhost:5000/getDoctors")
+    axios.get("https://aqueous-stream-06459.herokuapp.com/getDoctors")
     .then(res=>{
       console.log(res.data);
       setDoctors(res.data)

@@ -14,7 +14,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/getProducts?page=${page}&&size=${size}`)
+    fetch(`https://aqueous-stream-06459.herokuapp.com/getProducts?page=${page}&&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setProductInfo(data.product);
@@ -59,7 +59,7 @@ const AllProducts = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://aqueous-stream-06459.herokuapp.com/deleteProduct/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",

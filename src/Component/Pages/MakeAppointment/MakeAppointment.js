@@ -19,7 +19,7 @@ const MakeAppointment = () => {
 
     }
     axios
-      .post("http://localhost:5000/postAllPatients", info )
+      .post("https://aqueous-stream-06459.herokuapp.com/postAllPatients", info )
       .then((res) => {
         console.log(res.data);
         alert("done");
@@ -28,7 +28,7 @@ const MakeAppointment = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/getDoctors")
+      .get("https://aqueous-stream-06459.herokuapp.com/getDoctors")
       .then((res) => {
         setDoctor(res.data);
       });
