@@ -22,7 +22,7 @@ const AddDcotor = () => {
         image:imgUrl
       }
 
-    const url = "https://aqueous-stream-06459.herokuapp.com/addDoctor"
+    const url = "http://localhost:5000/addDoctor"
     fetch(url,{
       method: "POST",
       headers:{
@@ -58,8 +58,7 @@ const AddDcotor = () => {
       .post("https://api.imgbb.com/1/upload", formData)
       .then((res) => {
         setImageUrl(res.data.data.url);
-        console.log(res.data);
-      })
+       })
       .catch((error) => {});
   };
   

@@ -7,15 +7,21 @@ import { useState, useEffect } from "react";
 import ShopItems from "../ShopItems/ShopItems";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice]=useState(0)
 const [items, setItems]=useState([])
+  const [singleItem, setSingleItem]=useState(Number)
 const {user}=useAuth()
+const [err,setErr]=useState("")
+
+
+
 
   useEffect(() => {
-    fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
+    fetch("http://localhost:5000/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -38,13 +44,90 @@ const {user}=useAuth()
 
   useEffect(() => {
    
-    fetch(`https://aqueous-stream-06459.herokuapp.com/getCart/${user?.email}`)
+    fetch(`http://localhost:5000/getCart/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
        
        setItems(data)
-      });
+      })
+      .catch(err=>{
+        setErr(err.message)
+      })
   }, [total]);
+
+
+  
+
+    const send = (e)=>{
+       
+       const item = {
+        email:user.email,
+        discountPrice:e.discountPrice,
+        image:e.image,
+        name:e.name,
+        rating:e.rating,
+        id:e._id,
+        qty:1
+       }
+
+      //  {
+      //   email: 'user@gmail.com',
+      //   discountPrice: '38',
+      //   image: 'https://i.ibb.co/JHy9TcK/Sanitizer-Gel.jpg',
+      //   name: 'Sanitizer Gel',
+      //   rating: '4',
+      //   id: '629b4dbd27070202e8919228',
+      //   qty: 1
+      // }
+      // {
+      //   discountPrice: '38',
+      //   image: 'https://i.ibb.co/JHy9TcK/Sanitizer-Gel.jpg',
+      //   name: 'Sanitizer Gel',
+      //   rating: '4',
+      //   id: '629b4dbd27070202e8919228',
+      //   qty: 0
+      // }
+      const itemIndex = items.filter(item=>item.id===e._id);
+       if(itemIndex[0]){
+        const newItem = itemIndex[0]
+        axios.put(`http://localhost:5000/updatePQty`,newItem)
+        .then(res=>{
+          setSingleItem(singleItem + 1)
+        })
+        .catch(err=>{
+
+         })
+      
+       }
+       else {
+        
+        axios.post("http://localhost:5000/saveCart",item)
+        .then(res=>{
+            if(res.data){
+            }
+            
+          })
+          .catch(err=>{
+          })
+       }
+    }
+
+    
+
+
+
+  //   useEffect(() => {
+
+  //      axios.get(`http://localhost:5000/getCart/${user?.email}`)
+  //         .then(res => {
+              
+  //             setItems(res.data)
+             
+  //         }) 
+
+  // }, [user.email])
+
+    
 
   return (
     <div>
@@ -87,6 +170,7 @@ const {user}=useAuth()
                   <ShopItems
                     key={product._id}
                     product={product}
+                    send={send}
                     index={index}
                   />
                 ))}

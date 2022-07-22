@@ -12,8 +12,7 @@ const AddProducts = () => {
   const [imgUrl,setImgUrl]=useState()
   const { register, handleSubmit, reset} = useForm();
   const onSubmit =   data => {
-    console.log(data);
-
+ 
     const formData1 = {
       name: data.name,
       description:data.description,
@@ -25,10 +24,9 @@ const AddProducts = () => {
     }
 
 
-    axios.post("https://aqueous-stream-06459.herokuapp.com/addProduct", formData1)
+    axios.post("http://localhost:5000/addProduct", formData1)
     .then(res=>{
-      console.log(res.data);
-      if(res.data.acknowledged){
+       if(res.data.acknowledged){
         Swal.fire(
                 'Good job!',
                 'You Product added the Successfully!',
@@ -59,7 +57,6 @@ const setImage = (e) => {
         )
         setImgUrl(res.data.data.url);
       }
-      console.log(res.data);
     })
     .catch((error) => {});
 };

@@ -7,7 +7,6 @@ import profile from "../../Images/gmail.png"
 
 const Navbar = () => {
   const {logOut,user,admin}=useAuth();
-  console.log();
   if(user.photoURL){
     
   }

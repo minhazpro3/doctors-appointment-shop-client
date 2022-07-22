@@ -22,7 +22,7 @@ const SaveCartItems = ({ index, prod, send, remove,handleDelete }) => {
           {prod?.name} 
         </td>
         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-          {prod?._id}
+          {prod?.id}
         </td>
 
         <td>
@@ -33,7 +33,7 @@ const SaveCartItems = ({ index, prod, send, remove,handleDelete }) => {
                 <h4>{prod.qty}</h4>
                 <button
                   onClick={
-                    prod.qty === 1 ? () => handleDelete(prod._id) : () => remove(prod)
+                    prod.qty === 1 ? () => handleDelete(prod.id) : () => remove(prod)
                   }
                 >
                   -
@@ -46,7 +46,7 @@ const SaveCartItems = ({ index, prod, send, remove,handleDelete }) => {
         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
           <div>
             <svg
-              onClick={() => handleDelete(prod._id)}
+              onClick={() => handleDelete(prod.id)}
               className="  inline cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 100 100"

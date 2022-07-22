@@ -28,22 +28,20 @@ const SaveCart = () => {
 
 
         const send = (e)=>{
-          
            const item = {
             discountPrice:e.discountPrice,
             image:e.image,
             name:e.name,
             rating:e.rating,
-            _id:e._id,
+            id:e.id,
             qty:0
            }
-          const itemIndex = items.filter(item=>item._id===e._id);
+          const itemIndex = items.filter(item=>item.id===e.id);
       
           if(itemIndex[0]){
           
-           axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,item)
+           axios.put(`http://localhost:5000/updatePQty`,item)
            .then(res=>{
-             console.log(res.data);
              if(res.data){
               total()
              }
@@ -54,7 +52,7 @@ const SaveCart = () => {
           }
           else {
            
-            axios.post("https://aqueous-stream-06459.herokuapp.com/saveCart",(item))
+            axios.post("http://localhost:5000/saveCart",(item))
             .then(res=>{
                 if(res.data){
                   total()
@@ -69,28 +67,24 @@ const SaveCart = () => {
 
         const remove = (e)=>{
           const item = {
-            _id:e._id,
+            id:e.id,
             type:"Dec"
           }
-          axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,item)
+          axios.put(`http://localhost:5000/updatePQty`,item)
           .then(res=>{
-            console.log(res.data);
           })
           .catch(err=>{
-            console.log(err.message);
            })
         }
 
         const handleDelete = (id)=>{
-          axios.delete(`https://aqueous-stream-06459.herokuapp.com/deleteProd/${id}`)
+          axios.delete(`http://localhost:5000/deleteProd/${id}`)
           .then(res=>{
-            console.log(res.data);
             if(res.data){
               setItems(items.filter(product => product._id !== id))
             }
           })
           .catch(err=>{
-            console.log(err.message);
            })
         }
 
@@ -98,7 +92,7 @@ const SaveCart = () => {
 
 
         useEffect(() => {
-          fetch(`https://aqueous-stream-06459.herokuapp.com/getCart/${user?.email}`)
+          fetch(`http://localhost:5000/getCart/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
              setItems(data)

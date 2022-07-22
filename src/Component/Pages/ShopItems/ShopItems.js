@@ -1,83 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Rating from "react-rating";
-import useAuth from "../../hooks/useAuth";
 
  
  
-const ShopItems = ({ product, index }) => {
-  const [items, setItems]=useState([])
-  const [singleItem, setSingleItem]=useState(Number)
-  const {user}=useAuth()
-
-    const send = (e)=>{
-      
-       const itemSp = {
-        email:user.email,
-        discountPrice:e.discountPrice,
-        image:e.image,
-        name:e.name,
-        rating:e.rating,
-        _id:e._id,
-        qty:1
-       }
-       console.log(itemSp);
-       const item = {
-        
-        discountPrice:e.discountPrice,
-        image:e.image,
-        name:e.name,
-        rating:e.rating,
-        _id:e._id,
-        qty:1
-       }
-       console.log(item);
-
-      const itemIndex = items.filter(item=>item._id===e._id);
-     
-       if(itemIndex[0]){
-       
-        setSingleItem(itemIndex[0].qty)
-        axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,item)
-        .then(res=>{
-          console.log(res.data);
-          setSingleItem(singleItem + 1)
-        })
-        .catch(err=>{
-          console.log(err.message);
-         })
-      
-       }
-       else {
-        
-        axios.post("https://aqueous-stream-06459.herokuapp.com/saveCart",itemSp)
-        .then(res=>{
-            if(res.data){
-              console.log(res.data);
-            }
-            
-          })
-          .catch(err=>{
-          })
-       }
-    }
-
-    
-
-
-
-    useEffect(() => {
-
-       axios.get(`https://aqueous-stream-06459.herokuapp.com/getCart/${user?.email}`)
-          .then(res => {
-              
-              setItems(res.data)
-             
-          }) 
-
-  }, [user.email])
-
-    
+const ShopItems = ({ product, index , send}) => {
+  
 
    
 
@@ -150,8 +77,8 @@ const ShopItems = ({ product, index }) => {
 
           <div className="text-center">
            <button
-               onClick={()=>send(product)}
-              className="bg-slate-900 w-full text-white text-base font-medium my-2 py-3 rounded-xl hover:bg-sky-500"
+               onClick={()=>send((product))}
+              className="bg-slate-900 w-full text-white text-base font-medium my-2 py-3 rounded-xl hover:bg-slate-800"
             >
               Add To Cart
             </button>

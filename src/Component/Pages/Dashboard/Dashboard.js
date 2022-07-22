@@ -6,7 +6,6 @@ import useAuth from "../../hooks/useAuth";
 
 const Dashboard = () => {
   const { user, admin } = useAuth();
-  console.log(admin,"admin and ", user,"user");
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
 
