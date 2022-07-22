@@ -30,7 +30,7 @@ const LocationMap = () => {
   const onSubmit = (data) => {
    
     data.status = "Processing";
-    fetch("http://localhost:5000/postAllPatients", {
+    fetch("https://aqueous-stream-06459.herokuapp.com/postAllPatients", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,7 @@ const LocationMap = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/getDoctors")
+    fetch("https://aqueous-stream-06459.herokuapp.com/getDoctors")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);

@@ -14,7 +14,7 @@ const PatientInfo = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `http://localhost:5000/yourBookings/${user?.email}`
+      `https://aqueous-stream-06459.herokuapp.com/yourBookings/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -36,7 +36,7 @@ const PatientInfo = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
-        fetch(`http://localhost:5000/deleteMySerial/${id}`, {
+        fetch(`https://aqueous-stream-06459.herokuapp.com/deleteMySerial/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",

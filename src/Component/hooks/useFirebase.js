@@ -43,7 +43,7 @@ const useFirebase = () => {
       email: saveUser.email,
       role: "user",
     };
-    fetch("http://localhost:5000/saveUsers", {
+    fetch("https://aqueous-stream-06459.herokuapp.com/saveUsers", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,7 +57,7 @@ const useFirebase = () => {
 
   //  check admin
   useEffect(() => {
-    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+    fetch(`https://aqueous-stream-06459.herokuapp.com/checkAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         

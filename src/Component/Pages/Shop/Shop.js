@@ -21,7 +21,7 @@ const [err,setErr]=useState("")
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/getProductCart")
+    fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -44,7 +44,7 @@ const [err,setErr]=useState("")
 
   useEffect(() => {
    
-    fetch(`http://localhost:5000/getCart/${user?.email}`)
+    fetch(`https://aqueous-stream-06459.herokuapp.com/getCart/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
        
@@ -90,7 +90,7 @@ const [err,setErr]=useState("")
       const itemIndex = items.filter(item=>item.id===e._id);
        if(itemIndex[0]){
         const newItem = itemIndex[0]
-        axios.put(`http://localhost:5000/updatePQty`,newItem)
+        axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,newItem)
         .then(res=>{
           setSingleItem(singleItem + 1)
         })
@@ -101,7 +101,7 @@ const [err,setErr]=useState("")
        }
        else {
         
-        axios.post("http://localhost:5000/saveCart",item)
+        axios.post("https://aqueous-stream-06459.herokuapp.com/saveCart",item)
         .then(res=>{
             if(res.data){
             }
@@ -118,7 +118,7 @@ const [err,setErr]=useState("")
 
   //   useEffect(() => {
 
-  //      axios.get(`http://localhost:5000/getCart/${user?.email}`)
+  //      axios.get(`https://aqueous-stream-06459.herokuapp.com/getCart/${user?.email}`)
   //         .then(res => {
               
   //             setItems(res.data)
