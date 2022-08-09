@@ -8,6 +8,7 @@ import ShopItems from "../ShopItems/ShopItems";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -93,6 +94,9 @@ const [err,setErr]=useState("")
         axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,newItem)
         .then(res=>{
           setSingleItem(singleItem + 1)
+          if(res.data){
+            
+          }
         })
         .catch(err=>{
 
@@ -103,8 +107,9 @@ const [err,setErr]=useState("")
         
         axios.post("https://aqueous-stream-06459.herokuapp.com/saveCart",item)
         .then(res=>{
-            if(res.data){
-            }
+          if(res.data){
+          
+          }
             
           })
           .catch(err=>{

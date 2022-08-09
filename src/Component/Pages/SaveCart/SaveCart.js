@@ -3,6 +3,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import Footer from '../Footer/Footer';
 import SaveCartItems from './SaveCartItems';
@@ -44,6 +45,10 @@ const SaveCart = () => {
            .then(res=>{
              if(res.data){
               total()
+              if(res.data){
+              
+                Swal.fire("Increase success!", "Increase Quantity ", "success");
+              }
              }
            })
            .catch(err=>{
@@ -56,6 +61,10 @@ const SaveCart = () => {
             .then(res=>{
                 if(res.data){
                   total()
+                  if(res.data){
+              
+                    Swal.fire("Added success!", "Product Added to Cart", "success");
+                  }
                 }
                 
               })
@@ -72,20 +81,44 @@ const SaveCart = () => {
           }
           axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,item)
           .then(res=>{
+            if(res.data){
+              Swal.fire("Decrease success!", "Decrease Quantity ", "success");
+            }
+            
           })
           .catch(err=>{
            })
         }
 
         const handleDelete = (id)=>{
-          axios.delete(`https://aqueous-stream-06459.herokuapp.com/deleteProd/${id}`)
-          .then(res=>{
-            if(res.data){
-              setItems(items.filter(product => product._id !== id))
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to cancel !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your Product has been Canceled.',
+                'success'
+              )
+              axios.delete(`https://aqueous-stream-06459.herokuapp.com/deleteProd/${id}`)
+              .then(res=>{
+                if(res.data){
+                  setItems(items.filter(product => product._id !== id))
+                 
+                }
+              })
+              .catch(err=>{
+               })
+
             }
           })
-          .catch(err=>{
-           })
+         
         }
 
 
@@ -100,6 +133,7 @@ const SaveCart = () => {
         }, [total]);
 
    
+        
 
 
 
@@ -160,7 +194,10 @@ const SaveCart = () => {
                         </th>
                       </tr>
                     </thead>
-                    {items.map((prod, index) => (
+                    {!items.length?<div className='flex justify-center'>
+                    <h3 className='text-3xl '>Cart is Empty</h3>
+                   
+                    </div>:items.map((prod, index) => (
                       <SaveCartItems
                         key={index}
                         prod={prod}

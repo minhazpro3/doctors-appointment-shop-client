@@ -40,7 +40,7 @@ const LocationMap = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          Swal.fire("Good job!", "Your Appointment Submitted", "success");
+          Swal.fire("Thank you!", "Your Appointment Submitted", "success");
           reset();
         }
       });
