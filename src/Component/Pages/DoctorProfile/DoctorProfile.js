@@ -16,6 +16,7 @@ const DoctorProfile = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
+    console.log(data)
 
   };
 
@@ -148,7 +149,7 @@ const DoctorProfile = () => {
                       Appointment
                     </h3>
                     <input
-                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
+                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96 bg-gray-800 text-white  py-3 px-3  leading-tight focus:outline-none focus:shadow-outline "
                       type="text"
                       placeholder="Your Name"
                       {...register("name")}
@@ -157,30 +158,30 @@ const DoctorProfile = () => {
                     />
                     <br />
                     <input
-                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3"
+                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 bg-gray-800 text-white leading-tight focus:outline-none focus:shadow-outline mt-3"
                       type="email"
                       placeholder="Email"
-                      {...register("Your Email")}
+                      {...register("email")}
                       value={user?.email}
                       required
                     />
                     <br />
                     <input
-                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3"
+                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 bg-gray-800 text-white leading-tight focus:outline-none focus:shadow-outline mt-3"
                       type="date"
                       {...register("date")}
                       required
                     />
                     <br />
 
-                    <div className="inline-block shadow  relative   appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3">
+                    {/* <div className="inline-block shadow  relative   appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3">
                       <select
                         className="block appearance-none w-full bg-white   pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline"
                         {...register("doctor")}
                         required
                       >
                        
-                        <option  defaultValue>{singleDoctor.name}</option>
+                        <option  value={singleDoctor.name}>{singleDoctor.name}</option>
                       </select>
                       <div className="pointer-events-none  absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <svg
@@ -191,20 +192,28 @@ const DoctorProfile = () => {
                           <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                         </svg>
                       </div>
-                    </div>
+                    </div> */}
+                    <input
+                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 px-3 bg-gray-800 text-white leading-tight focus:outline-none focus:shadow-outline mt-3"
+                      type="text"
+                      placeholder={singleDoctor.name}
+                      {...register("doctor")}
+                      value={singleDoctor.name}
+                      required
+                    />
                     <br />
 
                     <textarea
-                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-3 h-40"
-                      type="date"
+                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-2 px-3 bg-gray-800 text-white leading-tight focus:outline-none focus:shadow-outline mt-3 h-40"
+                      type="text"
                       placeholder="Your Message"
-                      {...register("date")}
+                      {...register("description")}
                       required
                     />
                     <br />
 
                     <input
-                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3   text-blue-500 hover:text-white bg-white hover:bg-slate-900 hover:cursor-pointer leading-tight focus:outline-none focus:shadow-outline mt-3"
+                      className="shadow appearance-none border rounded w-60 md:w-80 lg:w-96  py-3 hover:text-blue-800   text-white hover:bg-white bg-slate-900 hover:cursor-pointer leading-tight focus:outline-none focus:shadow-outline mt-3"
                       type="submit"
                       value="Book an Appointment"
                     />
