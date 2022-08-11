@@ -8,15 +8,30 @@ import rec from "../../Images/rec.png";
 import Footer from "../Footer/Footer";
 import { useParams } from "react-router";
 import useAuth from "../../hooks/useAuth"
+import Swal from "sweetalert2";
 
 const DoctorProfile = () => {
   const {user}=useAuth()
   const { doctorId } = useParams();
   const [singleDoctor, setSingleDoctor] = useState({});
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const onSubmit = (data) => {
-    console.log(data)
+    data.status = "Processing";
+    fetch("https://aqueous-stream-06459.herokuapp.com/postAllPatients", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire("Thank you!", "Your Appointment Submitted", "success");
+          reset();
+        }
+      });
 
   };
 
@@ -29,7 +44,12 @@ const DoctorProfile = () => {
 
         // setFresh(true)
       });
-  }, []);
+  }, [doctorId]);
+
+
+
+
+
   return (
     <div>
       <div className="font-poppins-font">
