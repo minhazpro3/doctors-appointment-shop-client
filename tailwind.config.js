@@ -13,10 +13,8 @@ module.exports = {
       'allDoctors-banner': "url('https://i.ibb.co/2n7fjTh/doctors-manyedt.jpg')",
   },
   },
+  
   plugins: [
-    require('tw-elements/dist/plugin')
-  ],
-  plugins: [
-    require('tailwindcss-textshadow')
-  ]
+    require('flowbite/plugin','tailwindcss-textshadow','tw-elements/dist/plugin')
+]
 }
