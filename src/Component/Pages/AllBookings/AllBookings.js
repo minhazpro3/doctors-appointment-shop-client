@@ -76,7 +76,7 @@ const AllBookings = () => {
   };
 
   return (
-    <div className="font-poppins-font">
+    <div className="font-poppins-font ml-14 ">
       {loading ? (
         <div className="md:w-full h-96 text-center py-36  ">
           <svg

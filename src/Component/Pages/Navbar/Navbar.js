@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../Images/lifecare logo.png";
 import useAuth from "../../hooks/useAuth"
-import profile from "../../Images/gmail.png"
  
 
 const Navbar = () => {
   const {logOut,user,admin}=useAuth();
-  if(user.photoURL){
-    
-  }
+  
+  
+ 
+
   return (
-    <nav className="px-2  bg-white border-gray-200 shadow-lg ">
+    <nav className="px-2  bg-white border-gray-200 shadow-lg  ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <NavLink to="/">
           <img className="w-32" src={logo} alt="" />

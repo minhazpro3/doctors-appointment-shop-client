@@ -51,7 +51,7 @@ const PatientInfo = () => {
   };
 
   return (
-    <div className="font-poppins-font">
+    <div className="font-poppins-font ml-14">
       {loading ? (
         <div>
           <h4 className="text-3xl my-32 text-center">Loading...</h4>

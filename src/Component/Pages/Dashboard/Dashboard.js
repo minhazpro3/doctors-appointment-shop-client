@@ -11,27 +11,31 @@ const Dashboard = () => {
 
   return (
     <div className=" ">
-      <div className="flex">
-        <div className="font-poppins-font">
+      <div className="flex ">
+
+        <div className="font-poppins-font ">
           {sidebar && (
-            <button onClick={showSidebar}>
-              <img
-                className="w-8 fixed "
-                src="https://i.ibb.co/2K4cfzC/menu.png"
-                alt="menu-bar"
-              />
+          
+
+            <button onClick={showSidebar} className="w-16 h-[92%] fixed bg-lime-600 z-30  ">
+              <h2 className="my-24">C</h2>
+              <h2 className="my-24">L</h2>
+              <h2 className="my-24">I</h2>
+              <h2 className="my-24">C</h2>
+              <h2 className="my-24">K</h2>
             </button>
+            
           )}
           <div
             className={
               sidebar
-                ? "hidden w-60 h-full shadow-md bg-white fixed"
-                : "w-60 h-full shadow-md bg-white  fixed"
+                ? "hidden w-60 h-full shadow-md bg-white fixed  "
+                : "w-60 h-full shadow-md bg-indigo-600 fixed z-40 "
             }
           >
             <ul className="relative">
               <li className="relative  ">
-                <div className="flex justify-between items-center  px-2 my-4">
+                <div className="flex justify-between items-center bg-blue-500  px-2 my-4">
                   <NavLink to="/">
                     <img
                       className="w-14 rounded-full ml-2 md:m-0 lg:m-0 "
@@ -39,15 +43,11 @@ const Dashboard = () => {
                       alt="user"
                     />
                   </NavLink>
-                  <h4 className="text-base">
+                  <h4 className="text-base ml-2">
                     {user?.displayName}
                   </h4>
-                  <button className="mx-12" onClick={showSidebar}>
-                    <img
-                      className="w-5  fixed"
-                      src="https://i.ibb.co/MGckbMF/x.png"
-                      alt="cross menu"
-                    />
+                  <button className="ml-16 " onClick={showSidebar}>
+                   <h4>Close</h4>
                   </button>
                 </div>
               </li>
@@ -124,7 +124,7 @@ const Dashboard = () => {
             </ul>
           </div>
         </div>
-        <div className=" w-full">
+        <div className=" w-full overflow-x-hidden">
           <div>
             <Outlet />
           </div>

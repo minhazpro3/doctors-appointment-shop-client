@@ -40,6 +40,7 @@
     "react-pro-sidebar": "^0.7.1",
     "react-rating": "^2.0.5",
     "react-redux": "^7.2.8",
+    "react-responsive-accordion": "^1.0.0",
     "react-responsive-sidebar": "^0.1.16",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
