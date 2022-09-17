@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-lone-blocks */
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -5,6 +6,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
+import PayButton from '../../PayButton/PayButton';
 import Footer from '../Footer/Footer';
 import SaveCartItems from './SaveCartItems';
 
@@ -215,9 +217,10 @@ const SaveCart = () => {
             </div>
           </div>
             </div>
-           <div className="container mx-auto absolute right-32 top-24 pt-3 text-lime-50  ">
-           <div className="grid justify-items-end mx-12 px-6 mb-16">
-              <h4 className="font-bold">Total price:  {totalPrice  } USD</h4>
+           <div className="container mx-auto  pt-3 text-lime-50  ">
+           <div className="grid md:justify-items-end  mx-12 px-6 mb-16">
+            <h4 className="font-bold text-3xl text-black">Total price:  {totalPrice} USD</h4>
+            <PayButton items={items} totalPrice={totalPrice} />
             </div>
            </div>
             <Footer/>
