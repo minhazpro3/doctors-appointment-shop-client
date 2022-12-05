@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import {
   getAuth,
@@ -16,7 +16,7 @@ initializeFirebaseApp();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [admin, setAdmin] = useState("");
-  
+
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
   const [isLoading, setIsLoading] = useState(true);
@@ -43,27 +43,29 @@ const useFirebase = () => {
       email: saveUser.email,
       role: "user",
     };
-    fetch("https://aqueous-stream-06459.herokuapp.com/saveUsers", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(info),
-    })
+    fetch(
+      "https://doctors-appointment-shop-server-production.up.railway.app/saveUsers",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+      }
+    )
       .then((res) => res.json())
-      .then((data) => {
-      });
+      .then((data) => {});
   };
 
   //  check admin
   useEffect(() => {
-    fetch(`https://aqueous-stream-06459.herokuapp.com/checkAdmin/${user?.email}`)
+    fetch(
+      `https://doctors-appointment-shop-server-production.up.railway.app/checkAdmin/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        
         if (data[0]?.role === "admin") {
-          setAdmin(data[0]?.role)
-           
+          setAdmin(data[0]?.role);
         }
       });
   }, [user?.email]);
@@ -98,8 +100,6 @@ const useFirebase = () => {
       .then(() => {})
       .catch((error) => {});
   };
-
- 
 
   return {
     googleSignIn,

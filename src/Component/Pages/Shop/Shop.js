@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import "./Shop.css";
@@ -8,131 +9,86 @@ import ShopItems from "../ShopItems/ShopItems";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import Swal from "sweetalert2";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  const [totalPrice, setTotalPrice]=useState(0)
-const [items, setItems]=useState([])
-  const [singleItem, setSingleItem]=useState(Number)
-const {user}=useAuth()
-const [err,setErr]=useState("")
-
-
-
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [items, setItems] = useState([]);
+  const [singleItem, setSingleItem] = useState(Number);
+  const { user } = useAuth();
 
   useEffect(() => {
-    fetch("https://aqueous-stream-06459.herokuapp.com/getProductCart")
+    fetch(
+      "https://doctors-appointment-shop-server-production.up.railway.app/getProductCart"
+    )
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
   }, []);
 
-
-  const total = ()=>{
+  const total = () => {
     let price = 0;
-    items.map(ele => {
-      price=parseInt(ele.discountPrice)  * parseInt(ele.qty) + parseInt(price)
-    })
-    setTotalPrice(price)
-  }
-
-  useEffect(()=>{
-    total();
-  },[total])
-
+    items.map((ele) => {
+      price = parseInt(ele.discountPrice) * parseInt(ele.qty) + parseInt(price);
+    });
+    setTotalPrice(price);
+  };
 
   useEffect(() => {
-   
-    fetch(`https://aqueous-stream-06459.herokuapp.com/getCart/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-       
-       setItems(data)
-      })
-      .catch(err=>{
-        setErr(err.message)
-      })
+    total();
   }, [total]);
 
+  useEffect(() => {
+    fetch(
+      `https://doctors-appointment-shop-server-production.up.railway.app/getCart/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setItems(data);
+      })
+      .catch((err) => {});
+  }, [total]);
 
-  
+  const send = (e) => {
+    const item = {
+      email: user.email,
+      discountPrice: e.discountPrice,
+      image: e.image,
+      name: e.name,
+      rating: e.rating,
+      id: e._id,
+      qty: 1,
+      type: "product",
+    };
 
-    const send = (e)=>{
-       
-       const item = {
-        email:user.email,
-        discountPrice:e.discountPrice,
-        image:e.image,
-        name:e.name,
-        rating:e.rating,
-        id:e._id,
-        qty:1
-       }
-
-      //  {
-      //   email: 'user@gmail.com',
-      //   discountPrice: '38',
-      //   image: 'https://i.ibb.co/JHy9TcK/Sanitizer-Gel.jpg',
-      //   name: 'Sanitizer Gel',
-      //   rating: '4',
-      //   id: '629b4dbd27070202e8919228',
-      //   qty: 1
-      // }
-      // {
-      //   discountPrice: '38',
-      //   image: 'https://i.ibb.co/JHy9TcK/Sanitizer-Gel.jpg',
-      //   name: 'Sanitizer Gel',
-      //   rating: '4',
-      //   id: '629b4dbd27070202e8919228',
-      //   qty: 0
-      // }
-      const itemIndex = items.filter(item=>item.id===e._id);
-       if(itemIndex[0]){
-        const newItem = itemIndex[0]
-        axios.put(`https://aqueous-stream-06459.herokuapp.com/updatePQty`,newItem)
-        .then(res=>{
-          setSingleItem(singleItem + 1)
-          if(res.data){
-            
+    const itemIndex = items.filter((item) => item.id === e._id);
+    if (itemIndex[0]) {
+      const newItem = itemIndex[0];
+      axios
+        .put(
+          `https://doctors-appointment-shop-server-production.up.railway.app/updatePQty`,
+          newItem
+        )
+        .then((res) => {
+          setSingleItem(singleItem + 1);
+          if (res.data) {
           }
         })
-        .catch(err=>{
-
-         })
-      
-       }
-       else {
-        
-        axios.post("https://aqueous-stream-06459.herokuapp.com/saveCart",item)
-        .then(res=>{
-          if(res.data){
-          
+        .catch((err) => {});
+    } else {
+      axios
+        .post(
+          "https://doctors-appointment-shop-server-production.up.railway.app/saveCart",
+          item
+        )
+        .then((res) => {
+          if (res.data) {
           }
-            
-          })
-          .catch(err=>{
-          })
-       }
+        })
+        .catch((err) => {});
     }
-
-    
-
-
-
-  //   useEffect(() => {
-
-  //      axios.get(`https://aqueous-stream-06459.herokuapp.com/getCart/${user?.email}`)
-  //         .then(res => {
-              
-  //             setItems(res.data)
-             
-  //         }) 
-
-  // }, [user.email])
-
-    
+  };
 
   return (
     <div>

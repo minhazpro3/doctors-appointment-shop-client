@@ -3,48 +3,44 @@ import { useForm } from "react-hook-form";
 import "../AddProducts/AddProducts.css";
 import Footer from "../Footer/Footer";
 import Swal from "sweetalert2";
-import {useState} from "react"
-import axios from "axios"
+import { useState } from "react";
+import axios from "axios";
 
 const AddDcotor = () => {
-  const [imgUrl,setImageUrl]=useState("")
-  const { register, handleSubmit,reset } = useForm();
-  
+  const [imgUrl, setImageUrl] = useState("");
+  const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = (data) => {
+    const formData1 = {
+      name: data.name,
+      email: data.email,
+      jobTittle: data.jobTittle,
+      age: data.age,
+      address: data.address,
+      phone: data.phone,
+      image: imgUrl,
+    };
 
-      const formData1 = {
-        name: data.name,
-        email: data.email,
-        jobTittle:data.jobTittle,
-        age:data.age,
-        address:data.address,
-        phone:data.phone,
-        image:imgUrl
-      }
-
-    const url = "https://aqueous-stream-06459.herokuapp.com/addDoctor"
-    fetch(url,{
+    const url =
+      "https://doctors-appointment-shop-server-production.up.railway.app/addDoctor";
+    fetch(url, {
       method: "POST",
-      headers:{
-        "content-type":"application/json"
+      headers: {
+        "content-type": "application/json",
       },
       body: JSON.stringify(formData1),
     })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.acknowledged) {
-        Swal.fire(
-          'Good job!',
-          ' Added a new doctor the Successful!',
-          'success'
-        )
-        reset();
-        
-        
-      }
-    });
-
-    
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire(
+            "Good job!",
+            " Added a new doctor the Successful!",
+            "success"
+          );
+          reset();
+        }
+      });
   };
 
   const setImage = (e) => {
@@ -58,10 +54,10 @@ const AddDcotor = () => {
       .post("https://api.imgbb.com/1/upload", formData)
       .then((res) => {
         setImageUrl(res.data.data.url);
-       })
+      })
       .catch((error) => {});
   };
-  
+
   return (
     <div>
       <div className="container mx-auto ">
@@ -112,8 +108,7 @@ const AddDcotor = () => {
                   {...register("biography")}
                   placeholder="Biography "
                   type="text"
-                   disabled
-                   
+                  disabled
                 />
 
                 <input

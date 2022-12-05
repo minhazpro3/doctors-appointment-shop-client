@@ -20,7 +20,7 @@ const center = {
 
 const LocationMap = () => {
   const [doctors, setDoctors] = useState([]);
-  const { user,admin } = useAuth();
+  const { user, admin } = useAuth();
   const {
     register,
     handleSubmit,
@@ -28,15 +28,17 @@ const LocationMap = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-   
     data.status = "Processing";
-    fetch("https://aqueous-stream-06459.herokuapp.com/postAllPatients", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      "https://doctors-appointment-shop-server-production.up.railway.app/postAllPatients",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
@@ -47,15 +49,14 @@ const LocationMap = () => {
   };
 
   useEffect(() => {
-    fetch("https://aqueous-stream-06459.herokuapp.com/getDoctors")
+    fetch(
+      "https://doctors-appointment-shop-server-production.up.railway.app/getDoctors"
+    )
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);
-        
       });
   }, []);
-
-  
 
   return (
     <div>
@@ -114,9 +115,8 @@ const LocationMap = () => {
                 type="email"
                 placeholder="Email"
                 {...register("email")}
-                value={admin==="admin"?"You are a admin":user?.email}
+                value={admin === "admin" ? "You are a admin" : user?.email}
                 required
-                 
               />
               <br />
               <input
@@ -133,10 +133,7 @@ const LocationMap = () => {
                   {...register("doctor")}
                   required
                 >
-                  <option  disabled>
-                    {" "}
-                    --Select Doctor--
-                  </option>
+                  <option disabled> --Select Doctor--</option>
                   {doctors.map((doctor, index) => (
                     <option className="px-2" key={doctor._id}>
                       {doctor?.name}

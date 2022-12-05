@@ -9,7 +9,9 @@ const AllBookings = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://aqueous-stream-06459.herokuapp.com/allBookings")
+    fetch(
+      "https://doctors-appointment-shop-server-production.up.railway.app/allBookings"
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllBookings(data);
@@ -31,12 +33,15 @@ const AllBookings = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
-        fetch(`https://aqueous-stream-06459.herokuapp.com/deletePatient/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-        })
+        fetch(
+          `https://doctors-appointment-shop-server-production.up.railway.app/deletePatient/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             setAllBookings(allBookings.filter((data) => data._id !== id));
@@ -62,13 +67,16 @@ const AllBookings = () => {
       if (result.isConfirmed) {
         Swal.fire("Updated!", "Your file has been updated.", "success");
 
-        fetch(`https://aqueous-stream-06459.herokuapp.com/updatePatient/${id}`, {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
+        fetch(
+          `https://doctors-appointment-shop-server-production.up.railway.app/updatePatient/${id}`,
+          {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {});
       }

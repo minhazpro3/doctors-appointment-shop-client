@@ -14,7 +14,9 @@ const AllProducts = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://aqueous-stream-06459.herokuapp.com/getProducts?page=${page}&&size=${size}`)
+    fetch(
+      `https://doctors-appointment-shop-server-production.up.railway.app/getProducts?page=${page}&&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProductInfo(data.product);
@@ -59,12 +61,15 @@ const AllProducts = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
-        fetch(`https://aqueous-stream-06459.herokuapp.com/deleteProduct/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-        })
+        fetch(
+          `https://doctors-appointment-shop-server-production.up.railway.app/deleteProduct/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             setProductInfo(productInfo.filter((data) => data._id !== id));
@@ -72,8 +77,6 @@ const AllProducts = () => {
       }
     });
   };
-
- 
 
   return (
     <div>
@@ -143,12 +146,11 @@ const AllProducts = () => {
                     <tbody>
                       {productInfo.map((productIn, index) => (
                         <AllProduct
-                        key={index}
+                          key={index}
                           productIn={productIn}
                           index={index}
                           loading={loading}
                           handleDelete={handleDelete}
-                        
                         />
                       ))}
                     </tbody>

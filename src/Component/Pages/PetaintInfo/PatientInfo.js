@@ -14,7 +14,7 @@ const PatientInfo = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://aqueous-stream-06459.herokuapp.com/yourBookings/${user?.email}`
+      `https://doctors-appointment-shop-server-production.up.railway.app/yourBookings/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -36,12 +36,15 @@ const PatientInfo = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
-        fetch(`https://aqueous-stream-06459.herokuapp.com/deleteMySerial/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-        })
+        fetch(
+          `https://doctors-appointment-shop-server-production.up.railway.app/deleteMySerial/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             setAllPatients(allPatients.filter((data) => data._id !== id));
@@ -63,7 +66,10 @@ const PatientInfo = () => {
               You don't have Bookings!!
             </h4>
             <h4 className="text-center text-2xl mt-2 text-blue-900">
-              Please Booking <Link to="/makAppointment"><span className="text-green-500" >Click now</span></Link>
+              Please Booking{" "}
+              <Link to="/makAppointment">
+                <span className="text-green-500">Click now</span>
+              </Link>
             </h4>
           </div>
         </div>

@@ -5,21 +5,23 @@ import useAuth from "../../hooks/useAuth";
 import Footer from "../Footer/Footer";
 
 const MakeAppointment = () => {
-  const {user,admin}=useAuth()
+  const { user, admin } = useAuth();
   const [doctor, setDoctor] = useState([]);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const info = {
-      name:data.name,
-      email:user?.email,
-      date:data.date,
-      doctor:data.doctor,
-      description:data.desc,
-      status:"Processing"
-
-    }
+      name: data.name,
+      email: user?.email,
+      date: data.date,
+      doctor: data.doctor,
+      description: data.desc,
+      status: "Processing",
+    };
     axios
-      .post("https://aqueous-stream-06459.herokuapp.com/postAllPatients", info )
+      .post(
+        "https://doctors-appointment-shop-server-production.up.railway.app/postAllPatients",
+        info
+      )
       .then((res) => {
         alert("done");
       });
@@ -27,7 +29,9 @@ const MakeAppointment = () => {
 
   useEffect(() => {
     axios
-      .get("https://aqueous-stream-06459.herokuapp.com/getDoctors")
+      .get(
+        "https://doctors-appointment-shop-server-production.up.railway.app/getDoctors"
+      )
       .then((res) => {
         setDoctor(res.data);
       });
@@ -54,8 +58,8 @@ const MakeAppointment = () => {
               type="email"
               placeholder="Email"
               {...register("Your Email")}
-              value={admin==="admin"?"You are a admin":user?.email}
-                required
+              value={admin === "admin" ? "You are a admin" : user?.email}
+              required
             />
             <br />
             <input

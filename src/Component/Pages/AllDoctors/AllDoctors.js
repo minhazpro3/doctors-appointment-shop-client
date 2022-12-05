@@ -4,19 +4,21 @@ import { NavLink } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import HomeCounter from "../HomeCounter/HomeCounter";
 import "./AllDoctors.css";
-import axios  from 'axios';
+import axios from "axios";
 
 const AllDoctors = () => {
   const [doctors, setDoctors] = useState([]);
 
- 
-  useEffect(()=>{
-    axios.get("https://aqueous-stream-06459.herokuapp.com/getDoctors")
-    .then(res=>{
-      setDoctors(res.data)
-    })
-  },[])
-   
+  useEffect(() => {
+    axios
+      .get(
+        "https://doctors-appointment-shop-server-production.up.railway.app/getDoctors"
+      )
+      .then((res) => {
+        setDoctors(res.data);
+      });
+  }, []);
+
   return (
     <div>
       <div className="bg-allDoctors-banner object-cover w-full h-96 font-poppins-font">
@@ -53,12 +55,16 @@ const AllDoctors = () => {
             {doctors.map((doctor, index) => (
               <div key={doctor._id} className="flex justify-center">
                 <div className="w-80 h-[29rem] rounded overflow-x-hidden shadow-lg zoomDiv">
-                  
-                    
-                    
-                    {doctor?.img? <img className="w-full h-72 object-cover zoom" src={doctor?.img} alt="" />:<h3>loadimg</h3>}
-                   
-                  
+                  {doctor?.img ? (
+                    <img
+                      className="w-full h-72 object-cover zoom"
+                      src={doctor?.img}
+                      alt=""
+                    />
+                  ) : (
+                    <h3>loadimg</h3>
+                  )}
+
                   <div className="px-4 py-4">
                     <div className="font-bold text-xl  text-blue-900">
                       {doctor.name}

@@ -3,68 +3,60 @@ import { useForm } from "react-hook-form";
 import AddProductsPic from "../../Images/add_products-removebg-preview.png";
 import Footer from "../Footer/Footer";
 import "./AddProducts.css";
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 import axios from "axios";
- 
-
 
 const AddProducts = () => {
-  const [imgUrl,setImgUrl]=useState()
-  const { register, handleSubmit, reset} = useForm();
-  const onSubmit =   data => {
- 
+  const [imgUrl, setImgUrl] = useState();
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
     const formData1 = {
       name: data.name,
-      description:data.description,
-      price:data.price,
-      discount:data.discount,
-      discountPrice:data.discountPrice,
-      rating:data.rating,
-      image:imgUrl
-    }
+      description: data.description,
+      price: data.price,
+      discount: data.discount,
+      discountPrice: data.discountPrice,
+      rating: data.rating,
+      image: imgUrl,
+    };
 
+    axios
+      .post(
+        "https://doctors-appointment-shop-server-production.up.railway.app/addProduct",
+        formData1
+      )
+      .then((res) => {
+        if (res.data.acknowledged) {
+          Swal.fire(
+            "Good job!",
+            "You Product added the Successfully!",
+            "success"
+          );
+          reset();
+        }
+      });
+  };
 
-    axios.post("https://aqueous-stream-06459.herokuapp.com/addProduct", formData1)
-    .then(res=>{
-       if(res.data.acknowledged){
-        Swal.fire(
-                'Good job!',
-                'You Product added the Successfully!',
-                'success'
-              )
-        reset()
-      }
-      
-    })   
-}
+  const setImage = (e) => {
+    e.preventDefault();
 
- 
-const setImage = (e) => {
-  e.preventDefault();
+    const formData = new FormData();
+    formData.set("key", "d45a4ad9a09ad1464075aa3c82125b64");
+    formData.append("image", e.target.files[0]);
 
-  const formData = new FormData();
-  formData.set("key", "d45a4ad9a09ad1464075aa3c82125b64");
-  formData.append("image", e.target.files[0]);
-
-  axios
-    .post("https://api.imgbb.com/1/upload", formData)
-    .then((res) => {
-      if(res.data){
-        Swal.fire(
-          'Yaaa!',
-          ' Image uploaded!',
-          'success'
-        )
-        setImgUrl(res.data.data.url);
-      }
-    })
-    .catch((error) => {});
-};
-    
+    axios
+      .post("https://api.imgbb.com/1/upload", formData)
+      .then((res) => {
+        if (res.data) {
+          Swal.fire("Yaaa!", " Image uploaded!", "success");
+          setImgUrl(res.data.data.url);
+        }
+      })
+      .catch((error) => {});
+  };
 
   return (
     <div>
-    
       <div className="container mx-auto font-poppins-font my-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex justify-center">
@@ -103,7 +95,6 @@ const setImage = (e) => {
                     {...register("price")}
                     type="number"
                     placeholder="Regular Price"
-                    
                   />
                   <br />
                   <input
@@ -111,7 +102,6 @@ const setImage = (e) => {
                     {...register("discount")}
                     type="number"
                     placeholder="Discount %"
-                    
                   />
                   <br />
                   <input
@@ -128,7 +118,7 @@ const setImage = (e) => {
                     placeholder=""
                     required
                   >
-                    <option  disabled className="opacity-25 ">
+                    <option disabled className="opacity-25 ">
                       Set Rating
                     </option>
                     <option>1</option>

@@ -8,7 +8,7 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm';
 const stripePromise = loadStripe('pk_test_51Jw7VaH3ev5JLZVRvA8lgx8YaHqTlusMziZgMjollIE1gPBWx3kP33OB2DK3Fnwpgr2YetIlBzzcMNbzw5Nxbm6T00ilgAiC9a');
 
 
-const PayButton = ({ totalPrice, items }) => {
+const PayButton = ({ totalPrice, items, deleteMany }) => {
     return (
         <div className='bg-white text-black text-xl  py-2 '>
           
@@ -19,7 +19,7 @@ const PayButton = ({ totalPrice, items }) => {
  
               <div className="card-body">
               <Elements  stripe={stripePromise}>
-    <CheckoutForm  totalPrice={totalPrice} />
+    <CheckoutForm deleteMany={deleteMany} totalPrice={totalPrice} />
   </Elements>
     
       </div>
