@@ -43,16 +43,13 @@ const useFirebase = () => {
       email: saveUser.email,
       role: "user",
     };
-    fetch(
-      "https://doctors-appointment-shop-server-production.up.railway.app/saveUsers",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(info),
-      }
-    )
+    fetch("https://doctors-appointmentandshop.onrender.com/saveUsers", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
       .then((res) => res.json())
       .then((data) => {});
   };
@@ -60,7 +57,7 @@ const useFirebase = () => {
   //  check admin
   useEffect(() => {
     fetch(
-      `https://doctors-appointment-shop-server-production.up.railway.app/checkAdmin/${user?.email}`
+      `https://doctors-appointmentandshop.onrender.com/checkAdmin/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

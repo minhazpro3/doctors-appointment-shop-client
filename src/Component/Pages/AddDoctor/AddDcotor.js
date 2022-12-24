@@ -21,8 +21,7 @@ const AddDcotor = () => {
       image: imgUrl,
     };
 
-    const url =
-      "https://doctors-appointment-shop-server-production.up.railway.app/addDoctor";
+    const url = "https://doctors-appointmentandshop.onrender.com/addDoctor";
     fetch(url, {
       method: "POST",
       headers: {

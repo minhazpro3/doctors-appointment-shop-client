@@ -14,7 +14,7 @@ const PatientInfo = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://doctors-appointment-shop-server-production.up.railway.app/yourBookings/${user?.email}`
+      `https://doctors-appointmentandshop.onrender.com/yourBookings/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -37,7 +37,7 @@ const PatientInfo = () => {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
         fetch(
-          `https://doctors-appointment-shop-server-production.up.railway.app/deleteMySerial/${id}`,
+          `https://doctors-appointmentandshop.onrender.com/deleteMySerial/${id}`,
           {
             method: "DELETE",
             headers: {

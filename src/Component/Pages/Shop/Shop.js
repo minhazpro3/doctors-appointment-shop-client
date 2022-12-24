@@ -18,9 +18,7 @@ const Shop = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(
-      "https://doctors-appointment-shop-server-production.up.railway.app/getProductCart"
-    )
+    fetch("https://doctors-appointmentandshop.onrender.com/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -41,7 +39,7 @@ const Shop = () => {
 
   useEffect(() => {
     fetch(
-      `https://doctors-appointment-shop-server-production.up.railway.app/getCart/${user?.email}`
+      `https://doctors-appointmentandshop.onrender.com/getCart/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -67,7 +65,7 @@ const Shop = () => {
       const newItem = itemIndex[0];
       axios
         .put(
-          `https://doctors-appointment-shop-server-production.up.railway.app/updatePQty`,
+          `https://doctors-appointmentandshop.onrender.com/updatePQty`,
           newItem
         )
         .then((res) => {
@@ -78,10 +76,7 @@ const Shop = () => {
         .catch((err) => {});
     } else {
       axios
-        .post(
-          "https://doctors-appointment-shop-server-production.up.railway.app/saveCart",
-          item
-        )
+        .post("https://doctors-appointmentandshop.onrender.com/saveCart", item)
         .then((res) => {
           if (res.data) {
           }

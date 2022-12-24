@@ -9,9 +9,7 @@ const AboutDoctors = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://doctors-appointment-shop-server-production.up.railway.app/getDoctors"
-      )
+      .get("https://doctors-appointmentandshop.onrender.com/getDoctors")
       .then((res) => {
         setDoctors(res.data.slice(0, 3));
       });

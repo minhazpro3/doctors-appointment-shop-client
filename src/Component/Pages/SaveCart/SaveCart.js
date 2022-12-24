@@ -43,10 +43,7 @@ const SaveCart = () => {
 
     if (itemIndex[0]) {
       axios
-        .put(
-          `https://doctors-appointment-shop-server-production.up.railway.app/updatePQty`,
-          item
-        )
+        .put(`https://doctors-appointmentandshop.onrender.com/updatePQty`, item)
         .then((res) => {
           if (res.data) {
             total();
@@ -58,10 +55,7 @@ const SaveCart = () => {
         .catch((err) => {});
     } else {
       axios
-        .post(
-          "https://doctors-appointment-shop-server-production.up.railway.app/saveCart",
-          item
-        )
+        .post("https://doctors-appointmentandshop.onrender.com/saveCart", item)
         .then((res) => {
           if (res.data) {
             total();
@@ -80,10 +74,7 @@ const SaveCart = () => {
       type: "Dec",
     };
     axios
-      .put(
-        `https://doctors-appointment-shop-server-production.up.railway.app/updatePQty`,
-        item
-      )
+      .put(`https://doctors-appointmentandshop.onrender.com/updatePQty`, item)
       .then((res) => {
         if (res.data) {
           Swal.fire("Decrease success!", "Decrease Quantity ", "success");
@@ -106,7 +97,7 @@ const SaveCart = () => {
         Swal.fire("Deleted!", "Your Product has been Canceled.", "success");
         axios
           .delete(
-            `https://doctors-appointment-shop-server-production.up.railway.app/deleteProd/${id}`
+            `https://doctors-appointmentandshop.onrender.com/deleteProd/${id}`
           )
           .then((res) => {
             if (res.data) {
@@ -120,7 +111,7 @@ const SaveCart = () => {
 
   useEffect(() => {
     fetch(
-      `https://doctors-appointment-shop-server-production.up.railway.app/getCart/${user?.email}`
+      `https://doctors-appointmentandshop.onrender.com/getCart/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -131,9 +122,7 @@ const SaveCart = () => {
 
   const deleteMany = () => {
     axios
-      .delete(
-        "https://doctors-appointment-shop-server-production.up.railway.app/deleteManyA"
-      )
+      .delete("https://doctors-appointmentandshop.onrender.com/deleteManyA")
       .then((res) => {
         if (res.data) {
           navigate("/shop");

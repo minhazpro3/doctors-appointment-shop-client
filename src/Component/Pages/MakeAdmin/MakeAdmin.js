@@ -5,16 +5,13 @@ import Swal from "sweetalert2";
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    fetch(
-      "https://doctors-appointment-shop-server-production.up.railway.app/madeAdmin",
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
+    fetch("https://doctors-appointmentandshop.onrender.com/madeAdmin", {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data) {
