@@ -21,7 +21,8 @@ const AddDcotor = () => {
       image: imgUrl,
     };
 
-    const url = "https://doctors-appointmentandshop.onrender.com/addDoctor";
+    const url =
+      "https://doctors-appointmentandshop-yw1u.onrender.com/addDoctor";
     fetch(url, {
       method: "POST",
       headers: {

@@ -29,13 +29,16 @@ const LocationMap = () => {
   } = useForm();
   const onSubmit = (data) => {
     data.status = "Processing";
-    fetch("https://doctors-appointmentandshop.onrender.com/postAllPatients", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      "https://doctors-appointmentandshop-yw1u.onrender.com/postAllPatients",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
@@ -46,7 +49,7 @@ const LocationMap = () => {
   };
 
   useEffect(() => {
-    fetch("https://doctors-appointmentandshop.onrender.com/getDoctors")
+    fetch("https://doctors-appointmentandshop-yw1u.onrender.com/getDoctors")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);

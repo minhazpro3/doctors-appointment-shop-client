@@ -37,7 +37,7 @@ const CheckoutForm = ({ totalPrice, deleteMany }) => {
       try {
         const { id } = paymentMethod;
         const response = await axios.post(
-          "https://doctors-appointmentandshop.onrender.com/payment",
+          "https://doctors-appointmentandshop-yw1u.onrender.com/payment",
           {
             amount: { totalPrice },
             email: "",

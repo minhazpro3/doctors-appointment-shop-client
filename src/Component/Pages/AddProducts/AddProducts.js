@@ -22,7 +22,7 @@ const AddProducts = () => {
 
     axios
       .post(
-        "https://doctors-appointmentandshop.onrender.com/addProduct",
+        "https://doctors-appointmentandshop-yw1u.onrender.com/addProduct",
         formData1
       )
       .then((res) => {

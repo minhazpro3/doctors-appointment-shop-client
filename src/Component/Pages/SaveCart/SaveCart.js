@@ -43,7 +43,10 @@ const SaveCart = () => {
 
     if (itemIndex[0]) {
       axios
-        .put(`https://doctors-appointmentandshop.onrender.com/updatePQty`, item)
+        .put(
+          `https://doctors-appointmentandshop-yw1u.onrender.com/updatePQty`,
+          item
+        )
         .then((res) => {
           if (res.data) {
             total();
@@ -55,7 +58,10 @@ const SaveCart = () => {
         .catch((err) => {});
     } else {
       axios
-        .post("https://doctors-appointmentandshop.onrender.com/saveCart", item)
+        .post(
+          "https://doctors-appointmentandshop-yw1u.onrender.com/saveCart",
+          item
+        )
         .then((res) => {
           if (res.data) {
             total();
@@ -74,7 +80,10 @@ const SaveCart = () => {
       type: "Dec",
     };
     axios
-      .put(`https://doctors-appointmentandshop.onrender.com/updatePQty`, item)
+      .put(
+        `https://doctors-appointmentandshop-yw1u.onrender.com/updatePQty`,
+        item
+      )
       .then((res) => {
         if (res.data) {
           Swal.fire("Decrease success!", "Decrease Quantity ", "success");
@@ -97,7 +106,7 @@ const SaveCart = () => {
         Swal.fire("Deleted!", "Your Product has been Canceled.", "success");
         axios
           .delete(
-            `https://doctors-appointmentandshop.onrender.com/deleteProd/${id}`
+            `https://doctors-appointmentandshop-yw1u.onrender.com/deleteProd/${id}`
           )
           .then((res) => {
             if (res.data) {
@@ -111,7 +120,7 @@ const SaveCart = () => {
 
   useEffect(() => {
     fetch(
-      `https://doctors-appointmentandshop.onrender.com/getCart/${user?.email}`
+      `https://doctors-appointmentandshop-yw1u.onrender.com/getCart/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -122,7 +131,9 @@ const SaveCart = () => {
 
   const deleteMany = () => {
     axios
-      .delete("https://doctors-appointmentandshop.onrender.com/deleteManyA")
+      .delete(
+        "https://doctors-appointmentandshop-yw1u.onrender.com/deleteManyA"
+      )
       .then((res) => {
         if (res.data) {
           navigate("/shop");

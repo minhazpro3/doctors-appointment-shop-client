@@ -11,7 +11,7 @@ const AllDoctors = () => {
 
   useEffect(() => {
     axios
-      .get("https://doctors-appointmentandshop.onrender.com/getDoctors")
+      .get("https://doctors-appointmentandshop-yw1u.onrender.com/getDoctors")
       .then((res) => {
         setDoctors(res.data);
       });

@@ -18,7 +18,7 @@ const Shop = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch("https://doctors-appointmentandshop.onrender.com/getProductCart")
+    fetch("https://doctors-appointmentandshop-yw1u.onrender.com/getProductCart")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -39,7 +39,7 @@ const Shop = () => {
 
   useEffect(() => {
     fetch(
-      `https://doctors-appointmentandshop.onrender.com/getCart/${user?.email}`
+      `https://doctors-appointmentandshop-yw1u.onrender.com/getCart/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -65,7 +65,7 @@ const Shop = () => {
       const newItem = itemIndex[0];
       axios
         .put(
-          `https://doctors-appointmentandshop.onrender.com/updatePQty`,
+          `https://doctors-appointmentandshop-yw1u.onrender.com/updatePQty`,
           newItem
         )
         .then((res) => {
@@ -76,7 +76,10 @@ const Shop = () => {
         .catch((err) => {});
     } else {
       axios
-        .post("https://doctors-appointmentandshop.onrender.com/saveCart", item)
+        .post(
+          "https://doctors-appointmentandshop-yw1u.onrender.com/saveCart",
+          item
+        )
         .then((res) => {
           if (res.data) {
           }

@@ -43,7 +43,7 @@ const useFirebase = () => {
       email: saveUser.email,
       role: "user",
     };
-    fetch("https://doctors-appointmentandshop.onrender.com/saveUsers", {
+    fetch("https://doctors-appointmentandshop-yw1u.onrender.com/saveUsers", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,7 +57,7 @@ const useFirebase = () => {
   //  check admin
   useEffect(() => {
     fetch(
-      `https://doctors-appointmentandshop.onrender.com/checkAdmin/${user?.email}`
+      `https://doctors-appointmentandshop-yw1u.onrender.com/checkAdmin/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

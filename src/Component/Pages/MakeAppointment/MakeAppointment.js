@@ -19,7 +19,7 @@ const MakeAppointment = () => {
     };
     axios
       .post(
-        "https://doctors-appointmentandshop.onrender.com/postAllPatients",
+        "https://doctors-appointmentandshop-yw1u.onrender.com/postAllPatients",
         info
       )
       .then((res) => {
@@ -29,7 +29,7 @@ const MakeAppointment = () => {
 
   useEffect(() => {
     axios
-      .get("https://doctors-appointmentandshop.onrender.com/getDoctors")
+      .get("https://doctors-appointmentandshop-yw1u.onrender.com/getDoctors")
       .then((res) => {
         setDoctor(res.data);
       });

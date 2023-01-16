@@ -9,7 +9,7 @@ const AllBookings = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://doctors-appointmentandshop.onrender.com/allBookings")
+    fetch("https://doctors-appointmentandshop-yw1u.onrender.com/allBookings")
       .then((res) => res.json())
       .then((data) => {
         setAllBookings(data);
@@ -32,7 +32,7 @@ const AllBookings = () => {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
         fetch(
-          `https://doctors-appointmentandshop.onrender.com/deletePatient/${id}`,
+          `https://doctors-appointmentandshop-yw1u.onrender.com/deletePatient/${id}`,
           {
             method: "DELETE",
             headers: {
@@ -66,7 +66,7 @@ const AllBookings = () => {
         Swal.fire("Updated!", "Your file has been updated.", "success");
 
         fetch(
-          `https://doctors-appointmentandshop.onrender.com/updatePatient/${id}`,
+          `https://doctors-appointmentandshop-yw1u.onrender.com/updatePatient/${id}`,
           {
             method: "PUT",
             headers: {

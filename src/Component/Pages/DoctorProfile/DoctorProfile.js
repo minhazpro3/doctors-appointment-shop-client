@@ -18,13 +18,16 @@ const DoctorProfile = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.status = "Processing";
-    fetch("https://doctors-appointmentandshop.onrender.com/postAllPatients", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      "https://doctors-appointmentandshop-yw1u.onrender.com/postAllPatients",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
@@ -36,7 +39,7 @@ const DoctorProfile = () => {
 
   useEffect(() => {
     fetch(
-      `https://doctors-appointmentandshop.onrender.com/singleDoctor/${doctorId}`
+      `https://doctors-appointmentandshop-yw1u.onrender.com/singleDoctor/${doctorId}`
     )
       .then((res) => res.json())
       .then((data) => {

@@ -15,7 +15,7 @@ const AllProducts = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://doctors-appointmentandshop.onrender.com/getProducts?page=${page}&&size=${size}`
+      `https://doctors-appointmentandshop-yw1u.onrender.com/getProducts?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -62,7 +62,7 @@ const AllProducts = () => {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
 
         fetch(
-          `https://doctors-appointmentandshop.onrender.com/deleteProduct/${id}`,
+          `https://doctors-appointmentandshop-yw1u.onrender.com/deleteProduct/${id}`,
           {
             method: "DELETE",
             headers: {
